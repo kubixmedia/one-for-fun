@@ -4038,9 +4038,12 @@ body:not(.tab-used) .search__input {
   display: none;
 }
 
+.carousel[inactive] .slider[data-overlayscrollbars-viewport],
+.carousel[inactive] > div > .slider,[data-overlayscrollbars-viewport],
 .carousel[inactive] .slider,
-.carousel[inactive] > div > .slider {
-  padding-bottom: 0;
+.carousel[inactive] > div > .slider  {
+  /* Overwrite other important from theme code */
+  padding-bottom: 0!important;
 }
 .carousel[inactive] > .slider-nav,
 .carousel[inactive] > div > .slider-nav {
@@ -4054,7 +4057,9 @@ body:not(.tab-used) .search__input {
 .carousel[inactive] > div > .slider::-webkit-scrollbar-track {
   display: none;
 }
-
+.carousel[inactive] .slider__grid {
+  justify-content: center;
+}
 .slider__item {
   scroll-snap-align: start;
 }

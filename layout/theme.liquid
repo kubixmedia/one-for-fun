@@ -111,6 +111,7 @@
       --navigation-font-family: {{ settings.navigation_font.family }}, {{ settings.navigation_font.fallback_families }};
       --navigation-font-style: {{ settings.navigation_font.style }};
       --navigation-font-weight: {{ settings.navigation_font.weight }};
+
       {%- if settings.heading_uppercase %}
       --heading-text-transform: uppercase;
       {%- else -%}
@@ -249,7 +250,9 @@
 
       --reading-width: 48em;
     }
-
+    {{ settings.custom_heading }}
+    {{ settings.custom_body }}
+    {{ settings.custom_navigation }}
     @media (max-width: {{ breakpoint_md }}px) {
       :root {
         --reading-width: 36em;

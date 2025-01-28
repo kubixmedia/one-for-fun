@@ -317,6 +317,11 @@
         "default": "nunito_sans_n7"
       },
       {
+        "type": "liquid",
+        "id": "custom_heading",
+        "label":"Custom Heading"
+      },
+      {
         "type": "checkbox",
         "id": "heading_uppercase",
         "label": "Make headings uppercase",
@@ -365,6 +370,11 @@
         "default": "nunito_sans_n4"
       },
       {
+        "type": "liquid",
+        "id": "custom_body",
+        "label":"Custom Body"
+      },
+      {
         "type": "range",
         "id": "body_font_size",
         "min": 15,
@@ -384,6 +394,11 @@
         "label": "Font",
         "default": "nunito_sans_n7",
         "info": "The body font will be used for third-level menu items."
+      },
+      {
+        "type": "liquid",
+        "id":"custom_navigation",
+        "label":"Custom Navigation"
       }
     ]
   },

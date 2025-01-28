@@ -5,7 +5,7 @@
   margin-inline-end: 2px;
   padding: 10px calc(5 * var(--space-unit));
   border-radius: var(--input-border-radius, 0);
-  color: currentColor;
+  color: var(--speech-icon-color);
   cursor: pointer;
 }
 .search__speech.search__speech-listening {

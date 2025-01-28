@@ -350,14 +350,16 @@
     "drawer_text_color": "#2a2b2a",
     "blend_bg_color": "#f4f4f4",
     "heading_font": "sans-serif",
+    "custom_heading": "@font-face {font-family: \"riffic-bold\"; src: url('{{\"riffic-bold-webfont.woff2\" | file_url }}') format(\"woff2\"), url('{{\"riffic-bold-webfont.woff\" | file_url }}') format(\"woff\"); font-weight: 700; font-style: normal;\n}\n:root {--heading-font-family: \"riffic-bold\", {{settings.heading_font.family }}, {{settings.heading_font.fallback_families }};\n--heading-font-weight: 700;}",
     "heading_uppercase": false,
     "subheading_uppercase": false,
     "button_text_uppercase": false,
     "heading_scale_start": "4",
     "body_font": "sans-serif",
+    "custom_body": "@font-face {font-family: \"made-tommy\"; src: url('{{\"made_tommy_soft_regular.otf\" | file_url }}') format(\"otf\"); font-weight: 400; font-style: normal;\n}\n@font-face {font-family: \"made-tommy\"; src: url('{{\"made_tommy_soft_medium.otf\" | file_url }}') format(\"otf\"); font-weight: 700; font-style: normal;\n}\n:root {--body-font-family: \"made-tommy\", {{settings.body_font.family }}, {{settings.body_font.fallback_families }};}",
     "navigation_font": "sans-serif",
     "max_page_width": 1260,
-    "section_gap": "48",
+    "section_gap": "32",
     "input_button_border_width": "2",
     "input_button_border_radius": 26,
     "slider_show_arrows": "never",
@@ -429,11 +431,5 @@
     "vibrate_on_atc": true,
     "heading_type_scale": "1.3",
     "content_for_index": []
-  },
-  "platform_customizations": {
-    "custom_css": [
-      "@font-face {font-family: \"riffic-bold\"; src: url('{{\"riffic-bold-webfont.woff2\" | file_url }}') format(\"woff2\"), url('{{\"riffic-bold-webfont.woff\" | file_url }}') format(\"woff\"); font-weight: 700; font-style: normal;}",
-      ":root {--heading-font-family: \"riffic-bold\", {{settings.heading_font.family }}, {{settings.heading_font.fallback_families }} ;}"
-    ]
   }
 }
