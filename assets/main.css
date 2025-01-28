@@ -1494,6 +1494,7 @@ button {
 .spr-button-primary,
 .shopify-payment-button .shopify-payment-button__button--unbranded,
 .shopify-challenge__button {
+  /* temp comment out during intial dev */
   /* border: var(--btn-border-width) solid rgb(var(--btn-bg-color)); */
   outline-color: rgb(var(--btn-bg-color));
   outline-offset: 3px;
