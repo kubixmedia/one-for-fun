@@ -66,7 +66,13 @@
         "bg_color": "#20cbd4",
         "text_color": "#ffffff",
         "accent_color": "#ffffff",
-        "search_button_color": "#20cbd4"
+        "search_bg_color": "#ffffff",
+        "search_text_color": "#656565",
+        "search_button_color": "#20cbd4",
+        "login_background": "#ffffff",
+        "login_color": "#20cbd4",
+        "login_background_hover": "",
+        "login_color_hover": ""
       }
     },
     "logo_list_ALfiMd": {
@@ -150,6 +156,7 @@
         "heading_align": "text-start",
         "button_label": "",
         "button_link": "",
+        "section_height": "xsmall",
         "layout": "carousel",
         "spacing": 40,
         "logo_grid_align": "justify-center",

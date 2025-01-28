@@ -144,9 +144,8 @@
             <span class="visually-hidden">{{ 'sections.header.account' | t }}</span>
           </a>
         {%- else -%}
-          <a class="header__icon text-current" href="{{ routes.account_login_url }}">
-            {% render 'icon-customer' %}
-            <span class="visually-hidden">{{ 'sections.header.log_in' | t }}</span>
+          <a class="btn btn--primary header__login" href="{{ routes.account_login_url }}" style="--btn-bg-color: {{ section.settings.login_background.rgb }}; --btn-text-color: {{ section.settings.login_color.rgb }}; --header-login-color: {{ section.settings.login_color_hover.rgb }}; --btn-bg-color-hover: {{ section.settings.login_background_hover.rgb }}">
+           {{ 'sections.header.log_in' | t }}
           </a>
         {%- endif -%}
       {%- endif -%}
@@ -1134,6 +1133,26 @@
       "id":"search_button_color",
       "label":"Search Button Color",
       "default":"#656565"
+    },
+    {
+      "type":"color",
+      "id":"login_background",
+      "label":"Login Background"
+    },
+    {
+      "type":"color",
+      "id":"login_color",
+      "label":"Login Color"
+    },
+    {
+      "type":"color",
+      "id":"login_background_hover",
+      "label":"Login Background Hover"
+    },
+    {
+      "type":"color",
+      "id":"login_color_hover",
+      "label":"Login Color Hover"
     }
   ],
   "blocks": [

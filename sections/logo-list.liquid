@@ -57,7 +57,7 @@
     <div class="container">
   {%- endunless -%}
 
-  <div class="section section--padded{% if section.settings.full_width %} section--full-width{% endif %}{% unless color_scheme == 'none' %} color-scheme color-scheme--no-btns color-scheme--{{ color_scheme }}{% endunless %}" id="section-{{ section.id }}">
+  <div class="section {% unless section.settings.section_height == "tight" %} section--padded-{{ section.settings.section_height }}{% endunless %}{% if section.settings.full_width %} section--full-width{% endif %}{% unless color_scheme == 'none' %} color-scheme color-scheme--no-btns color-scheme--{{ color_scheme }}{% endunless %}" id="section-{{ section.id }}">
     {%- if section.settings.title != blank or section.settings.button_label != blank -%}
       <div class="container">
         <div class="section__header items-center flex{% if section.settings.heading_align == 'text-center' %} flex-col text-center{% elsif section.settings.heading_align == 'text-end' %} flex-row-reverse flex-wrap{% else %} flex-row flex-wrap{% endif %} gap-x-theme"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %}>
@@ -191,6 +191,34 @@
     {
       "type": "header",
       "content": "Layout"
+    },
+    {
+      "type": "select",
+      "label": "Section height",
+      "id": "section_height",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "tight",
+          "label": "Tight"
+        },
+        {
+          "value": "xsmall",
+          "label": "Extra small"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        }
+      ],
+      "default": "default"
     },
     {
       "type": "select",

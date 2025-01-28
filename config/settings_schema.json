@@ -56,6 +56,12 @@
       },
       {
         "type": "color",
+        "id": "button_bg_color_hover",
+        "label": "Background hover",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
         "id": "button_text_color",
         "label": "Text",
         "default": "#ffffff"
@@ -112,6 +118,12 @@
       },
       {
         "type": "color",
+        "id": "color_scheme_1_btn_bg_hover",
+        "label": "Button background hover",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
         "id": "color_scheme_1_btn_text",
         "label": "Button text",
         "default": "#ffffff"
@@ -152,6 +164,12 @@
       },
       {
         "type": "color",
+        "id": "color_scheme_2_btn_bg_hover",
+        "label": "Button background hover",
+        "default": "#292F36"
+      },
+      {
+        "type": "color",
         "id": "color_scheme_2_btn_text",
         "label": "Button text",
         "default": "#ffffff"
@@ -188,6 +206,12 @@
         "type": "color",
         "id": "color_scheme_3_btn_bg",
         "label": "Button background",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "color_scheme_3_btn_bg_hover",
+        "label": "Button background hover",
         "default": "#333333"
       },
       {

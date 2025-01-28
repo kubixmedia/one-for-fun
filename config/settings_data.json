@@ -15,6 +15,7 @@
       "link_color": "#2a2b2a",
       "star_color": "#ff9f1c",
       "button_bg_color": "#2a2b2a",
+      "button_bg_color_hover": "FAB730",
       "button_text_color": "#ffffff",
       "button_alt_bg_color": "#ffffff",
       "button_alt_text_color": "#2a2b2a",
@@ -326,6 +327,7 @@
     "link_color": "#20cbd4",
     "star_color": "#20cbd4",
     "button_bg_color": "#20cbd4",
+    "button_bg_color_hover": "#fab730",
     "button_text_color": "#ffffff",
     "button_alt_bg_color": "#ffffff",
     "button_alt_text_color": "#2a2b2a",
@@ -334,16 +336,19 @@
     "color_scheme_1_heading": "#2a2b2a",
     "color_scheme_1_text": "#2a2b2a",
     "color_scheme_1_btn_bg": "#20cbd4",
+    "color_scheme_1_btn_bg_hover": "#fab730",
     "color_scheme_2_bg": "#20cbd4",
     "color_scheme_2_bg_grad": "",
     "color_scheme_2_heading": "#ffffff",
     "color_scheme_2_btn_bg": "#ffffff",
+    "color_scheme_2_btn_bg_hover": "#fab730",
     "color_scheme_2_btn_text": "#2a2b2a",
     "color_scheme_3_bg": "#75719a",
     "color_scheme_3_bg_grad": "radial-gradient(rgba(255, 255, 255, 0.2) 51.99%, rgba(255, 255, 255, 0) 100%)",
     "color_scheme_3_heading": "#ffffff",
     "color_scheme_3_text": "#ffffff",
     "color_scheme_3_btn_bg": "#20cbd4",
+    "color_scheme_3_btn_bg_hover": "#fab730",
     "panel_bg_color": "#f4f4f4",
     "panel_heading_color": "#20cbd4",
     "panel_text_color": "#2a2b2a",
@@ -430,6 +435,15 @@
     "blur_message_delay": 4,
     "vibrate_on_atc": true,
     "heading_type_scale": "1.3",
+    "sections": {
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "logo_width": 150,
+          "logo_position": "center"
+        }
+      }
+    },
     "content_for_index": []
   }
 }

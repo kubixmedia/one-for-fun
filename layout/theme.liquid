@@ -56,32 +56,31 @@
         --swatch-variant-picker-size: {{ settings.variant_picker_swatch_size }}px;
       {%- endif -%}
 
-      {%- assign color_scheme_1_btn_bg_hover = settings.color_scheme_1_btn_bg | color_mix: settings.color_scheme_1_btn_text, 85 | color_lighten: 3 -%}
       --color-scheme-1-bg: {{ settings.color_scheme_1_bg.rgba }};
       --color-scheme-1-grad: {{ settings.color_scheme_1_bg_grad }};
       --color-scheme-1-heading: {{ settings.color_scheme_1_heading.rgb }};
       --color-scheme-1-text: {{ settings.color_scheme_1_text.rgb }};
       --color-scheme-1-btn-bg: {{ settings.color_scheme_1_btn_bg.rgb }};
       --color-scheme-1-btn-text: {{ settings.color_scheme_1_btn_text.rgb }};
-      --color-scheme-1-btn-bg-hover: {{ color_scheme_1_btn_bg_hover.rgb }};
+      --color-scheme-1-btn-bg-hover: {{ settings.color_scheme_1_btn_bg.rgb }};
 
-      {%- assign color_scheme_2_btn_bg_hover = settings.color_scheme_2_btn_bg | color_mix: settings.color_scheme_2_btn_text, 85 | color_lighten: 3 -%}
+
       --color-scheme-2-bg: {{ settings.color_scheme_2_bg.rgba }};
       --color-scheme-2-grad: {{ settings.color_scheme_2_bg_grad }};
       --color-scheme-2-heading: {{ settings.color_scheme_2_heading.rgb }};
       --color-scheme-2-text: {{ settings.color_scheme_2_text.rgb }};
       --color-scheme-2-btn-bg: {{ settings.color_scheme_2_btn_bg.rgb }};
       --color-scheme-2-btn-text: {{ settings.color_scheme_2_btn_text.rgb }};
-      --color-scheme-2-btn-bg-hover: {{ color_scheme_2_btn_bg_hover.rgb }};
+      --color-scheme-2-btn-bg-hover: {{ settings.color_scheme_2_btn_bg_hover.rgb }};
 
-      {%- assign color_scheme_3_btn_bg_hover = settings.color_scheme_3_btn_bg | color_mix: settings.color_scheme_3_btn_text, 85 | color_lighten: 3 -%}
+
       --color-scheme-3-bg: {{ settings.color_scheme_3_bg.rgba }};
       --color-scheme-3-grad: {{ settings.color_scheme_3_bg_grad }};
       --color-scheme-3-heading: {{ settings.color_scheme_3_heading.rgb }};
       --color-scheme-3-text: {{ settings.color_scheme_3_text.rgb }};
       --color-scheme-3-btn-bg: {{ settings.color_scheme_3_btn_bg.rgb }};
       --color-scheme-3-btn-text: {{ settings.color_scheme_3_btn_text.rgb }};
-      --color-scheme-3-btn-bg-hover: {{ color_scheme_3_btn_bg_hover.rgb }};
+      --color-scheme-3-btn-bg-hover: {{ settings.color_scheme_3_btn_bg_hover.rgb }};
 
       --drawer-bg-color: {{ settings.drawer_bg_color.rgba }};
       --drawer-text-color: {{ settings.drawer_text_color.rgb }};
@@ -134,9 +133,8 @@
       {%- endif -%}
       --grid-column-gap: 20px;
 
-      {%- assign button_bg_color_hover = settings.button_bg_color | color_mix: settings.button_text_color, 85 | color_lighten: 3 -%}
       --btn-bg-color: {{ settings.button_bg_color.rgb }};
-      --btn-bg-hover-color: {{ button_bg_color_hover.rgb }};
+      --btn-bg-hover-color: {{ settings.button_bg_color_hover.rgb }};
       --btn-text-color: {{ settings.button_text_color.rgb }};
       --btn-bg-color-og: {{ settings.button_bg_color.rgb }};
       --btn-text-color-og: {{ settings.button_text_color.rgb }};
