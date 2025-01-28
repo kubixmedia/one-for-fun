@@ -47,10 +47,10 @@
     --shake-delay: 4s;
   {% endif %}
   }
-  .search__input {
+  #shopify-section-{{ section.id }} .search__input {
     --text-color: {{ section.settings.search_text_color.rgba }}
   }
-  .search__submit {
+  #shopify-section-{{ section.id }} .search__submit {
     color: {{ section.settings.search_button_color }}
   }
 {%- endstyle -%}
