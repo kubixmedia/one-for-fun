@@ -1,125 +1,190 @@
-{%- if section.index > 2 -%}
-  <link rel="stylesheet" href="{{ 'hotspots-image.css' | asset_url }}" media="print" onload="this.media='all'">
-{%- else -%}
-  {{ 'hotspots-image.css' | asset_url | stylesheet_tag }}
-{%- endif -%}
+{% liquid
+  assign show = false
+  if section.settings.show_to == 'all' or request.design_mode
+    assign show = true
+  elsif customer and and section.settings.show_to == 'customer'
+    assign show = true
+  elsif section.settings.show_to == 'guest'
+    unless customer
+      assign show = true
+    endunless
+  endif
+%}
+{% if show %}
+  {%- if section.index > 2 -%}
+    <link rel="stylesheet" href="{{ 'hotspots-image.css' | asset_url }}" media="print" onload="this.media='all'">
+  {%- else -%}
+    {{ 'hotspots-image.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
 
-<script src="{{ 'hotspots-image.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'hotspots-image.js' | asset_url }}" defer="defer"></script>
 
-{%- liquid
-  assign color_scheme = section.settings.color_scheme
-  assign hotspot_color_brightness = section.settings.hotspot_color | color_brightness
--%}
+  {%- liquid
+    assign color_scheme = section.settings.color_scheme
+    assign hotspot_color_brightness = section.settings.hotspot_color | color_brightness
+  -%}
 
-{% style %}
-  #{{ section.id }} {
-    --hotspot-color: {{ section.settings.hotspot_color.rgb }};
-    {%- if hotspot_color_brightness > 128 %}
-      --hotspot-cross-color: #000;
-    {%- else -%}
-      --hotspot-cross-color: #fff;
-    {%- endif %}
-  }
-{% endstyle %}
+  {% style %}
+    #{{ section.id }} {
+      --hotspot-color: {{ section.settings.hotspot_color.rgb }};
+      {%- if hotspot_color_brightness > 128 %}
+        --hotspot-cross-color: #000;
+      {%- else -%}
+        --hotspot-cross-color: #fff;
+      {%- endif %}
+    }
+  {% endstyle %}
 
-<div class="container" id="{{ section.id }}">
-  <div class="section">
-    <div class="shoppable-image{% if section.settings.layout == 'image_last' %} flex-row-reverse{% endif %}">
-      <hotspots-image class="shoppable-image__image block relative overflow-hidden"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %}>
-        {%- if section.settings.image != blank -%}
-          {%- capture sizes -%}
+  <div class="container" id="{{ section.id }}">
+    <div class="section">
+      <div class="shoppable-image{% if section.settings.layout == 'image_last' %} flex-row-reverse{% endif %}">
+        <hotspots-image
+          class="shoppable-image__image block relative overflow-hidden"
+          {% if settings.animations_enabled != 'disabled' %}
+            data-cc-animate
+          {% endif %}
+        >
+          {%- if section.settings.image != blank -%}
+            {%- capture sizes -%}
             {%- render 'sizes-attribute', min: 'page', sm: 'page', md: false, lg: false, xl: '896px', max: false -%}
           {%- endcapture -%}
 
-          {% render 'image',
-            image: section.settings.image,
-            widths: '690, 896, 1408, 1792, 1920',
-            src_width: 896,
-            sizes: sizes,
-            class: 'block mx-auto w-full'
-          %}
-        {%- else -%}
-          <div class="media relative" style="padding-top: 56.25%;">
-            {{ 'collection-2' | placeholder_svg_tag: 'media__placeholder img-fit' }}
+            {% render 'image',
+              image: section.settings.image,
+              widths: '690, 896, 1408, 1792, 1920',
+              src_width: 896,
+              sizes: sizes,
+              class: 'block mx-auto w-full'
+            %}
+          {%- else -%}
+            <div class="media relative" style="padding-top: 56.25%;">
+              {{ 'collection-2' | placeholder_svg_tag: 'media__placeholder img-fit' }}
+            </div>
+          {%- endif -%}
+
+          {%- for block in section.blocks -%}
+            {%- assign product = block.settings.product -%}
+
+            <div
+              class="hotspot absolute"
+              data-x="{{ block.settings.hotspot_x }}"
+              data-y="{{ block.settings.hotspot_x }}"
+              style="top: {{ block.settings.hotspot_y }}%; left: {{ block.settings.hotspot_x }}%"
+            >
+              <button type="button" class="hotspot__btn relative tap-target no-js-hidden" aria-expanded="false">
+                <span class="visually-hidden">
+                  {{- 'accessibility.view_details' | t -}}
+                  {%- if product and product != empty %} - {{ product.title }}{% endif -%}
+                </span>
+                {% render 'icon-plus' %}
+              </button>
+              <div class="hotspot__card absolute no-js-hidden" aria-hidden="true">
+                {%- if product and product != empty -%}
+                  {%- if section.settings.show_vendor -%}
+                    <p class="card__vendor mb-0">{{ product.vendor }}</p>
+                  {%- endif -%}
+                  <p class="h5">
+                    <a href="{{ product.url }}" class="card-link text-current">{{ product.title }}</a>
+                  </p>
+                  <hr class="mt-4 mb-4">
+                  {%- render 'price', product: product -%}
+                {%- else -%}
+                  <p class="h5">{{ 'onboarding.product.title' | t }}</p>
+                  <hr class="mt-4 mb-4">
+                  <div class="card__price theme-money">
+                    {%- render 'price' -%}
+                  </div>
+                {%- endif -%}
+              </div>
+              {%- if product and product != empty -%}
+                <noscript>
+                  <a
+                    class="hotspot__btn tap-target flex justify-center items-center"
+                    href="{{ product.url }}"
+                    title="{{ product.title }}"
+                  >
+                    {% render 'icon-plus' %}
+                  </a>
+                </noscript>
+              {%- endif -%}
+            </div>
+          {% endfor %}
+        </hotspots-image>
+
+        {%- if section.settings.show_content -%}
+          <div
+            class="shoppable-image__text"
+            {% if settings.animations_enabled != 'disabled' %}
+              data-cc-animate
+            {% endif %}
+          >
+            <div class="card card--wide h-full {% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}">
+              <div class="card__info{% if section.settings.mob_center_text %} md-down:text-center{% endif %}">
+                {%- if section.settings.heading != blank -%}
+                  <h2 class="section__block section__block--heading h4">
+                    {{- section.settings.heading | escape -}}
+                  </h2>
+                {%- endif -%}
+
+                {%- if section.settings.text != blank -%}
+                  <div class="section__block rte">
+                    {{ section.settings.text }}
+                  </div>
+                {%- endif -%}
+
+                {%- if section.settings.button_label != blank -%}
+                  <div class="section__block section__block--button">
+                    <a
+                      class="relative {{ section.settings.button_style }}{% if section.settings.button_style != 'link' %} btn--arrow-with-text{% endif %}"
+                      {% if section.settings.button_link != blank %}
+                        href="{{ section.settings.button_link }}"
+                      {% else %}
+                        role="link" aria-disabled="true"
+                      {% endif %}
+                    >
+                      {{- section.settings.button_label | escape -}}
+                    </a>
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
           </div>
         {%- endif -%}
-
-        {%- for block in section.blocks -%}
-          {%- assign product = block.settings.product -%}
-
-          <div class="hotspot absolute" data-x="{{ block.settings.hotspot_x }}" data-y="{{ block.settings.hotspot_x }}" style="top: {{ block.settings.hotspot_y }}%; left: {{ block.settings.hotspot_x }}%">
-            <button type="button" class="hotspot__btn relative tap-target no-js-hidden" aria-expanded="false">
-              <span class="visually-hidden">
-                {{- 'accessibility.view_details' | t }}{% if product and product != empty %} - {{ product.title }}{% endif -%}
-              </span>
-              {% render 'icon-plus' %}
-            </button>
-            <div class="hotspot__card absolute no-js-hidden" aria-hidden="true">
-              {%- if product and product != empty -%}
-                {%- if section.settings.show_vendor -%}
-                  <p class="card__vendor mb-0">{{ product.vendor }}</p>
-                {%- endif -%}
-                <p class="h5">
-                  <a href="{{ product.url }}" class="card-link text-current">{{ product.title }}</a>
-                </p>
-                <hr class="mt-4 mb-4">
-                {%- render 'price', product: product -%}
-              {%- else -%}
-                <p class="h5">{{ 'onboarding.product.title' | t }}</p>
-                <hr class="mt-4 mb-4">
-                <div class="card__price theme-money">
-                  {%- render 'price' -%}
-                </div>
-              {%- endif -%}
-            </div>
-            {%- if product and product != empty -%}
-              <noscript>
-                <a class="hotspot__btn tap-target flex justify-center items-center" href="{{ product.url }}" title="{{ product.title }}">
-                  {% render 'icon-plus' %}
-                </a>
-              </noscript>
-            {%- endif -%}
-          </div>
-        {% endfor %}
-      </hotspots-image>
-
-      {%- if section.settings.show_content -%}
-        <div class="shoppable-image__text"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %}>
-          <div class="card card--wide h-full {% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}">
-            <div class="card__info{% if section.settings.mob_center_text %} md-down:text-center{% endif %}">
-              {%- if section.settings.heading != blank -%}
-                <h2 class="section__block section__block--heading h4">
-                  {{- section.settings.heading | escape -}}
-                </h2>
-              {%- endif -%}
-
-              {%- if section.settings.text != blank -%}
-                <div class="section__block rte">
-                  {{ section.settings.text }}
-                </div>
-              {%- endif -%}
-
-              {%- if section.settings.button_label != blank -%}
-                <div class="section__block section__block--button">
-                  <a class="relative {{ section.settings.button_style }}{% if section.settings.button_style != 'link' %} btn--arrow-with-text{% endif %}" {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% else %}role="link" aria-disabled="true"{% endif %}>
-                    {{- section.settings.button_label | escape -}}
-                  </a>
-                </div>
-              {%- endif -%}
-            </div>
-          </div>
-        </div>
-      {%- endif -%}
+      </div>
     </div>
   </div>
-</div>
-
+{% endif %}
 {% schema %}
 {
   "name": "Shoppable image",
   "tag": "section",
   "class": "cc-shoppable-image",
   "settings": [
+    {
+      "type": "header",
+      "content": "Show to"
+    },
+    {
+      "type": "select",
+      "id": "show_to",
+      "label": "Show To",
+      "default": "all",
+      "info": "Will always show in customiser",
+      "options": [
+        {
+          "label": "All",
+          "value": "all"
+        },
+        {
+          "label": "Customers",
+          "value": "customer"
+        },
+        {
+          "label": "Non Customer",
+          "value": "guest"
+        }
+      ]
+    },
     {
       "type": "image_picker",
       "id": "image",
@@ -309,11 +374,7 @@
     }
   ],
   "disabled_on": {
-    "groups": [
-      "header",
-      "footer",
-      "aside"
-    ]
+    "groups": ["header", "footer", "aside"]
   }
 }
 {% endschema %}

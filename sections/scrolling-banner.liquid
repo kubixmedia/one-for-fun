@@ -1,27 +1,40 @@
-{%- liquid
-  # constants
-  assign breakpoint_sm = 600
-  assign breakpoint_md = 769
+{% liquid
+  assign show = false
+  if section.settings.show_to == 'all' or request.design_mode
+    assign show = true
+  elsif customer and and section.settings.show_to == 'customer'
+    assign show = true
+  elsif section.settings.show_to == 'guest'
+    unless customer
+      assign show = true
+    endunless
+  endif
+%}
+{% if show %}
+  {%- liquid
+    # constants
+    assign breakpoint_sm = 600
+    assign breakpoint_md = 769
 
-  assign color_scheme = section.settings.color_scheme
--%}
+    assign color_scheme = section.settings.color_scheme
+  -%}
 
-{%- style -%}
-  #{{ section.id }} {
-    --duration: {{ section.settings.speed }}s;
-    --direction: {{ section.settings.direction }};
-  }
+  {%- style -%}
+    #{{ section.id }} {
+      --duration: {{ section.settings.speed }}s;
+      --direction: {{ section.settings.direction }};
+    }
 
-  #{{ section.id }} .scrolling-banner__item { padding-inline-end: {{ section.settings.spacing }}px; }
-  @media (max-width: {{ breakpoint_md }}px) {
-    #{{ section.id }} .scrolling-banner__item { padding-inline-end: {{ section.settings.spacing | times: 0.66 }}px; }
-  }
-  @media (max-width: {{ breakpoint_sm }}px) {
-    #{{ section.id }} .scrolling-banner__item { padding-inline-end: {{ section.settings.spacing | times: 0.5 }}px; }
-  }
-{%- endstyle -%}
+    #{{ section.id }} .scrolling-banner__item { padding-inline-end: {{ section.settings.spacing }}px; }
+    @media (max-width: {{ breakpoint_md }}px) {
+      #{{ section.id }} .scrolling-banner__item { padding-inline-end: {{ section.settings.spacing | times: 0.66 }}px; }
+    }
+    @media (max-width: {{ breakpoint_sm }}px) {
+      #{{ section.id }} .scrolling-banner__item { padding-inline-end: {{ section.settings.spacing | times: 0.5 }}px; }
+    }
+  {%- endstyle -%}
 
-{%- capture scrolling_content -%}
+  {%- capture scrolling_content -%}
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when 'text' -%}
@@ -79,22 +92,29 @@
   {%- endfor -%}
 {%- endcapture -%}
 
-<div class="scrolling-banner{% if section.settings.pausable %} scrolling-banner--pausable{% endif %}{% if section.settings.dividers != "none" %} {{ section.settings.dividers }}{% endif %} section section--full-width section--padded-{{ section.settings.section_height }} overflow-hidden{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}" id="{{ section.id }}" role="marquee"{% if settings.animations_enabled != "disabled" and section.settings.prevent_animation == false %} data-cc-animate{% endif %}>
-  <div class="scrolling-banner__items-container flex">
-    {%- for i in (1..20) -%}
-      {%- if forloop.first -%}
-        <div class="scrolling-banner__items flex items-center has-motion">
-          {{ scrolling_content }}
-        </div>
-      {%- else -%}
-        <div class="scrolling-banner__items flex items-center has-motion" aria-hidden="true">
-          {{ scrolling_content | replace: '<a ', '<a tabindex="-1" ' }}
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
+  <div
+    class="scrolling-banner{% if section.settings.pausable %} scrolling-banner--pausable{% endif %}{% if section.settings.dividers != "none" %} {{ section.settings.dividers }}{% endif %} section section--full-width section--padded-{{ section.settings.section_height }} overflow-hidden{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}"
+    id="{{ section.id }}"
+    role="marquee"
+    {% if settings.animations_enabled != 'disabled' and section.settings.prevent_animation == false %}
+      data-cc-animate
+    {% endif %}
+  >
+    <div class="scrolling-banner__items-container flex">
+      {%- for i in (1..20) -%}
+        {%- if forloop.first -%}
+          <div class="scrolling-banner__items flex items-center has-motion">
+            {{ scrolling_content }}
+          </div>
+        {%- else -%}
+          <div class="scrolling-banner__items flex items-center has-motion" aria-hidden="true">
+            {{ scrolling_content | replace: '<a ', '<a tabindex="-1" ' }}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
   </div>
-</div>
-
+{% endif %}
 {% schema %}
 {
   "name": "Scrolling banner",
@@ -102,6 +122,31 @@
   "class": "cc-scrolling-banner",
   "max_blocks": 16,
   "settings": [
+    {
+      "type": "header",
+      "content": "Show to"
+    },
+    {
+      "type": "select",
+      "id": "show_to",
+      "label": "Show To",
+      "default": "all",
+      "info": "Will always show in customiser",
+      "options": [
+        {
+          "label": "All",
+          "value": "all"
+        },
+        {
+          "label": "Customers",
+          "value": "customer"
+        },
+        {
+          "label": "Non Customer",
+          "value": "guest"
+        }
+      ]
+    },
     {
       "type": "header",
       "content": "Layout"
@@ -548,9 +593,7 @@
     }
   ],
   "disabled_on": {
-    "groups": [
-      "aside"
-    ]
+    "groups": ["aside"]
   }
 }
 {% endschema %}

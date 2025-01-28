@@ -1,78 +1,99 @@
-{%- if section.settings.heading != blank or section.blocks.size > 0 -%}
-  {%- liquid
-    # constants
-    assign breakpoint_sm = 600
-    assign breakpoint_md = 769
+{% liquid
+  assign show = false
+  if section.settings.show_to == 'all' or request.design_mode
+    assign show = true
+  elsif customer and and section.settings.show_to == 'customer'
+    assign show = true
+  elsif section.settings.show_to == 'guest'
+    unless customer
+      assign show = true
+    endunless
+  endif
+%}
+{% if show %}
+  {%- if section.settings.heading != blank or section.blocks.size > 0 -%}
+    {%- liquid
+      # constants
+      assign breakpoint_sm = 600
+      assign breakpoint_md = 769
 
-    assign color_scheme = section.settings.color_scheme
-    assign bg_color = false
-
-    if color_scheme == '1'
-      assign bg_color = settings.color_scheme_1_bg
-    elsif color_scheme == '2'
-      assign bg_color = settings.color_scheme_2_bg
-    elsif color_scheme == '3'
-      assign bg_color = settings.color_scheme_3_bg
-    endif
-
-    if bg_color == settings.bg_color or bg_color == 'rgba(0,0,0,0)'
+      assign color_scheme = section.settings.color_scheme
       assign bg_color = false
-    endif
 
-    assign image_height = 0
-    for block in section.blocks
-      if block.settings.image != blank
-        assign h = section.settings.icon_size | divided_by: block.settings.image.aspect_ratio | round
-        if h > image_height
-          assign image_height = h
-        endif
-      else
-        if section.settings.icon_size > image_height
-          assign image_height = section.settings.icon_size
-        endif
+      if color_scheme == '1'
+        assign bg_color = settings.color_scheme_1_bg
+      elsif color_scheme == '2'
+        assign bg_color = settings.color_scheme_2_bg
+      elsif color_scheme == '3'
+        assign bg_color = settings.color_scheme_3_bg
       endif
-    endfor
-  -%}
 
-  {%- style -%}
-    #section-{{ section.id }} .logo-list { column-gap: {{ section.settings.spacing }}px; }
-    @media (max-width: {{ breakpoint_md }}px) {
-      #section-{{ section.id }} .logo-list { column-gap: {{ section.settings.spacing | times: 0.66 }}px; }
-    }
-    @media (max-width: {{ breakpoint_sm }}px) {
-      #section-{{ section.id }} .logo-list { column-gap: {{ section.settings.spacing | times: 0.33 }}px; }
-    }
-    {% for block in section.blocks %}
-      #block-{{ block.id }} { width: {{ block.settings.logo_width }}px; }
-    {% endfor %}
-    {%- if section.settings.layout == 'carousel' -%}
-      {%- assign carousel = true -%}
-      #section-{{ section.id }} .logo-list { grid-template-columns: {% for block in section.blocks %} {{ block.settings.logo_width }}px {% endfor %}; }
-    {%- else -%}
-      {%- assign carousel = false -%}
-    {%- endif -%}
-  {%- endstyle -%}
+      if bg_color == settings.bg_color or bg_color == 'rgba(0,0,0,0)'
+        assign bg_color = false
+      endif
 
-  {%- unless section.settings.full_width -%}
-    <div class="container">
-  {%- endunless -%}
+      assign image_height = 0
+      for block in section.blocks
+        if block.settings.image != blank
+          assign h = section.settings.icon_size | divided_by: block.settings.image.aspect_ratio | round
+          if h > image_height
+            assign image_height = h
+          endif
+        else
+          if section.settings.icon_size > image_height
+            assign image_height = section.settings.icon_size
+          endif
+        endif
+      endfor
+    -%}
 
-  <div class="section {% unless section.settings.section_height == "tight" %} section--padded-{{ section.settings.section_height }}{% endunless %}{% if section.settings.full_width %} section--full-width{% endif %}{% unless color_scheme == 'none' %} color-scheme color-scheme--no-btns color-scheme--{{ color_scheme }}{% endunless %}" id="section-{{ section.id }}">
-    {%- if section.settings.title != blank or section.settings.button_label != blank -%}
+    {%- style -%}
+      #section-{{ section.id }} .logo-list { column-gap: {{ section.settings.spacing }}px; }
+      @media (max-width: {{ breakpoint_md }}px) {
+        #section-{{ section.id }} .logo-list { column-gap: {{ section.settings.spacing | times: 0.66 }}px; }
+      }
+      @media (max-width: {{ breakpoint_sm }}px) {
+        #section-{{ section.id }} .logo-list { column-gap: {{ section.settings.spacing | times: 0.33 }}px; }
+      }
+      {% for block in section.blocks %}
+        #block-{{ block.id }} { width: {{ block.settings.logo_width }}px; }
+      {% endfor %}
+      {%- if section.settings.layout == 'carousel' -%}
+        {%- assign carousel = true -%}
+        #section-{{ section.id }} .logo-list { grid-template-columns: {% for block in section.blocks %} {{ block.settings.logo_width }}px {% endfor %}; }
+      {%- else -%}
+        {%- assign carousel = false -%}
+      {%- endif -%}
+    {%- endstyle -%}
+
+    {%- unless section.settings.full_width -%}
       <div class="container">
-        <div class="section__header items-center flex{% if section.settings.heading_align == 'text-center' %} flex-col text-center{% elsif section.settings.heading_align == 'text-end' %} flex-row-reverse flex-wrap{% else %} flex-row flex-wrap{% endif %} gap-x-theme"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %}>
-          {%- if section.settings.title != blank -%}
-            <h2 class="h4 section__heading mb-0 flex-auto {{ section.settings.heading_align }}">
-              {{- section.settings.title | escape -}}
-            </h2>
-          {%- endif -%}
+    {%- endunless -%}
 
-          {%- if section.settings.button_label != blank -%}
-            <a href="{{ section.settings.button_link }}" class="link">{{ section.settings.button_label | escape }}</a>
-          {%- endif -%}
+    <div
+      class="section {% unless section.settings.section_height == "tight" %} section--padded-{{ section.settings.section_height }}{% endunless %}{% if section.settings.full_width %} section--full-width{% endif %}{% unless color_scheme == 'none' %} color-scheme color-scheme--no-btns color-scheme--{{ color_scheme }}{% endunless %}"
+      id="section-{{ section.id }}"
+    >
+      {%- if section.settings.title != blank or section.settings.button_label != blank -%}
+        <div class="container">
+          <div
+            class="section__header items-center flex{% if section.settings.heading_align == 'text-center' %} flex-col text-center{% elsif section.settings.heading_align == 'text-end' %} flex-row-reverse flex-wrap{% else %} flex-row flex-wrap{% endif %} gap-x-theme"
+            {% if settings.animations_enabled != 'disabled' %}
+              data-cc-animate
+            {% endif %}
+          >
+            {%- if section.settings.title != blank -%}
+              <h2 class="h4 section__heading mb-0 flex-auto {{ section.settings.heading_align }}">
+                {{- section.settings.title | escape -}}
+              </h2>
+            {%- endif -%}
+
+            {%- if section.settings.button_label != blank -%}
+              <a href="{{ section.settings.button_link }}" class="link">{{ section.settings.button_label | escape }}</a>
+            {%- endif -%}
+          </div>
         </div>
-      </div>
-     {%- endif -%}
+      {%- endif -%}
 
       {%- if carousel -%}
         <carousel-slider class="carousel block lg:overflow-hidden" inactive>
@@ -81,9 +102,18 @@
       {%- endif -%}
 
       <div class="container">
-        <ul class="logo-list{% if carousel %} slider__grid grid{% endif %}{% if section.settings.layout == 'grid' %} grid grid-cols-2 sm:flex sm:flex-wrap {{ section.settings.logo_grid_align }}{% endif %} gap-x-theme gap-y-theme" role="list"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %}>
+        <ul
+          class="logo-list{% if carousel %} slider__grid grid{% endif %}{% if section.settings.layout == 'grid' %} grid grid-cols-2 sm:flex sm:flex-wrap {{ section.settings.logo_grid_align }}{% endif %} gap-x-theme gap-y-theme"
+          role="list"
+          {% if settings.animations_enabled != 'disabled' %}
+            data-cc-animate
+          {% endif %}
+        >
           {%- for block in section.blocks -%}
-            <li class="{% if carousel %}slider__item {% endif %}flex items-center justify-center" {{ block.shopify_attributes }}>
+            <li
+              class="{% if carousel %}slider__item {% endif %}flex items-center justify-center"
+              {{ block.shopify_attributes }}
+            >
               <div class="logo-list__logo {% if carousel %}w-full {% endif %}text-center" id="block-{{ block.id }}">
                 {%- if block.settings.image != blank -%}
                   {%- if block.settings.url != blank -%}
@@ -117,36 +147,71 @@
       </div>
 
       {%- if carousel -%}
-            </div>
-            {%- if settings.slider_show_arrows != 'never' -%}
-              <div class="slider-nav absolute top-middle end {% if settings.slider_show_arrows == 'hover' %}slider-nav--show-on-hover no-hover-hidden {% endif %}hidden md:block no-js-hidden">
-                <button type="button" class="slider-nav__btn tap-target btn {{ settings.slider_button_style }} has-ltr-icon" name="next" aria-controls="slider-{{ section.id }}">
-                  <span class="visually-hidden">{{ 'general.slider.next' | t }}</span>
-                  {% render 'icon-chevron-right' %}
-                </button>
-                <button type="button" class="slider-nav__btn tap-target btn {{ settings.slider_button_style }} has-ltr-icon" name="prev" aria-controls="slider-{{ section.id }}">
-                  <span class="visually-hidden">{{ 'general.slider.previous' | t }}</span>
-                  {% render 'icon-chevron-left' %}
-                </button>
-              </div>
-            {%- endif -%}
+        </div>
+        {%- if settings.slider_show_arrows != 'never' -%}
+          <div class="slider-nav absolute top-middle end {% if settings.slider_show_arrows == 'hover' %}slider-nav--show-on-hover no-hover-hidden {% endif %}hidden md:block no-js-hidden">
+            <button
+              type="button"
+              class="slider-nav__btn tap-target btn {{ settings.slider_button_style }} has-ltr-icon"
+              name="next"
+              aria-controls="slider-{{ section.id }}"
+            >
+              <span class="visually-hidden">{{ 'general.slider.next' | t }}</span>
+              {% render 'icon-chevron-right' %}
+            </button>
+            <button
+              type="button"
+              class="slider-nav__btn tap-target btn {{ settings.slider_button_style }} has-ltr-icon"
+              name="prev"
+              aria-controls="slider-{{ section.id }}"
+            >
+              <span class="visually-hidden">{{ 'general.slider.previous' | t }}</span>
+              {% render 'icon-chevron-left' %}
+            </button>
           </div>
+        {%- endif -%}
+        </div>
         </carousel-slider>
       {%- endif -%}
     </div>
-  </div>
-
-  {%- unless section.settings.full_width -%}
     </div>
-  {%- endunless -%}
-{%- endif -%}
 
+    {%- unless section.settings.full_width -%}
+      </div>
+    {%- endunless -%}
+  {%- endif -%}
+{% endif %}
 {% schema %}
 {
   "name": "Logo list",
   "tag": "section",
   "class": "cc-logo-list",
   "settings": [
+    {
+      "type": "header",
+      "content": "Show to"
+    },
+    {
+      "type": "select",
+      "id": "show_to",
+      "label": "Show To",
+      "default": "all",
+      "info": "Will always show in customiser",
+      "options": [
+        {
+          "label": "All",
+          "value": "all"
+        },
+        {
+          "label": "Customers",
+          "value": "customer"
+        },
+        {
+          "label": "Non Customer",
+          "value": "guest"
+        }
+      ]
+    },
     {
       "type": "header",
       "content": "Section header"
@@ -370,10 +435,7 @@
     }
   ],
   "disabled_on": {
-    "groups": [
-      "footer",
-      "aside"
-    ]
+    "groups": ["footer", "aside"]
   }
 }
 {% endschema %}

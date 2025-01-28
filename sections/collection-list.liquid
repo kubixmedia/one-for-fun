@@ -1,104 +1,129 @@
-{%- liquid
-  if section.settings.layout == 'carousel'
-    assign carousel = true
-
-    if section.settings.card_size == 'small'
-      assign grid_classes = 'grid-flow-col auto-cols-2 sm:auto-cols-3 md:auto-cols-4 lg:auto-cols-5 xl:auto-cols-6'
-    elsif section.settings.card_size == 'medium'
-      assign grid_classes = 'grid-flow-col auto-cols-2 sm:auto-cols-3 lg:auto-cols-4 xl:auto-cols-5'
-    else
-      assign grid_classes = 'grid-flow-col auto-cols-2 sm:auto-cols-3 xl:auto-cols-4'
-    endif
-  else
-    assign carousel = false
-
-    if section.settings.card_size == 'small'
-      assign grid_classes = 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6'
-    elsif section.settings.card_size == 'medium'
-      assign grid_classes = 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'
-    else
-      assign grid_classes = 'grid-cols-2 sm:grid-cols-3 xl:grid-cols-4'
-    endif
+{% liquid
+  assign show = false
+  if section.settings.show_to == 'all' or request.design_mode
+    assign show = true
+  elsif customer and and section.settings.show_to == 'customer'
+    assign show = true
+  elsif section.settings.show_to == 'guest'
+    unless customer
+      assign show = true
+    endunless
   endif
+%}
+{% if show %}
+  {%- liquid
+    if section.settings.layout == 'carousel'
+      assign carousel = true
 
-  assign circle_image = false
-  if settings.coll_card_image_ratio == 'circle' or section.settings.circle_image == true
-    assign circle_image = true
-  endif
-
-  if settings.coll_card_image_ratio == 'shortest' and circle_image == false
-    assign image_ratio = 0
-    for block in section.blocks
-      if block.settings.collection != blank
-        assign block_collection = collections[block.settings.collection]
-        if block_collection.featured_image.aspect_ratio > image_ratio
-          assign image_ratio = block_collection.featured_image.aspect_ratio
-        endif
+      if section.settings.card_size == 'small'
+        assign grid_classes = 'grid-flow-col auto-cols-2 sm:auto-cols-3 md:auto-cols-4 lg:auto-cols-5 xl:auto-cols-6'
+      elsif section.settings.card_size == 'medium'
+        assign grid_classes = 'grid-flow-col auto-cols-2 sm:auto-cols-3 lg:auto-cols-4 xl:auto-cols-5'
+      else
+        assign grid_classes = 'grid-flow-col auto-cols-2 sm:auto-cols-3 xl:auto-cols-4'
       endif
-    endfor
-  elsif settings.coll_card_image_ratio == 'tallest' and circle_image == false
-    assign image_ratio = 99
-    for block in section.blocks
-      if block.settings.collection != blank
-        assign block_collection = collections[block.settings.collection]
-        if block_collection.featured_image.aspect_ratio < image_ratio
-          assign image_ratio = block_collection.featured_image.aspect_ratio
-        endif
+    else
+      assign carousel = false
+
+      if section.settings.card_size == 'small'
+        assign grid_classes = 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6'
+      elsif section.settings.card_size == 'medium'
+        assign grid_classes = 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'
+      else
+        assign grid_classes = 'grid-cols-2 sm:grid-cols-3 xl:grid-cols-4'
       endif
-    endfor
-  elsif circle_image == true
-    assign image_ratio = 1
-  else
-    assign image_ratio = settings.coll_card_image_ratio
-  endif
+    endif
 
-  assign color_scheme = section.settings.color_scheme
-  assign bg_color = false
+    assign circle_image = false
+    if settings.coll_card_image_ratio == 'circle' or section.settings.circle_image == true
+      assign circle_image = true
+    endif
 
-  if color_scheme == '1'
-    assign bg_color = settings.color_scheme_1_bg
-  elsif color_scheme == '2'
-    assign bg_color = settings.color_scheme_2_bg
-  elsif color_scheme == '3'
-    assign bg_color = settings.color_scheme_3_bg
-  endif
+    if settings.coll_card_image_ratio == 'shortest' and circle_image == false
+      assign image_ratio = 0
+      for block in section.blocks
+        if block.settings.collection != blank
+          assign block_collection = collections[block.settings.collection]
+          if block_collection.featured_image.aspect_ratio > image_ratio
+            assign image_ratio = block_collection.featured_image.aspect_ratio
+          endif
+        endif
+      endfor
+    elsif settings.coll_card_image_ratio == 'tallest' and circle_image == false
+      assign image_ratio = 99
+      for block in section.blocks
+        if block.settings.collection != blank
+          assign block_collection = collections[block.settings.collection]
+          if block_collection.featured_image.aspect_ratio < image_ratio
+            assign image_ratio = block_collection.featured_image.aspect_ratio
+          endif
+        endif
+      endfor
+    elsif circle_image == true
+      assign image_ratio = 1
+    else
+      assign image_ratio = settings.coll_card_image_ratio
+    endif
 
-  if bg_color == settings.bg_color or bg_color == 'rgba(0,0,0,0)'
+    assign color_scheme = section.settings.color_scheme
     assign bg_color = false
-  endif
--%}
 
-{%- unless section.settings.full_width -%}
-  <div class="container">
-{%- endunless -%}
+    if color_scheme == '1'
+      assign bg_color = settings.color_scheme_1_bg
+    elsif color_scheme == '2'
+      assign bg_color = settings.color_scheme_2_bg
+    elsif color_scheme == '3'
+      assign bg_color = settings.color_scheme_3_bg
+    endif
 
-<div class="section{% unless bg_color == false %} section--padded{% if section.settings.full_width %} section--full-width{% endif %}{% endunless %}{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}{% if bg_color == false %} color-scheme--transparent{% endif %}">
-  {%- if section.settings.title != blank or section.settings.button_label != blank -%}
+    if bg_color == settings.bg_color or bg_color == 'rgba(0,0,0,0)'
+      assign bg_color = false
+    endif
+  -%}
+
+  {%- unless section.settings.full_width -%}
     <div class="container">
-      <div class="section__header items-center flex{% if section.settings.heading_align == 'text-center' %} flex-col text-center{% elsif section.settings.heading_align == 'text-end' %} flex-row-reverse flex-wrap{% else %} flex-row flex-wrap{% endif %} gap-x-theme"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %}>
-        {%- if section.settings.title != blank -%}
-          <h2 class="h4 mb-0 flex-auto {{ section.settings.heading_align }}">
-            {{- section.settings.title | escape -}}
-          </h2>
-        {%- endif -%}
+  {%- endunless -%}
 
-        {%- if section.settings.button_label != blank -%}
-          <a href="{{ section.settings.button_link }}" class="link">{{ section.settings.button_label | escape }}</a>
-        {%- endif -%}
-      </div>
-    </div>
-  {%- endif -%}
-
-  {%- if carousel -%}
-    <carousel-slider class="carousel block" inactive>
-      <div class="container relative">
-        <div class="slider" id="slider-{{ section.id }}">
+  <div class="section{% unless bg_color == false %} section--padded{% if section.settings.full_width %} section--full-width{% endif %}{% endunless %}{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}{% if bg_color == false %} color-scheme--transparent{% endif %}">
+    {%- if section.settings.title != blank or section.settings.button_label != blank -%}
+      <div class="container">
+        <div
+          class="section__header items-center flex{% if section.settings.heading_align == 'text-center' %} flex-col text-center{% elsif section.settings.heading_align == 'text-end' %} flex-row-reverse flex-wrap{% else %} flex-row flex-wrap{% endif %} gap-x-theme"
+          {% if settings.animations_enabled != 'disabled' %}
+            data-cc-animate
+          {% endif %}
+        >
+          {%- if section.settings.title != blank -%}
+            <h2 class="h4 mb-0 flex-auto {{ section.settings.heading_align }}">
+              {{- section.settings.title | escape -}}
+            </h2>
           {%- endif -%}
+
+          {%- if section.settings.button_label != blank -%}
+            <a href="{{ section.settings.button_link }}" class="link">{{ section.settings.button_label | escape }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if carousel -%}
+      <carousel-slider class="carousel block" inactive>
+        <div class="container relative">
+          <div class="slider" id="slider-{{ section.id }}">
+    {%- endif -%}
 
     <div class="container">
       <ul class="{% if carousel %}slider__grid {% endif %}grid {{ grid_classes }} gap-x-theme gap-y-10" role="list">
         {%- for block in section.blocks -%}
-          <li{% if carousel %} class="slider__item"{% endif %}{% if settings.animations_enabled != "disabled" %} data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"{% endif %}>
+          <li
+            {% if carousel %}
+              class="slider__item"
+            {% endif -%}
+            {% if settings.animations_enabled != 'disabled' %}
+              data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"
+            {% endif %}
+          >
             {% render 'collection-card',
               collection: block.settings.collection,
               image: block.settings.image,
@@ -110,7 +135,14 @@
           </li>
         {%- else -%}
           {%- for i in (1..section.settings.products_to_show) -%}
-            <li{% if carousel %} class="slider__item"{% endif %}{% if settings.animations_enabled != "disabled" %} data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"{% endif %}>
+            <li
+              {% if carousel %}
+                class="slider__item"
+              {% endif -%}
+              {% if settings.animations_enabled != 'disabled' %}
+                data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"
+              {% endif %}
+            >
               {% render 'collection-card', image_ratio: image_ratio, circle_image: circle_image %}
             </li>
           {%- endfor -%}
@@ -118,29 +150,39 @@
       </ul>
     </div>
 
-  {%- if carousel -%}
-        </div>
-        {%- if settings.slider_show_arrows != 'never' -%}
-          <div class="slider-nav absolute top-middle end {% if settings.slider_show_arrows == 'hover' %}slider-nav--show-on-hover no-hover-hidden {% endif %}hidden md:block no-js-hidden">
-            <button type="button" class="slider-nav__btn tap-target btn {{ settings.slider_button_style }} has-ltr-icon" name="next" aria-controls="slider-{{ section.id }}">
-              <span class="visually-hidden">{{ 'general.slider.next' | t }}</span>
-              {% render 'icon-chevron-right' %}
-            </button>
-            <button type="button" class="slider-nav__btn tap-target btn {{ settings.slider_button_style }} has-ltr-icon" name="prev" aria-controls="slider-{{ section.id }}">
-              <span class="visually-hidden">{{ 'general.slider.previous' | t }}</span>
-              {% render 'icon-chevron-left' %}
-            </button>
-          </div>
-        {%- endif -%}
+    {%- if carousel -%}
       </div>
-    </carousel-slider>
-  {%- endif -%}
-</div>
+      {%- if settings.slider_show_arrows != 'never' -%}
+        <div class="slider-nav absolute top-middle end {% if settings.slider_show_arrows == 'hover' %}slider-nav--show-on-hover no-hover-hidden {% endif %}hidden md:block no-js-hidden">
+          <button
+            type="button"
+            class="slider-nav__btn tap-target btn {{ settings.slider_button_style }} has-ltr-icon"
+            name="next"
+            aria-controls="slider-{{ section.id }}"
+          >
+            <span class="visually-hidden">{{ 'general.slider.next' | t }}</span>
+            {% render 'icon-chevron-right' %}
+          </button>
+          <button
+            type="button"
+            class="slider-nav__btn tap-target btn {{ settings.slider_button_style }} has-ltr-icon"
+            name="prev"
+            aria-controls="slider-{{ section.id }}"
+          >
+            <span class="visually-hidden">{{ 'general.slider.previous' | t }}</span>
+            {% render 'icon-chevron-left' %}
+          </button>
+        </div>
+      {%- endif -%}
+      </div>
+      </carousel-slider>
+    {%- endif -%}
+  </div>
 
-{%- unless section.settings.full_width -%}
-</div>
-{%- endunless -%}
-
+  {%- unless section.settings.full_width -%}
+    </div>
+  {%- endunless -%}
+{% endif %}
 {% schema %}
 {
   "name": "Collection list",
@@ -148,6 +190,31 @@
   "class": "cc-collection-list",
   "max_blocks": 16,
   "settings": [
+    {
+      "type": "header",
+      "content": "Show to"
+    },
+    {
+      "type": "select",
+      "id": "show_to",
+      "label": "Show To",
+      "default": "all",
+      "info": "Will always show in customiser",
+      "options": [
+        {
+          "label": "All",
+          "value": "all"
+        },
+        {
+          "label": "Customers",
+          "value": "customer"
+        },
+        {
+          "label": "Non Customer",
+          "value": "guest"
+        }
+      ]
+    },
     {
       "type": "header",
       "content": "Section header"
@@ -327,11 +394,7 @@
     }
   ],
   "disabled_on": {
-    "groups": [
-      "header",
-      "footer",
-      "aside"
-    ]
+    "groups": ["header", "footer", "aside"]
   }
 }
 {% endschema %}
