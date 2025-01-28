@@ -26,13 +26,13 @@
   padding: 6px 0;
   text-align: center;
 }
-.announcement__text a {
-  text-decoration: underline;
-}
+
 .announcement__text p {
   margin-bottom: 0;
 }
-
+.announcement__text p > *:nth-child(2) {
+  margin: 0 20px;
+}
 .announcement__localization {
   display: inline-block;
 }

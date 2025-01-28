@@ -1494,7 +1494,8 @@ button {
 .spr-button-primary,
 .shopify-payment-button .shopify-payment-button__button--unbranded,
 .shopify-challenge__button {
-  border: var(--btn-border-width) solid rgb(var(--btn-bg-color));
+  /* temp comment out during intial dev */
+  /* border: var(--btn-border-width) solid rgb(var(--btn-bg-color)); */
   outline-color: rgb(var(--btn-bg-color));
   outline-offset: 3px;
   background: rgb(var(--btn-bg-hover-color)) linear-gradient(104deg, rgb(var(--btn-bg-hover-color)) 60%, rgb(var(--btn-bg-color)) 60%, rgb(var(--btn-bg-color)) 100%) no-repeat 100% 100%;
@@ -4038,9 +4039,12 @@ body:not(.tab-used) .search__input {
   display: none;
 }
 
+.carousel[inactive] .slider[data-overlayscrollbars-viewport],
+.carousel[inactive] > div > .slider,[data-overlayscrollbars-viewport],
 .carousel[inactive] .slider,
-.carousel[inactive] > div > .slider {
-  padding-bottom: 0;
+.carousel[inactive] > div > .slider  {
+  /* Overwrite other important from theme code */
+  padding-bottom: 0!important;
 }
 .carousel[inactive] > .slider-nav,
 .carousel[inactive] > div > .slider-nav {
@@ -4054,7 +4058,9 @@ body:not(.tab-used) .search__input {
 .carousel[inactive] > div > .slider::-webkit-scrollbar-track {
   display: none;
 }
-
+.carousel[inactive] .slider__grid {
+  justify-content: center;
+}
 .slider__item {
   scroll-snap-align: start;
 }
@@ -5104,6 +5110,11 @@ body > .os-scrollbar {
   border-bottom: 1px solid rgba(var(--text-color)/0.15);
   background-color: rgba(var(--bg-color));
   color: rgb(var(--text-color));
+}
+@media (hover: hover) and (pointer: fine) {
+  .header__login:hover {
+    color: rgb(var(--header-login-color))
+  }
 }
 
 .header__logo {

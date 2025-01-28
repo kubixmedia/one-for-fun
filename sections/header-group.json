@@ -1,1 +1,173 @@
-{"type":"header","name":"Header Group","sections":{"announcement":{"type":"announcement","blocks":{"announcement-1":{"type":"announcement","settings":{"text":"<p><a href=\"tel:+4401416132525\" title=\"tel:+4401416132525\"><strong>Call Us On: +44 (0)141 613 2525<\/strong><\/a><strong> | <\/strong><a href=\"mailto:sales@oneforfun.com\" title=\"mailto:sales@oneforfun.com\"><strong>sales@oneforfun.com<\/strong><\/a><\/p>"}}},"block_order":["announcement-1"],"settings":{"link1":"shopify:\/\/pages\/contact","link1_label":"About Us","link2":"shopify:\/\/products\/1-43-ferrari-racing-499p-lmh-2023-24h-le-mans-champion","link2_label":"FAQ's","enable_country_selector":false,"enable_language_selector":false,"bg_color":"#20cbd4","text_color":"#ffffff","text_type_scale":"small","read_time":7}},"header":{"type":"header","settings":{"enable_sticky":true,"mobile_menu_position":"burger-right","logo_text":"","logo_type_scale":"2","logo":"shopify:\/\/shop_images\/oneforfunlogo.svg","logo_width":90,"logo_h1":false,"logo_center":false,"enable_search":true,"minimise_search_mobile":false,"minimise_search_desktop":false,"menu":"","menu_center":false,"repeat_links":false,"menu_featured_link":"Sale","quicklinks_menu":"","cta_show":false,"cta_icon":"phone","cta_label":"Call us","cta_link":"tel:+4401416132525","cta_border_color":"#333333","cta_bg_color":"#333333","cta_text_color":"#ffffff","bg_color":"#20cbd4","text_color":"#ffffff","accent_color":"#ffffff"}},"icons_with_text_Ba4pjj":{"type":"icons-with-text","blocks":{"item_c4WqUH":{"type":"item","settings":{"icon":"chat_bubble","custom_icon":"shopify:\/\/shop_images\/HGL.png","heading":"","text":"","link":"shopify:\/\/collections"}},"item_dcV6Kc":{"type":"item","settings":{"icon":"award","custom_icon":"shopify:\/\/shop_images\/TObar.png","heading":"","text":"","link":""}},"item_WjKftA":{"type":"item","settings":{"icon":"award","custom_icon":"shopify:\/\/shop_images\/Ozbozz.png","heading":"","text":"","link":""}},"item_LG8GtX":{"type":"item","settings":{"icon":"award","custom_icon":"shopify:\/\/shop_images\/MAISTO.png","heading":"","text":"","link":""}},"item_MBin6W":{"type":"item","settings":{"icon":"award","custom_icon":"shopify:\/\/shop_images\/BURAGO.png","heading":"","text":"","link":""}},"item_6R8HjQ":{"type":"item","settings":{"icon":"award","custom_icon":"shopify:\/\/shop_images\/DREAM.png","heading":"","text":"","link":""}},"item_YYTLym":{"type":"item","settings":{"icon":"award","custom_icon":"shopify:\/\/shop_images\/DINOCOLL.png","heading":"","text":"","link":""}}},"block_order":["item_c4WqUH","item_dcV6Kc","item_WjKftA","item_LG8GtX","item_MBin6W","item_6R8HjQ","item_YYTLym"],"settings":{"heading":"Maybe swap with logo list","heading_align":"text-start","icon_size":80,"title_type_scale":"medium","text_type_scale":"medium","icon_position":"beside","mobile_stack":false,"section_height":"xsmall","color_scheme":"none","full_width":true,"dividers":"none","prevent_animation":false}}},"order":["announcement","header","icons_with_text_Ba4pjj"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "announcement": {
+      "type": "announcement",
+      "blocks": {
+        "announcement-1": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p><a href=\"tel:+4401416132525\" title=\"tel:+4401416132525\"><strong>Call Us On: +44 (0)141 613 2525</strong></a><strong> | </strong><a href=\"mailto:sales@oneforfun.com\" title=\"mailto:sales@oneforfun.com\"><strong>sales@oneforfun.com</strong></a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "announcement-1"
+      ],
+      "settings": {
+        "link1": "shopify://pages/contact",
+        "link1_label": "About Us",
+        "link2": "shopify://products/1-43-ferrari-racing-499p-lmh-2023-24h-le-mans-champion",
+        "link2_label": "FAQ's",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "bg_color": "#20cbd4",
+        "text_color": "#ffffff",
+        "text_type_scale": "small",
+        "read_time": 7
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "enable_sticky": true,
+        "mobile_menu_position": "burger-right",
+        "logo_text": "",
+        "logo_type_scale": "2",
+        "logo": "shopify://shop_images/oneforfunlogo.svg",
+        "logo_width": 90,
+        "logo_h1": false,
+        "logo_center": false,
+        "enable_search": true,
+        "minimise_search_mobile": false,
+        "minimise_search_desktop": false,
+        "menu": "",
+        "menu_center": false,
+        "repeat_links": false,
+        "menu_featured_link": "Sale",
+        "quicklinks_menu": "",
+        "cta_show": false,
+        "cta_icon": "phone",
+        "cta_label": "Call us",
+        "cta_link": "tel:+4401416132525",
+        "cta_border_color": "#333333",
+        "cta_bg_color": "#333333",
+        "cta_text_color": "#ffffff",
+        "bg_color": "#20cbd4",
+        "text_color": "#ffffff",
+        "accent_color": "#ffffff",
+        "search_bg_color": "#ffffff",
+        "search_text_color": "#656565",
+        "search_button_color": "#20cbd4",
+        "login_background": "#ffffff",
+        "login_color": "#20cbd4",
+        "login_background_hover": "",
+        "login_color_hover": ""
+      }
+    },
+    "logo_list_ALfiMd": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_q9xABc": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/HGL.png",
+            "url": "",
+            "logo_width": 80,
+            "text": ""
+          }
+        },
+        "logo_4TxDDt": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/TObar.png",
+            "url": "",
+            "logo_width": 80,
+            "text": ""
+          }
+        },
+        "logo_Nn8hJU": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Ozbozz.png",
+            "url": "",
+            "logo_width": 80,
+            "text": ""
+          }
+        },
+        "logo_atELtb": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/MAISTO.png",
+            "url": "",
+            "logo_width": 80,
+            "text": ""
+          }
+        },
+        "logo_8Jad6P": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/BURAGO.png",
+            "url": "",
+            "logo_width": 80,
+            "text": ""
+          }
+        },
+        "logo_tKYtzT": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/DREAM.png",
+            "url": "",
+            "logo_width": 80,
+            "text": ""
+          }
+        },
+        "logo_n3nEHD": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/DINOCOLL.png",
+            "url": "",
+            "logo_width": 80,
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_q9xABc",
+        "logo_4TxDDt",
+        "logo_Nn8hJU",
+        "logo_atELtb",
+        "logo_8Jad6P",
+        "logo_tKYtzT",
+        "logo_n3nEHD"
+      ],
+      "settings": {
+        "title": "",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "section_height": "xsmall",
+        "layout": "carousel",
+        "spacing": 40,
+        "logo_grid_align": "justify-center",
+        "color_scheme": "none",
+        "full_width": true
+      }
+    }
+  },
+  "order": [
+    "announcement",
+    "header",
+    "logo_list_ALfiMd"
+  ]
+}
