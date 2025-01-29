@@ -339,9 +339,9 @@
       {{ content_for_layout }}
     </main>
   {% else %}
-  <script>
-    window.location.href = '{{ routes.root_url }}'
-  </script>
+    <script>
+      window.location.href = '{{ routes.root_url }}'
+    </script>
   {% endif %}
   {%- sections 'overlay-group' -%}
   {%- sections 'footer-group' -%}

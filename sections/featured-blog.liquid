@@ -1,59 +1,84 @@
-{%- liquid
-  if section.settings.layout == 'carousel'
-    assign carousel = true
-    assign grid_classes = 'grid-flow-col auto-cols-1 sm:auto-cols-2 lg:auto-cols-3 xl:auto-cols-4'
-  else
-    assign carousel = false
-    assign grid_classes = 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3'
+{% liquid
+  assign show = false
+  if section.settings.show_to == 'all' or request.design_mode
+    assign show = true
+  elsif customer and and section.settings.show_to == 'customer'
+    assign show = true
+  elsif section.settings.show_to == 'guest'
+    unless customer
+      assign show = true
+    endunless
   endif
+%}
+{% if show %}
+  {%- liquid
+    if section.settings.layout == 'carousel'
+      assign carousel = true
+      assign grid_classes = 'grid-flow-col auto-cols-1 sm:auto-cols-2 lg:auto-cols-3 xl:auto-cols-4'
+    else
+      assign carousel = false
+      assign grid_classes = 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3'
+    endif
 
-  if section.settings.image_ratio == 'shortest'
-    assign image_ratio = 0
-    for article in section.settings.blog.articles
-      if article.image.aspect_ratio > image_ratio
-        assign image_ratio = article.image.aspect_ratio
-      endif
-    endfor
-  elsif section.settings.image_ratio == 'tallest'
-    assign image_ratio = 99
-    for article in section.settings.blog.articles
-      if article.image.aspect_ratio < image_ratio
-        assign image_ratio = article.image.aspect_ratio
-      endif
-    endfor
-  else
-    assign image_ratio = section.settings.image_ratio
-  endif
--%}
+    if section.settings.image_ratio == 'shortest'
+      assign image_ratio = 0
+      for article in section.settings.blog.articles
+        if article.image.aspect_ratio > image_ratio
+          assign image_ratio = article.image.aspect_ratio
+        endif
+      endfor
+    elsif section.settings.image_ratio == 'tallest'
+      assign image_ratio = 99
+      for article in section.settings.blog.articles
+        if article.image.aspect_ratio < image_ratio
+          assign image_ratio = article.image.aspect_ratio
+        endif
+      endfor
+    else
+      assign image_ratio = section.settings.image_ratio
+    endif
+  -%}
 
-<div class="section">
-  {%- if section.settings.title != blank or section.settings.show_view_all -%}
-    <div class="container">
-      <div class="section__header items-center flex{% if section.settings.heading_align == 'text-center' %} flex-col text-center{% elsif section.settings.heading_align == 'text-end' %} flex-row-reverse flex-wrap{% else %} flex-row flex-wrap{% endif %} gap-x-theme"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %}>
-        {%- if section.settings.title != blank -%}
-          <h2 class="h4 section__heading mb-0 flex-auto {{ section.settings.heading_align }}">
-            {{- section.settings.title | escape -}}
-          </h2>
-        {%- endif -%}
-
-        {%- if section.settings.show_view_all -%}
-          <a href="{{ section.settings.blog.url }}" class="link">{{ 'sections.featured_blog.view_all' | t }}</a>
-        {%- endif -%}
-      </div>
-    </div>
-  {%- endif -%}
-
-  {%- if carousel -%}
-    <carousel-slider class="carousel block" inactive>
-      <div class="container relative">
-        <div class="slider" id="slider-{{ section.id }}">
+  <div class="section">
+    {%- if section.settings.title != blank or section.settings.show_view_all -%}
+      <div class="container">
+        <div
+          class="section__header items-center flex{% if section.settings.heading_align == 'text-center' %} flex-col text-center{% elsif section.settings.heading_align == 'text-end' %} flex-row-reverse flex-wrap{% else %} flex-row flex-wrap{% endif %} gap-x-theme"
+          {% if settings.animations_enabled != 'disabled' %}
+            data-cc-animate
+          {% endif %}
+        >
+          {%- if section.settings.title != blank -%}
+            <h2 class="h4 section__heading mb-0 flex-auto {{ section.settings.heading_align }}">
+              {{- section.settings.title | escape -}}
+            </h2>
           {%- endif -%}
+
+          {%- if section.settings.show_view_all -%}
+            <a href="{{ section.settings.blog.url }}" class="link">{{ 'sections.featured_blog.view_all' | t }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if carousel -%}
+      <carousel-slider class="carousel block" inactive>
+        <div class="container relative">
+          <div class="slider" id="slider-{{ section.id }}">
+    {%- endif -%}
 
     <div class="container">
       <ul class="{% if carousel %}slider__grid {% endif %}grid {{ grid_classes }} gap-x-theme gap-y-10" role="list">
         {%- if section.settings.blog != blank and section.settings.blog.articles_count > 0 -%}
           {%- for article in section.settings.blog.articles limit: section.settings.posts_to_show -%}
-            <li{% if carousel %} class="slider__item"{% endif %}{% if settings.animations_enabled != "disabled" %} data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"{% endif %}>
+            <li
+              {% if carousel %}
+                class="slider__item"
+              {% endif -%}
+              {% if settings.animations_enabled != 'disabled' %}
+                data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"
+              {% endif %}
+            >
               {% render 'article-card',
                 article: article,
                 featured_section: true,
@@ -71,45 +96,88 @@
           {%- endfor -%}
         {%- else -%}
           {%- for i in (1..section.settings.posts_to_show) -%}
-            <li{% if carousel %} class="slider__item"{% endif %}{% if settings.animations_enabled != "disabled" %} data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"{% endif %}>
+            <li
+              {% if carousel %}
+                class="slider__item"
+              {% endif -%}
+              {% if settings.animations_enabled != 'disabled' %}
+                data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"
+              {% endif %}
+            >
               {% render 'article-card',
-              image_ratio: image_ratio,
-              featured_section: true,
-              color_scheme: section.settings.color_scheme,
-              show_image: section.settings.show_featured_image,
-              image_ratio: image_ratio,
-              show_excerpt: section.settings.show_excerpt %}
+                image_ratio: image_ratio,
+                featured_section: true,
+                color_scheme: section.settings.color_scheme,
+                show_image: section.settings.show_featured_image,
+                image_ratio: image_ratio,
+                show_excerpt: section.settings.show_excerpt
+              %}
             </li>
           {%- endfor -%}
         {%- endif -%}
       </ul>
     </div>
 
-  {%- if carousel -%}
-        </div>
-        {%- if settings.slider_show_arrows != 'never' -%}
-          <div class="slider-nav absolute top-middle end {% if settings.slider_show_arrows == 'hover' %}slider-nav--show-on-hover no-hover-hidden {% endif %}hidden md:block no-js-hidden">
-            <button type="button" class="slider-nav__btn tap-target btn {{ settings.slider_button_style }} has-ltr-icon" name="next" aria-controls="slider-{{ section.id }}">
-              <span class="visually-hidden">{{ 'general.slider.next' | t }}</span>
-              {% render 'icon-chevron-right' %}
-            </button>
-            <button type="button" class="slider-nav__btn tap-target btn {{ settings.slider_button_style }} has-ltr-icon" name="prev" aria-controls="slider-{{ section.id }}">
-              <span class="visually-hidden">{{ 'general.slider.previous' | t }}</span>
-              {% render 'icon-chevron-left' %}
-            </button>
-          </div>
-        {%- endif -%}
+    {%- if carousel -%}
       </div>
-    </carousel-slider>
-  {%- endif -%}
-</div>
-
+      {%- if settings.slider_show_arrows != 'never' -%}
+        <div class="slider-nav absolute top-middle end {% if settings.slider_show_arrows == 'hover' %}slider-nav--show-on-hover no-hover-hidden {% endif %}hidden md:block no-js-hidden">
+          <button
+            type="button"
+            class="slider-nav__btn tap-target btn {{ settings.slider_button_style }} has-ltr-icon"
+            name="next"
+            aria-controls="slider-{{ section.id }}"
+          >
+            <span class="visually-hidden">{{ 'general.slider.next' | t }}</span>
+            {% render 'icon-chevron-right' %}
+          </button>
+          <button
+            type="button"
+            class="slider-nav__btn tap-target btn {{ settings.slider_button_style }} has-ltr-icon"
+            name="prev"
+            aria-controls="slider-{{ section.id }}"
+          >
+            <span class="visually-hidden">{{ 'general.slider.previous' | t }}</span>
+            {% render 'icon-chevron-left' %}
+          </button>
+        </div>
+      {%- endif -%}
+      </div>
+      </carousel-slider>
+    {%- endif -%}
+  </div>
+{% endif %}
 {% schema %}
 {
   "name": "Blog posts",
   "tag": "section",
   "class": "cc-featured-blog",
   "settings": [
+    {
+      "type": "header",
+      "content": "Show to"
+    },
+    {
+      "type": "select",
+      "id": "show_to",
+      "label": "Show To",
+      "default": "all",
+      "info": "Will always show in customiser",
+      "options": [
+        {
+          "label": "All",
+          "value": "all"
+        },
+        {
+          "label": "Customers",
+          "value": "customer"
+        },
+        {
+          "label": "Non Customer",
+          "value": "guest"
+        }
+      ]
+    },
     {
       "type": "header",
       "content": "Section header"
@@ -296,11 +364,7 @@
     }
   ],
   "disabled_on": {
-    "groups": [
-      "header",
-      "footer",
-      "aside"
-    ]
+    "groups": ["header", "footer", "aside"]
   }
 }
 {% endschema %}

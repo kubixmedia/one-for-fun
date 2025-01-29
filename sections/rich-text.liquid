@@ -1,3 +1,16 @@
+{% liquid
+  assign show = false
+  if section.settings.show_to == 'all' or request.design_mode
+    assign show = true
+  elsif customer and and section.settings.show_to == 'customer'
+    assign show = true
+  elsif section.settings.show_to == 'guest'
+    unless customer
+      assign show = true
+    endunless
+  endif
+%}
+{% if show %}
 {{ 'text-overlay.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
@@ -71,12 +84,37 @@
 {%- unless section.settings.full_width -%}
   </div>
 {%- endunless -%}
-
+{% endif %}
 {% schema %}
 {
   "name": "Rich text",
   "class": "cc-rich-text",
   "settings": [
+    {
+      "type": "header",
+      "content": "Show to"
+    },
+{
+      "type": "select",
+      "id": "show_to",
+      "label": "Show To",
+      "default": "all",
+      "info": "Will always show in customiser",
+      "options": [
+        {
+          "label": "All",
+          "value": "all"
+        },
+        {
+          "label": "Customers",
+          "value": "customer"
+        },
+        {
+          "label": "Non Customer",
+          "value": "guest"
+        }
+      ]
+    },
     {
       "type": "header",
       "content": "Layout"

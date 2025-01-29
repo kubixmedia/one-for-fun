@@ -1,104 +1,183 @@
-{%- if section.blocks.size > 0 -%}
-  {%- if section.index > 2 and section.location != "header" -%}
-    <link rel="stylesheet" href="{{ 'icons-with-text.css' | asset_url }}" media="print" onload="this.media='all'">
-  {%- else -%}
-    {{ 'icons-with-text.css' | asset_url | stylesheet_tag }}
+{% liquid
+  assign show = false
+  if section.settings.show_to == 'all' or request.design_mode
+    assign show = true
+  elsif customer and and section.settings.show_to == 'customer'
+    assign show = true
+  elsif section.settings.show_to == 'guest'
+    unless customer
+      assign show = true
+    endunless
+  endif
+%}
+{% if show %}
+  {%- if section.blocks.size > 0 -%}
+    {%- if section.index > 2 and section.location != 'header' -%}
+      <link rel="stylesheet" href="{{ 'icons-with-text.css' | asset_url }}" media="print" onload="this.media='all'">
+    {%- else -%}
+      {{ 'icons-with-text.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
+
+    {%- liquid
+      assign color_scheme = section.settings.color_scheme
+      assign grid_classes = 'auto-cols-1'
+      if section.blocks.size == 2
+        assign grid_classes = grid_classes | append: ' sm:auto-cols-2 icons-with-text--narrow'
+      elsif section.blocks.size == 3
+        assign grid_classes = grid_classes | append: ' sm:auto-cols-2 md:auto-cols-3'
+      elsif section.blocks.size > 3
+        assign grid_classes = grid_classes | append: ' sm:auto-cols-2 md:auto-cols-3 lg:auto-cols-4'
+      endif
+    -%}
+
+    {%- unless section.settings.full_width -%}
+      <div class="container">
+    {%- endunless -%}
+
+    <div
+      class="icons-with-text section{% if section.settings.full_width %} section--full-width{% if section.settings.dividers != "none" %} {{ section.settings.dividers }}{% endif %}{% endif %} section--padded-{{ section.settings.section_height }}{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}"
+      id="{{ section.id }}"
+    >
+      <div class="container relative">
+        {%- if section.settings.heading != blank -%}
+          <h2
+            class="h4 section__heading {{ section.settings.heading_align }}"
+            {% if settings.animations_enabled != 'disabled' and section.settings.prevent_animation == false %}
+              data-cc-animate
+            {% endif %}
+          >
+            {{ section.settings.heading | escape }}
+          </h2>
+        {%- endif -%}
+
+        <carousel-slider
+          class="carousel block relative"
+          inactive
+          {% if section.settings.mobile_stack %}
+            disable-mobile="true"
+          {% endif %}
+        >
+          <div class="slider-nav slide-nav--inline flex justify-between absolute top-0 h-full no-js-hidden">
+            <button
+              type="button"
+              class="slider-nav__btn tap-target tap-target--left btn text-current has-ltr-icon"
+              name="prev"
+              aria-controls="slider-{{ section.id }}"
+            >
+              <span class="visually-hidden">{{ 'general.slider.previous' | t }}</span>
+              {% render 'icon-chevron-left' %}
+            </button>
+            <button
+              type="button"
+              class="slider-nav__btn tap-target tap-target--right btn text-current has-ltr-icon"
+              name="next"
+              aria-controls="slider-{{ section.id }}"
+            >
+              <span class="visually-hidden">{{ 'general.slider.next' | t }}</span>
+              {% render 'icon-chevron-right' %}
+            </button>
+          </div>
+
+          <div class="slider slider--contained relative slider--no-scrollbar" id="slider-{{ section.id }}">
+            <ul class="slider__grid grid grid-flow-col gap-theme {{ grid_classes }}">
+              {%- for block in section.blocks -%}
+                {%- liquid
+                  assign is_link = true
+                  if block.settings.text contains '<a' or block.settings.link == blank
+                    assign is_link = false
+                  endif
+                -%}
+                <li
+                  class="slider__item{% unless is_link %} flex{% if section.settings.icon_position == 'above' %} flex-col{% endif %} justify-center items-center{% endunless %}"
+                  {{ block.shopify_attributes -}}
+                  {% if settings.animations_enabled != 'disabled' and section.settings.prevent_animation == false %}
+                    data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"
+                  {% endif %}
+                >
+                  {% if is_link %}
+                    <a
+                      class="text-current flex h-full{% if section.settings.icon_position == 'above' %} flex-col{% endif %} justify-center items-center"
+                      href="{{ block.settings.link.url }}"
+                    >
+                  {% endif %}
+
+                  {%- if block.settings.custom_icon != blank -%}
+                    {{
+                      block.settings.custom_icon
+                      | image_url: width: section.settings.icon_size
+                      | image_tag: loading: 'lazy'
+                    }}
+                  {%- else -%}
+                    {% render 'icon',
+                      icon: block.settings.icon,
+                      width: section.settings.icon_size,
+                      height: section.settings.icon_size
+                    %}
+                  {%- endif -%}
+
+                  {% unless block.settings.heading == blank and block.settings.text == blank %}
+                    <div class="icons-with-text__text rte{% if section.settings.icon_position == 'above' %} mt-2 text-center icons-with-text__text--icons-above{% endif %}">
+                      {%- if block.settings.heading != blank -%}
+                        <p class="m-0 icons-with-text__title text-body-{{ section.settings.title_type_scale }}">
+                          <strong>{{ block.settings.heading | escape }}</strong>
+                        </p>
+                      {%- endif -%}
+
+                      {%- if block.settings.text != blank -%}
+                        <div class="rte text-body-{{ section.settings.text_type_scale }}">
+                          {{ block.settings.text }}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  {% endunless %}
+
+                  {% if is_link %}
+                    </a>
+                  {% endif %}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        </carousel-slider>
+      </div>
+    </div>
+
+    {%- unless section.settings.full_width -%}
+      </div>
+    {%- endunless -%}
   {%- endif -%}
-
-  {%- liquid
-    assign color_scheme = section.settings.color_scheme
-    assign grid_classes = 'auto-cols-1'
-    if section.blocks.size == 2
-      assign grid_classes = grid_classes | append: ' sm:auto-cols-2 icons-with-text--narrow'
-    elsif section.blocks.size == 3
-      assign grid_classes = grid_classes | append: ' sm:auto-cols-2 md:auto-cols-3'
-    elsif section.blocks.size > 3
-      assign grid_classes = grid_classes | append: ' sm:auto-cols-2 md:auto-cols-3 lg:auto-cols-4'
-    endif
-  -%}
-
-  {%- unless section.settings.full_width -%}
-    <div class="container">
-  {%- endunless -%}
-
-  <div class="icons-with-text section{% if section.settings.full_width %} section--full-width{% if section.settings.dividers != "none" %} {{ section.settings.dividers }}{% endif %}{% endif %} section--padded-{{ section.settings.section_height }}{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}" id="{{ section.id }}">
-    <div class="container relative">
-      {%- if section.settings.heading != blank -%}
-        <h2 class="h4 section__heading {{ section.settings.heading_align }}"{% if settings.animations_enabled != "disabled" and section.settings.prevent_animation == false %} data-cc-animate{% endif %}>{{ section.settings.heading | escape }}</h2>
-      {%- endif -%}
-
-      <carousel-slider class="carousel block relative" inactive{% if section.settings.mobile_stack %} disable-mobile="true"{% endif %}>
-        <div class="slider-nav slide-nav--inline flex justify-between absolute top-0 h-full no-js-hidden">
-          <button type="button" class="slider-nav__btn tap-target tap-target--left btn text-current has-ltr-icon" name="prev" aria-controls="slider-{{ section.id }}">
-            <span class="visually-hidden">{{ 'general.slider.previous' | t }}</span>
-            {% render 'icon-chevron-left' %}
-          </button>
-          <button type="button" class="slider-nav__btn tap-target tap-target--right btn text-current has-ltr-icon" name="next" aria-controls="slider-{{ section.id }}">
-            <span class="visually-hidden">{{ 'general.slider.next' | t }}</span>
-            {% render 'icon-chevron-right' %}
-          </button>
-        </div>
-
-        <div class="slider slider--contained relative slider--no-scrollbar" id="slider-{{ section.id }}">
-          <ul class="slider__grid grid grid-flow-col gap-theme {{ grid_classes }}">
-            {%- for block in section.blocks -%}
-              {%- liquid
-                assign is_link = true
-                if block.settings.text contains "<a" or block.settings.link == blank
-                  assign is_link = false
-                endif
-              -%}
-              <li class="slider__item{% unless is_link %} flex{% if section.settings.icon_position == 'above' %} flex-col{% endif %} justify-center items-center{% endunless %}" {{ block.shopify_attributes }}{% if settings.animations_enabled != "disabled" and section.settings.prevent_animation == false %} data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"{% endif %}>
-                {% if is_link %}
-                <a class="text-current flex h-full{% if section.settings.icon_position == 'above' %} flex-col{% endif %} justify-center items-center" href="{{ block.settings.link.url }}">
-                {% endif %}
-
-                {%- if block.settings.custom_icon != blank -%}
-                  {{ block.settings.custom_icon | image_url: width: section.settings.icon_size | image_tag: loading: 'lazy' }}
-                {%- else -%}
-                  {% render 'icon',
-                    icon: block.settings.icon,
-                    width: section.settings.icon_size,
-                    height: section.settings.icon_size
-                  %}
-                {%- endif -%}
-
-                {% unless block.settings.heading == blank and block.settings.text == blank %}
-                  <div class="icons-with-text__text rte{% if section.settings.icon_position == 'above' %} mt-2 text-center icons-with-text__text--icons-above{% endif %}">
-                    {%- if block.settings.heading != blank -%}
-                      <p class="m-0 icons-with-text__title text-body-{{ section.settings.title_type_scale }}"><strong>{{ block.settings.heading | escape }}</strong></p>
-                    {%- endif -%}
-
-                    {%- if block.settings.text != blank -%}
-                      <div class="rte text-body-{{ section.settings.text_type_scale }}">
-                        {{ block.settings.text }}
-                      </div>
-                    {%- endif -%}
-                  </div>
-                {% endunless %}
-
-                {% if is_link %}
-                </a>
-                {% endif %}
-              </li>
-            {%- endfor -%}
-          </ul>
-        </div>
-      </carousel-slider>
-    </div>
-  </div>
-
-  {%- unless section.settings.full_width -%}
-    </div>
-  {%- endunless -%}
-{%- endif -%}
-
+{% endif %}
 {% schema %}
 {
   "name": "Icons with text",
   "tag": "section",
   "class": "cc-icons-with-text",
   "settings": [
+    {
+      "type": "header",
+      "content": "Show to"
+    },
+    {
+      "type": "select",
+      "id": "show_to",
+      "label": "Show To",
+      "default": "all",
+      "info": "Will always show in customiser",
+      "options": [
+        {
+          "label": "All",
+          "value": "all"
+        },
+        {
+          "label": "Customers",
+          "value": "customer"
+        },
+        {
+          "label": "Non Customer",
+          "value": "guest"
+        }
+      ]
+    },
     {
       "type": "header",
       "content": "Section header"
@@ -541,9 +620,7 @@
     }
   ],
   "disabled_on": {
-    "groups": [
-      "aside"
-    ]
+    "groups": ["aside"]
   }
 }
 {% endschema %}
