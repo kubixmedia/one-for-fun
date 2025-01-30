@@ -270,11 +270,138 @@
         "color_scheme": "white",
         "transparent_content_color": "#ffffff"
       }
+    },
+    "rich_text_CCPeb4": {
+      "type": "rich-text",
+      "blocks": {
+        "text_kJnbTa": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Take a look at some of our distribution brands below:</h2>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "text_kJnbTa"
+      ],
+      "settings": {
+        "text_position": "justify-start",
+        "text_align": "text-start",
+        "mob_center_text": true,
+        "wide": true,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "media_grid_fTf9Fh": {
+      "type": "media-grid",
+      "blocks": {
+        "media_78GmCX": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-maisto.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_W4fBwV": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-bburago.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_GmBb3k": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-schylling_0920.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_XVWeCF": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-zuru_0920.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_78GmCX",
+        "media_W4fBwV",
+        "media_GmBb3k",
+        "media_XVWeCF"
+      ],
+      "settings": {
+        "title": "Media grid",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "gallery_cols_max": 4,
+        "mobile_carousel": false,
+        "gallery_cols_min": "1",
+        "fixed_height_desktop": 180,
+        "fixed_height_mobile": 300,
+        "section_color_scheme": "none",
+        "color_scheme": "white",
+        "transparent_content_color": "#ffffff"
+      }
     }
   },
   "order": [
     "main",
     "rich_text_QkatVp",
-    "media_grid_yNayCz"
+    "media_grid_yNayCz",
+    "rich_text_CCPeb4",
+    "media_grid_fTf9Fh"
   ]
 }
