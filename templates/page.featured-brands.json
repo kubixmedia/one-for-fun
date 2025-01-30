@@ -277,7 +277,7 @@
         "text_kJnbTa": {
           "type": "text",
           "settings": {
-            "text": "<h2>Take a look at some of our distribution brands below:</h2>",
+            "text": "<h3>Take a look at some of our distribution brands below:</h3>",
             "enlarge_text": false
           }
         }
@@ -382,7 +382,7 @@
         "media_XVWeCF"
       ],
       "settings": {
-        "title": "Media grid",
+        "title": "",
         "heading_align": "text-start",
         "button_label": "",
         "button_link": "",
