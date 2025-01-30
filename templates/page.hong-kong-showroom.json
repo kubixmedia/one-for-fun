@@ -82,11 +82,36 @@
         "color_scheme": "white",
         "transparent_content_color": "#ffffff"
       }
+    },
+    "rich_text_BQEQpg": {
+      "type": "rich-text",
+      "blocks": {
+        "text_J4ni9w": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We are excited to welcome you to our showroom in Hong Kong!</p><p>It really is the perfect place to come and view our entire range and see all of the new and exciting launches. You can find us conveniently located just off Mody Road, within the square.</p><p>The Hong Kong office allows us to run a smooth operation out of the Far East. They support our buying, compliance and packaging design teams whilst also helping us to implement our customer FOB programs.</p><p>You are more than welcome to come and visit us at any time in the Hong Kong office – it’s open all year round!</p><p>For more information or to book an appointment, please contact Laura Cale, Export Business Manager on the details below:</p><h5>Mob: +44 (0) 7498 151411     Email: <a href=\"mailto:annika.schorken@oneforfun.com?Subject=Hong%20Kong%20Showroom\" target=\"_top\">laura.cale@oneforfun.com</a></h5><h5>Find us at: Room 612, 6/F, Chinachem Golden Plaza, 77 Mody Road, TST East, Hong Kong</h5><p>九龍尖沙咀東部麼地道77號華懋廣場6樓612室</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "text_J4ni9w"
+      ],
+      "settings": {
+        "text_position": "justify-start",
+        "text_align": "text-start",
+        "mob_center_text": true,
+        "wide": true,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false
+      }
     }
   },
   "order": [
     "main",
     "rich_text_aENinW",
-    "media_grid_Ym4TYC"
+    "media_grid_Ym4TYC",
+    "rich_text_BQEQpg"
   ]
 }
