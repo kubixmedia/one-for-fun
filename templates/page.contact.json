@@ -1,1 +1,145 @@
-{"sections":{"main":{"type":"main-contact","disabled":true,"settings":{"show_contact_title":false}},"image-banner":{"type":"image-banner","blocks":{"heading":{"type":"heading","settings":{"heading":"Contact Us","heading_size":"h1","heading_h1":true}},"text":{"type":"text","settings":{"text":"<p>Please visit our help pages for answers to some of the most commonly asked questions.<\/p>","enlarge_text":true}}},"block_order":["heading","text"],"settings":{"height_mode":"fixed","fixed_height_desktop":560,"fixed_height_mobile":440,"overlay_position":"justify-start items-center","overlay_text_align":"text-start","mob_center_text":true,"mobile_stacked":false,"color_scheme":"white","full_width":true}},"form":{"type":"contact-form","blocks":{"contact-name-2":{"type":"name","settings":{"required":true,"half_width":true}},"contact-email-3":{"type":"email","settings":{"required":true,"half_width":true}},"contact-dropdown-4":{"type":"dropdown","settings":{"title":"How can we help?","half_width":false}},"contact-body-5":{"type":"body","settings":{"required":true,"half_width":false}}},"block_order":["contact-name-2","contact-email-3","contact-dropdown-4","contact-body-5"],"settings":{"heading":"Drop us an email","heading_align":"text-center","image_position":"top","color_scheme":"1","full_width":false,"button_style":"btn btn--primary"}},"newsletter":{"type":"newsletter","blocks":{"newsletter-heading-0":{"type":"heading","settings":{"heading":"Sign up to our Newsletter","heading_size":"h5"}},"newsletter-text-1":{"type":"text","settings":{"enlarge_text":false}},"newsletter-form-2":{"type":"form","settings":{}}},"block_order":["newsletter-heading-0","newsletter-text-1","newsletter-form-2"],"settings":{"overlay_position":"justify-center","text_align":"text-center","color_scheme":"default","full_width":true}}},"order":["main","image-banner","form","newsletter"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_TBVdHL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_QhAnj3": {
+          "type": "heading",
+          "settings": {
+            "heading": "Contact Us",
+            "heading_size": "h2",
+            "heading_h1": false
+          }
+        },
+        "text_w4eFqt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>To send a message to our team, please enter your details and message into the boxes below. We will aim to answer all queries within two working days. Alternatively, you can call us on +44 (0)141 613 2525. If your question is about our order process, payment information, or even our warehouse, you might be able to find your answer quickly on one of the below information pages.</p><p><a href=\"https://www.oneforfun.com/order-process\">Placing an order</a> | <a href=\"https://www.oneforfun.com/payment-methods\">Payment information</a> | <a href=\"https://www.oneforfun.com/returns\">Returns process</a> | <a href=\"https://www.oneforfun.com/info-and-help/image\">Product images</a> | <a href=\"https://www.oneforfun.com/warehouse\">Our warehouse</a> | <a href=\"https://www.oneforfun.com/faq\">Frequently asked questions</a></p><p>* Required Fields</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_QhAnj3",
+        "text_w4eFqt"
+      ],
+      "settings": {
+        "text_position": "justify-start",
+        "text_align": "text-start",
+        "mob_center_text": true,
+        "wide": false,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "main": {
+      "type": "main-contact",
+      "disabled": true,
+      "settings": {
+        "show_contact_title": false,
+        "heading_align": "text-center"
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "blocks": {
+        "contact-name-2": {
+          "type": "name",
+          "settings": {
+            "required": true,
+            "half_width": true
+          }
+        },
+        "contact-email-3": {
+          "type": "email",
+          "settings": {
+            "required": true,
+            "half_width": true
+          }
+        },
+        "contact-dropdown-4": {
+          "type": "dropdown",
+          "settings": {
+            "title": "How can we help?",
+            "options": "Option 1\nOption 2\nOption 3",
+            "half_width": false
+          }
+        },
+        "contact-body-5": {
+          "type": "body",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        }
+      },
+      "block_order": [
+        "contact-name-2",
+        "contact-email-3",
+        "contact-dropdown-4",
+        "contact-body-5"
+      ],
+      "settings": {
+        "heading": "Drop us an email",
+        "heading_align": "text-center",
+        "image_position": "top",
+        "color_scheme": "1",
+        "full_width": false,
+        "button_style": "btn btn--primary"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "newsletter-heading-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sign up to our Newsletter",
+            "heading_size": "h5"
+          }
+        },
+        "newsletter-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Be the first to know about new collections and exclusive offers.</p>",
+            "enlarge_text": false
+          }
+        },
+        "newsletter-form-2": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "newsletter-heading-0",
+        "newsletter-text-1",
+        "newsletter-form-2"
+      ],
+      "settings": {
+        "overlay_position": "justify-center",
+        "text_align": "text-center",
+        "color_scheme": "default",
+        "full_width": true,
+        "transparent_content_color": "#ffffff",
+        "tint_color": "#000000",
+        "tint_opacity": 20
+      }
+    }
+  },
+  "order": [
+    "rich_text_TBVdHL",
+    "main",
+    "form",
+    "newsletter"
+  ]
+}
