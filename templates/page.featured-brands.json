@@ -49,10 +49,232 @@
         "full_width": true,
         "prevent_animation": false
       }
+    },
+    "media_grid_yNayCz": {
+      "type": "media-grid",
+      "blocks": {
+        "media_iyH7gG": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-angrybirds_0920.png",
+            "link_url": "",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_CddFfJ": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-animigos_0920.png",
+            "link_url": "",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_r8aiHi": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-juniorexplorer_0920.png",
+            "link_url": "",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_hdNQGz": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-lumez_0920.png",
+            "link_url": "",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_nzgwFM": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-partyspirit_0920.png",
+            "link_url": "",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_9EPRMp": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-sillysocks_0920.png",
+            "link_url": "",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p>  </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_CRQyBV": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-zoom_0920.png",
+            "link_url": "",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_hr9mhD": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-elektra_0920.png",
+            "link_url": "",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_YGAqUg": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-megasaurs_0920.png",
+            "link_url": "",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_997qRf": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-ozbozz_0920.png",
+            "link_url": "",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_iyH7gG",
+        "media_CddFfJ",
+        "media_r8aiHi",
+        "media_hdNQGz",
+        "media_nzgwFM",
+        "media_9EPRMp",
+        "media_CRQyBV",
+        "media_hr9mhD",
+        "media_YGAqUg",
+        "media_997qRf"
+      ],
+      "settings": {
+        "title": "",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "gallery_cols_max": 4,
+        "mobile_carousel": false,
+        "gallery_cols_min": "1",
+        "fixed_height_desktop": 180,
+        "fixed_height_mobile": 300,
+        "section_color_scheme": "none",
+        "color_scheme": "white",
+        "transparent_content_color": "#ffffff"
+      }
     }
   },
   "order": [
     "main",
-    "rich_text_QkatVp"
+    "rich_text_QkatVp",
+    "media_grid_yNayCz"
   ]
 }
