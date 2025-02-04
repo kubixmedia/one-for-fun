@@ -879,8 +879,8 @@ class StoreHeader extends HTMLElement {
     this.resizeHandler = this.resizeHandler || this.updateHeaderHeights.bind(this);
     window.addEventListener('on:debounced-resize', this.resizeHandler);
 
-    this.mobNavToggle.addEventListener('click', window.setHeaderHeight);
-    this.mobNavToggle.addEventListener('click', this.setHeaderEnd.bind(this));
+    this.mobNavToggle?.addEventListener('click', window.setHeaderHeight);
+    this.mobNavToggle?.addEventListener('click', this.setHeaderEnd.bind(this));
 
     if (this.dataset.isSticky) {
       this.breakpointChangeHandler = this.breakpointChangeHandler || this.init.bind(this);

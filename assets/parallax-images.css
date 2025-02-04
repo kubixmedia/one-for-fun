@@ -11,7 +11,6 @@
 .parallax-images__image img {
   translate: var(--horizontal) var(--vertical);
   max-width: 50%;
-
 }
 @media (max-width: 768px) {
   .parallax-images__image img {
@@ -20,5 +19,5 @@
   }
 }
 .parallax-images__container {
-  width: 100%
+  width: 100%;
 }
