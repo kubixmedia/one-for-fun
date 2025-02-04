@@ -2,7 +2,7 @@
   assign show = false
   if section.settings.show_to == 'all' or request.design_mode
     assign show = true
-  elsif customer and and section.settings.show_to == 'customer'
+  elsif customer and section.settings.show_to == 'customer'
     assign show = true
   elsif section.settings.show_to == 'guest'
     unless customer

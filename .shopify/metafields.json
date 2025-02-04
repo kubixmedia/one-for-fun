@@ -70,6 +70,66 @@
         "name": "number_integer",
         "category": "NUMBER"
       }
+    },
+    {
+      "key": "pre_order_date",
+      "namespace": "custom",
+      "name": "Pre Order Date",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "age",
+      "namespace": "custom",
+      "name": "Age",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "volume_per_carton",
+      "namespace": "custom",
+      "name": "Volume per carton ",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "display_size",
+      "namespace": "custom",
+      "name": "Display Size",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "availability",
+      "namespace": "custom",
+      "name": "Availability",
+      "description": "What countries the product is available ",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "cable_unit",
+      "namespace": "custom",
+      "name": "Cable unit",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
     }
   ],
   "variant": [],

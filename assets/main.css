@@ -968,6 +968,9 @@ address {
 .self-center{
   align-self: center;
 }
+.self-end {
+  align-self: flex-end;
+}
 .overflow-auto{
   overflow: auto;
 }
