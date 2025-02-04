@@ -1,0 +1,23 @@
+.parallax-images {
+  display: block;
+  position: relative;
+}
+.parallax-images__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.parallax-images__image img {
+  translate: var(--horizontal) var(--vertical);
+  max-width: 50%;
+}
+@media (max-width: 768px) {
+  .parallax-images__image img {
+    translate: var(--horizontal-mobile) var(--vertical-mobile);
+    max-width: 100px;
+  }
+}
+.parallax-images__container {
+  width: 100%;
+}

@@ -114,7 +114,7 @@ if (!customElements.get('announcement-bar')) {
         });
 
         mobNav.appendChild(mobNavUl);
-        this.menu.appendChild(mobNav);
+        this.menu?.appendChild(mobNav);
       } else if (theme.mediaMatches.md && menuAnnouncementLinks) {
         menuAnnouncementLinks.remove();
       }
