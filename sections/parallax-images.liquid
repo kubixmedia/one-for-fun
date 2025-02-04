@@ -31,7 +31,8 @@
           class="parallax-images__image flex {% if block.settings.right %}justify-end{% else %}justify-start{% endif %}"
           {{ block.shopify_attributes }}
         >
-          {{ block.settings.image | image_url: width: block.settings.image.width | image_tag: loading: 'lazy' }}
+          {%  assign image_width = block.settings.image.width | at_most: 350  %}
+          {{ block.settings.image | image_url: width: image_width | image_tag: loading: 'lazy' }}
         </div>
       </div>
     {% endfor %}
