@@ -9,6 +9,59 @@
  */
 {
   "sections": {
+    "custom_slider_UHJCi6": {
+      "type": "custom-slider",
+      "blocks": {
+        "slide_hTHxzA": {
+          "type": "slide",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Hero-Slides-bg-min.png",
+            "background_color": "#20CBD4",
+            "url": "shopify://collections",
+            "background_text": "shopify://shop_images/Slider-1.png",
+            "overlay_text_align": "text-start",
+            "mob_center_text": false,
+            "text_max": 515,
+            "subheading": "",
+            "heading": "The Fun||Starts at <strong>One!</strong>",
+            "heading_size": "h0",
+            "heading_h1": false,
+            "text": "<p>One For Fun is a leading wholesaler and distributor of toys, games, gadgets and more, for both the UK and international markets.</p>",
+            "enlarge_text": true,
+            "button_1_label": "Shop Now",
+            "button_1_link": "shopify://collections",
+            "button_1_style": "btn btn--primary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn btn--primary",
+            "transparent_content_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "slide_hTHxzA"
+      ],
+      "custom_css": [
+        ".text-overlay__heading,.text-overlay__heading * {line-height: 100%;}"
+      ],
+      "settings": {
+        "show_to": "all",
+        "height_mode": "auto",
+        "fixed_height_desktop": 600,
+        "fixed_height_mobile": 350,
+        "mobile_stacked": false,
+        "nav_style": "slideshow_nav_lines",
+        "pagination_color": "#20cbd4",
+        "nav_position": "justify-center",
+        "transition": "slide",
+        "autoplay": true,
+        "slider_pause": false,
+        "autoplay_speed": 5,
+        "shape": true,
+        "accessibility_info": "",
+        "prevent_animation": true
+      }
+    },
     "custom_liquid_dQVUqi": {
       "type": "custom-liquid",
       "settings": {
@@ -379,6 +432,7 @@
     }
   },
   "order": [
+    "custom_slider_UHJCi6",
     "custom_liquid_dQVUqi",
     "featured_collection_nWtAmk",
     "parallax_images_rwBCKx",
