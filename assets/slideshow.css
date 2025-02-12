@@ -25,7 +25,7 @@ slide-show {
   pointer-events: initial;
 }
 .slideshow__slide--shape {
-  clip-path: polygon(0% 0%, 0% 100%, 85% calc(100% - 50px), 100% 100%, 100% 0%);
+  clip-path: polygon(0% 0%, 0% calc(100% - 40px), 85% calc(100% - 90px), 100% calc(100% - 40px), 100% 0%);
 }
 .js .slideshow__slide .text-overlay {
   margin-bottom: var(--ctrl-bottom);
@@ -281,14 +281,25 @@ slide-show {
 }
 
 
-.slideshow__text .text-overlay > *:not(img) {
-  max-width: var(--max-width)
+.slideshow__text .text-overlay > *:not(img):not(picture):not(video) {
+  max-width: var(--max-width);
+  width: 50%;
+  position: relative;
+  z-index: 2;
 }
-.slideshow__text .text-overlay > img {
-  z-index: 0;
+.slideshow__text .text-overlay > img, .slideshow__text .text-overlay > picture, .slideshow__text .text-overlay > video {
+  z-index: 1;
 }
-.slideshow__text .text-overlay:has(> img) {
+.slideshow__text .text-overlay:has(> img:not(:only-child)), .slideshow__text .text-overlay:has(> picture:not(:only-child)), .slideshow__text .text-overlay:has(> video:not(:only-child)) {
   padding: calc(12 * var(--space-unit));
+}
+.slideshow__text .text-overlay {
   /* copied box shadow from figma */
   box-shadow: -206px 66px 61px 0px rgba(0, 0, 0, 0.00), -132px 43px 55px 0px rgba(0, 0, 0, 0.01), -74px 24px 47px 0px rgba(0, 0, 0, 0.03), -33px 11px 35px 0px rgba(0, 0, 0, 0.05), -8px 3px 19px 0px rgba(0, 0, 0, 0.06);
+}
+.slideshow__overlay-image {
+  position: absolute;
+  bottom: -25px;
+  right: -25px;
+  max-width: 40%;
 }

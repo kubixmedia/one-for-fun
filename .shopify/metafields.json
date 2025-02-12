@@ -18,7 +18,18 @@
   "company_location": [],
   "location": [],
   "market": [],
-  "order": [],
+  "order": [
+    {
+      "key": "currency",
+      "namespace": "custom",
+      "name": "Currency",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    }
+  ],
   "page": [],
   "product": [
     {
@@ -129,6 +140,16 @@
       "type": {
         "name": "single_line_text_field",
         "category": "TEXT"
+      }
+    },
+    {
+      "key": "data_sheet",
+      "namespace": "custom",
+      "name": "Data Sheet",
+      "description": "",
+      "type": {
+        "name": "list.file_reference",
+        "category": "REFERENCE"
       }
     }
   ],

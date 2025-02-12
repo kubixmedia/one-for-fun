@@ -50,6 +50,7 @@
 
   #{{ section.id }} .slideshow-ctrl {
     --text-color: {{ section.settings.pagination_color.red }} {{ section.settings.pagination_color.green }} {{ section.settings.pagination_color.blue }};
+  {% if section.settings.shape %}bottom: 0{% endif %}
   }
 
   {%- if section.settings.height_mode == 'fixed' -%}
@@ -183,23 +184,19 @@
             </div>
           {%- endif -%}
 
-          {%- if block.settings.heading != blank or block.settings.subheading != blank or block.settings.text != blank or block.settings.button_1_label != blank or block.settings.button_2_label != blank -%}
+          {%- if block.settings.heading != blank or block.settings.subheading != blank or block.settings.text != blank or block.settings.button_1_label != blank or block.settings.button_2_label != blank or block.settings.background_text != blank or block.settings.background_text_video != blank -%}
             <div class="slideshow__text container flex {{ overlay_position | first }}{% if block.settings.mob_center_text %} md-down:center{% endif %}{% if section.settings.mobile_stacked %} md-down:p-xl h-full md:h-auto{% endif %}"{% if settings.animations_enabled != "disabled" and section.settings.prevent_animation == false %} data-cc-animate{% endif %}>
               <div class="text-overlay max-w-text-large w-full {{ block.settings.overlay_text_align }}{% if block.settings.mob_center_text %} md-down:text-center{% endif %}{% if section.settings.mobile_stacked %} md-down:p-xl h-full md:h-auto{% endif %} has-motion">
-                {% if block.settings.background_text %}
-                  {% render 'image', image: block.settings.background_text,
-                  widths: '320, 460, 600, 700, 800, 900, 1200',
-                  src_width: block.settings.background_text.width,
-                  sizes: false,
-                  class: 'img-fit img-fit--cover'%}
-                {% endif %}
+                {% assign class = '' %}
                 {%- if block.settings.subheading != blank -%}
+                  {% assign class = 'img-fit' %}
                   <p class="text-overlay__block subheading">
                     {{- block.settings.subheading -}}
                   </p>
                 {%- endif -%}
 
                 {%- if block.settings.heading != blank -%}
+                  {% assign class = 'img-fit' %}
                   <{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %} class="text-overlay__heading {{ block.settings.heading_size }}">
                     <span class="font-body">
                       {{ block.settings.heading | replace: '||', '<br>'| replace: 'strong>', 'span class="font-heading">' }}
@@ -208,12 +205,14 @@
                 {%- endif -%}
 
                 {%- if block.settings.text != blank -%}
+                  {% assign class = 'img-fit' %}
                   <div class="text-overlay__block rte{% if block.settings.enlarge_text %} enlarge-text{% endif %}">
                     {{ block.settings.text }}
                   </div>
                 {%- endif -%}
 
                 {%- if block.settings.button_1_label != blank or block.settings.button_2_label != blank -%}
+                  {% assign class = 'img-fit' %}
                   <div class="text-overlay__buttons inline-flex flex-wrap items-start mt-4 {% if block.settings.overlay_text_align == 'text-start' %} justify-start{% elsif block.settings.overlay_text_align == 'text-end' %} justify-end{% else %} justify-center{% endif %}{% if block.settings.mob_center_text %} md-down:center{% endif %}">
                     {%- if block.settings.button_1_label != blank -%}
                       <a class="{{ block.settings.button_1_style }}" {% if block.settings.button_1_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ block.settings.button_1_link }}"{% endif %}>
@@ -228,9 +227,30 @@
                     {%- endif -%}
                   </div>
                 {%- endif -%}
+                {% if block.settings.background_text != blank %}
+                  {%- render 'image-desktop-and-mobile',
+                  class: class,
+                  desktop_image: block.settings.background_text,
+                  mobile_image: block.settings.background_text_mobile | default: block.settings.background_text,
+                  src_width_mobile: 980,
+                  widths_mobile: '480, 980, 1200, 1400',
+                  src_width_desktop: 1400,
+                  widths_desktop: '480, 980, 1200, 1400, 1600, 1920, 2560, 3200',
+                  lazy_load: lazy_load,
+                  sizes: sizes,
+                  block: block
+                -%}
+                {% elsif block.settings.background_text_video %}
+                  {{ block.settings.background_text_video | video_tag: playsinline: true, autoplay: turned, muted: true, controls: false, poster: '', class: class | replace: '<img ', '<img loading="lazy" hidden ' }}
+                {% endif %}
+                {% if block.settings.overlay_image != blank %}
+                  {{ block.settings.overlay_image |  image_url: width: block.settings.overlay_image.width | image_tag: loading: 'lazy', class: 'slideshow__overlay-image'  }}
+                {% endif %}
               </div>
+
             </div>
           {%- endif -%}
+
         </div>
       {%- endfor -%}
     </div>
@@ -501,7 +521,7 @@
         {
             "type": "slide",
             "name": "Slide",
-            "limit": 5,
+            "limit": 6,
             "settings": [
                 {
                     "type": "image_picker",
@@ -526,6 +546,11 @@
                     "label": "Image link (optional)"
                 },
                 {
+                  "type":"image_picker",
+                  "id":"overlay_image",
+                  "label":"Overlay Image"
+                },
+                {
                     "type": "header",
                     "content": "Text overlay"
                 },
@@ -533,6 +558,21 @@
                   "type":"image_picker",
                   "id":"background_text",
                   "label":"Text background"
+                },
+                {
+                  "type":"image_picker",
+                  "id":"background_text_mobile",
+                  "label":"Text background Mobile"
+                },
+                {
+                  "type":"video",
+                  "id":"background_text_video",
+                  "label":"Text background Video"
+                },
+                {
+                  "type":"video",
+                  "id":"background_text_mobile_video",
+                  "label":"Text background Mobile Video"
                 },
                 {
                     "type": "select",
