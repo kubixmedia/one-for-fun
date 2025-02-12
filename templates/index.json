@@ -18,6 +18,7 @@
             "image_desktop": "shopify://shop_images/Hero-Slides-bg-min.png",
             "background_color": "#20CBD4",
             "url": "shopify://collections",
+            "overlay_image": "shopify://shop_images/25dd4c8cccdefbd49d954bf18d3636a3.png",
             "background_text": "shopify://shop_images/Slider-1.png",
             "overlay_text_align": "text-start",
             "mob_center_text": false,
