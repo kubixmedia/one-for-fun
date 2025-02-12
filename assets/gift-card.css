@@ -309,9 +309,6 @@ address {
   }
 }
 @media (min-width: 769px) {
-  .enlarge-text {
-    font-size: 1.5em;
-  }
   .contained-heading {
     max-width: 865px;
   }
