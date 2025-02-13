@@ -168,7 +168,7 @@
 }
 
 :root {
-  --product-details-block-margin: calc(8 * var(--space-unit));
+  --product-details-block-margin: calc(6 * var(--space-unit));
   --product-details-block-margin-sm: calc(3 * var(--space-unit));
   --product-info-block-margin: calc(6 * var(--space-unit));
 }
@@ -326,10 +326,6 @@ quantity-input + .product-info__add-button {
 
 .product-details .spr-header-title {
   display: none;
-}
-
-.product-details__text {
-  font-size: calc(var(--body-font-size) * var(--fluid-1-25));
 }
 
 .product-inventory__status::before {

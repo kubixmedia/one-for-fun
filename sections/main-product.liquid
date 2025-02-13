@@ -138,7 +138,19 @@
             <div class="product-info__block" {{ block.shopify_attributes }}>
               {% render block %}
             </div>
-
+          {%- when 'delivery-countdown' -%}
+            <div class="product-info__block" {{ block.shopify_attributes }}>
+              {%- render 'delivery-countdown'
+              cutoff: block.settings.next_day_cutoff,
+              monday: block.settings.monday,
+              tuesday: block.settings.tuesday,
+              wednesday: block.settings.wednesday,
+              thursday: block.settings.thursday,
+              friday: block.settings.friday,
+              saturday: block.settings.saturday,
+              sunday: block.settings.sunday
+            -%}
+            </div>
           {%- when 'vendor-sku' -%}
             {%- if block.settings.show_vendor or block.settings.show_sku or block.settings.show_barcode -%}
               <div class="product-info__block product-info__block--sm product-vendor-sku text-sm" {{ block.shopify_attributes }}>
@@ -1148,6 +1160,63 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type":"delivery-countdown",
+      "name":"Delivery Countdown",
+      "settings": [
+        {
+          "type": "text",
+          "id": "next_day_cutoff",
+          "label": "Next Day Cutoff hour",
+          "info": "21",
+          "default": "21"
+        },
+        {
+          "type": "richtext",
+          "id": "delivery_information",
+          "label": "Delivery Information"
+        },
+        {
+          "type": "paragraph",
+          "content": "Show delivery countdown messaging on the following days"
+        },
+        {
+          "type": "checkbox",
+          "id": "monday",
+          "label": "Monday"
+        },
+        {
+          "type": "checkbox",
+          "id": "tuesday",
+          "label": "Tuesday"
+        },
+        {
+          "type": "checkbox",
+          "id": "wednesday",
+          "label": "Wednesday"
+        },
+        {
+          "type": "checkbox",
+          "id": "thursday",
+          "label": "Thursday"
+        },
+        {
+          "type": "checkbox",
+          "id": "friday",
+          "label": "Friday"
+        },
+        {
+          "type": "checkbox",
+          "id": "saturday",
+          "label": "Saturday"
+        },
+        {
+          "type": "checkbox",
+          "id": "sunday",
+          "label": "Sunday"
+        }
+      ]
     },
     {
       "type": "buy-buttons",
