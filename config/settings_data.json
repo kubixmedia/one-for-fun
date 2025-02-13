@@ -359,7 +359,7 @@
     "heading_uppercase": false,
     "subheading_uppercase": false,
     "button_text_uppercase": false,
-    "heading_scale_start": "4",
+    "heading_scale_start": "2",
     "body_font": "sans-serif",
     "custom_body": "@font-face {font-family: \"made-tommy\"; src: url('{{\"made_tommy_soft_regular.otf\" | file_url }}') format(\"otf\"); font-weight: 400; font-style: normal;\n}\n@font-face {font-family: \"made-tommy\"; src: url('{{\"made_tommy_soft_medium.otf\" | file_url }}') format(\"otf\"); font-weight: 500; font-style: normal;\n}\n@font-face {font-family: \"made-tommy\"; src: url('{{\"made_tommy_soft_bold.otf\" | file_url }}') format(\"otf\"); font-weight: 700; font-style: normal;\n}\n:root {--body-font-family: \"made-tommy\", {{settings.body_font.family }}, {{settings.body_font.fallback_families }};}",
     "navigation_font": "sans-serif",
