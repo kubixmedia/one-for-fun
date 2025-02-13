@@ -163,10 +163,10 @@
             "text": "<h3>Product Description</h3>{{ product.description }}"
           }
         },
-        "custom_liquid_n3fcrN": {
-          "type": "custom-liquid",
+        "downloads_zR6yNJ": {
+          "type": "downloads",
           "settings": {
-            "custom_liquid": "Downloads"
+            "title": "Downloads"
           }
         },
         "custom_liquid_Cwen9t": {
@@ -190,7 +190,7 @@
       },
       "block_order": [
         "richtext_Midzzm",
-        "custom_liquid_n3fcrN",
+        "downloads_zR6yNJ",
         "custom_liquid_Cwen9t",
         "payment_methods_7gP4dk"
       ],

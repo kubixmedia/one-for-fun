@@ -328,10 +328,6 @@ quantity-input + .product-info__add-button {
   display: none;
 }
 
-.product-details__text {
-  font-size: calc(var(--body-font-size) * var(--fluid-1-25));
-}
-
 .product-inventory__status::before {
   content: "";
   display: inline-block;
