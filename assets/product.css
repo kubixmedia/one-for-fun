@@ -422,3 +422,10 @@ quantity-input + .product-info__add-button {
     padding-bottom: calc(8 * var(--space-unit));
   }
 }
+.product-details__feature {
+  border-bottom: 1px dashed rgba(42, 43, 42, 0.15);
+  padding: calc(2 * var(--space-unit)) 0;
+}
+.product-details__feature p:first-of-type {
+  font-weight: 500;
+}

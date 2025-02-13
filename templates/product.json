@@ -169,10 +169,59 @@
             "title": "Downloads"
           }
         },
-        "custom_liquid_Cwen9t": {
-          "type": "custom-liquid",
+        "features_mWmj4n": {
+          "type": "features",
           "settings": {
-            "custom_liquid": "Features<br>\ntable rows"
+            "title": "Features"
+          }
+        },
+        "feature_row_KyTQNi": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Age Recommendation",
+            "feature": "Placeholder"
+          }
+        },
+        "feature_row_CQFmTH": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Volume Per Carton",
+            "feature": "Placeholder"
+          }
+        },
+        "feature_row_6KeEAx": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Delivery Restriction",
+            "feature": "Placeholder"
+          }
+        },
+        "feature_row_CpEgJd": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Display Size",
+            "feature": "Placeholder"
+          }
+        },
+        "feature_row_77TibN": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Availability",
+            "feature": "Placeholder"
+          }
+        },
+        "feature_row_MbxUFK": {
+          "type": "feature_row",
+          "settings": {
+            "title": "EAN",
+            "feature": "Placeholder"
+          }
+        },
+        "feature_row_Gajx4p": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Cube Unit",
+            "feature": "Placeholder"
           }
         },
         "payment_methods_7gP4dk": {
@@ -191,7 +240,14 @@
       "block_order": [
         "richtext_Midzzm",
         "downloads_zR6yNJ",
-        "custom_liquid_Cwen9t",
+        "features_mWmj4n",
+        "feature_row_KyTQNi",
+        "feature_row_CQFmTH",
+        "feature_row_6KeEAx",
+        "feature_row_CpEgJd",
+        "feature_row_77TibN",
+        "feature_row_MbxUFK",
+        "feature_row_Gajx4p",
         "payment_methods_7gP4dk"
       ],
       "settings": {}
