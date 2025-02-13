@@ -384,7 +384,10 @@
               {%- if block.settings.title != blank -%}
                 <h3 class="h5 mb-6">{{- block.settings.title | escape -}}</h3>
               {%- endif -%}
-              {{ content }}
+              <div class="flex flex-wrap gap-3">
+                {{ content }}
+              </div>
+
             </div>
           {% endif %}
       {%- endcase -%}
