@@ -308,7 +308,8 @@
   </a>
 
   {%- sections 'header-group' -%}
-  {% if customer or template.name == 'index' or request.design_mode %}
+  {% assign dev = true %}
+  {% if customer or template.name == 'index' or request.design_mode or dev %}
     <main id="main-content">
       {%- liquid
         assign show_breadcrumbs = false

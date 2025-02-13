@@ -1,0 +1,15 @@
+<script src="{{ 'delivery-countdown.js' | asset_url }}" defer="defer"></script>
+{{ 'delivery-countdown.css' |  asset_url |  stylesheet_tag: defer: 'defer' }}
+<delivery-countdown
+    data-cutoff="{{ cutoff | default: 12 }}"
+    data-hours="{{ 'general.next_day_delivery_cutoff.hours_minutes_html' | t }}"
+    data-minutes="{{ 'general.next_day_delivery_cutoff.minutes_html' | t }}"
+    data-missed="{{ 'general.next_day_delivery_cutoff.missed' | t }}"
+    data-monday="{{ monday }}"
+    data-tuesday="{{ tuesday }}"
+    data-wednesday="{{ wednesday }}"
+    data-thursday="{{ thursday }}"
+    data-friday="{{ friday }}"
+    data-saturday="{{ saturday }}"
+    data-sunday="{{ sunday }}"
+></delivery-countdown>

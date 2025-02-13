@@ -6,6 +6,11 @@
       "language_label": "Language",
       "update": "Update"
     },
+    "next_day_delivery_cutoff": {
+      "hours_minutes_html": "Order within <strong>{{ hours }} hours, {{ minutes }} minutes<\/strong> for Next Day Delivery",
+      "minutes_html": "Order within <strong>{{ minutes }} minutes<\/strong> for Next Day Delivery",
+      "missed": "Sorry, you've missed our cut off for next day delivery"
+    },
     "icon_labels": {
       "menu": "Menu",
       "play": "Play",
