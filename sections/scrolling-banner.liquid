@@ -39,9 +39,9 @@
     {%- case block.type -%}
       {%- when 'text' -%}
         {%- if block.settings.link != blank -%}
-          <a class="scrolling-banner__item scrolling-banner__text {{ block.settings.heading_size }}{% if block.settings.font == 'body' %} font-body{% endif %}" href="{{ block.settings.link }}">{{ block.settings.text }}</a>
+        <a class="scrolling-banner__item scrolling-banner__text {{ block.settings.heading_size }}{% if block.settings.font == 'body' %} font-body{% endif %}" href="{{ block.settings.link }}" {% if block.settings.text_color.alpha == 1 %}style="color:{{ block.settings.text_color }}"{% endif %}>{{ block.settings.text }}</a>
         {%- else -%}
-          <span class="scrolling-banner__item scrolling-banner__text {{ block.settings.heading_size }}{% if block.settings.font == 'body' %} font-body{% endif %}">{{ block.settings.text | escape }}</span>
+          <span class="scrolling-banner__item scrolling-banner__text {{ block.settings.heading_size }}{% if block.settings.font == 'body' %} font-body{% endif %}"{% if block.settings.text_color.alpha == 1 %}style="color:{{ block.settings.text_color }}"{% endif %}>{{ block.settings.text | escape }}</span>
         {%- endif -%}
 
       {%- when 'icon' -%}
@@ -352,6 +352,11 @@
             }
           ],
           "default": "h1"
+        },
+        {
+          "type":"color",
+          "id":"text_color",
+          "label":"Text Color"
         }
       ]
     },

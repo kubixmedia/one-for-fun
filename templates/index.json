@@ -63,17 +63,6 @@
         "prevent_animation": true
       }
     },
-    "custom_liquid_dQVUqi": {
-      "type": "custom-liquid",
-      "settings": {
-        "show_to": "all",
-        "custom_liquid": "<h2>Custom Slider</h2>\n<ul>\n<li>Background Image (contained)</li>\n<li>Background Color (full width)</li>\n<li>Overlay Image (bottom right)</li>\n<li>Slide Link</li>\n<li>Autoplay toggle</li>\n</ul>",
-        "section_height": "default",
-        "full_width": false,
-        "dividers": "none",
-        "prevent_animation": false
-      }
-    },
     "featured_collection_nWtAmk": {
       "type": "featured-collection",
       "settings": {
@@ -151,7 +140,8 @@
             "text": "Innovating Fun.",
             "link": "",
             "font": "heading",
-            "heading_size": "h1"
+            "heading_size": "h0",
+            "text_color": "#ef4856"
           }
         },
         "text_BLdpQw": {
@@ -160,7 +150,8 @@
             "text": "Ensuring Safety.",
             "link": "",
             "font": "heading",
-            "heading_size": "h1"
+            "heading_size": "h0",
+            "text_color": "#ffc33b"
           }
         },
         "text_hyThWm": {
@@ -169,7 +160,8 @@
             "text": "Inspiring Play.",
             "link": "",
             "font": "heading",
-            "heading_size": "h1"
+            "heading_size": "h0",
+            "text_color": "#664e95"
           }
         }
       },
@@ -184,7 +176,7 @@
         "spacing": 40,
         "speed": 24,
         "direction": "normal",
-        "pausable": true,
+        "pausable": false,
         "color_scheme": "none",
         "dividers": "none",
         "prevent_animation": false
@@ -434,7 +426,6 @@
   },
   "order": [
     "custom_slider_UHJCi6",
-    "custom_liquid_dQVUqi",
     "featured_collection_nWtAmk",
     "parallax_images_rwBCKx",
     "scrolling-banner",

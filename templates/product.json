@@ -235,6 +235,13 @@
             "image": "shopify://shop_images/ShopPay_-_Color_0bdd2445-7372-4e87-9a84-3241cb8f080a_svg.png",
             "text2": ""
           }
+        },
+        "feature_row_6UMn7N": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Example",
+            "feature": "Hello"
+          }
         }
       },
       "block_order": [
@@ -248,9 +255,12 @@
         "feature_row_77TibN",
         "feature_row_MbxUFK",
         "feature_row_Gajx4p",
-        "payment_methods_7gP4dk"
+        "payment_methods_7gP4dk",
+        "feature_row_6UMn7N"
       ],
-      "settings": {}
+      "settings": {
+        "headings_override": "#2a2b2a"
+      }
     },
     "recommendations": {
       "type": "product-recommendations",
