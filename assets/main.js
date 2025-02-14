@@ -1849,9 +1849,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (theme.settings.externalLinksNewTab) {
     document.addEventListener('click', (evt) => {
       const link = evt.target.tagName === 'A' ? evt.target : evt.target.closest('a');
-      if (link && link.tagName === 'A' && window.location.hostname !== new URL(link.href).hostname) {
-        link.target = '_blank';
+      if (!link.href.startsWith('javascript:') && !link.hasAttribute('download')) {
+        if (link && link.tagName === 'A' && window.location.hostname !== new URL(link.href).hostname) {
+          link.target = '_blank';
+        }
       }
+
     });
   }
 

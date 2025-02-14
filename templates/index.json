@@ -373,15 +373,60 @@
         "button_style": "btn btn--primary"
       }
     },
-    "custom_liquid_UfPMfR": {
-      "type": "custom-liquid",
+    "custom_download_banner_FicNQi": {
+      "type": "custom-download-banner",
+      "blocks": {
+        "hover_image_WaPHHr": {
+          "type": "hover_image",
+          "settings": {
+            "image": "shopify://shop_images/Group_1744.png",
+            "left": 50,
+            "top": 50,
+            "scale": 1,
+            "left_hover": 50,
+            "top_hover": 50,
+            "scale_hover": 2
+          }
+        },
+        "hover_image_Nq8xk8": {
+          "type": "hover_image",
+          "settings": {
+            "image": "shopify://shop_images/25dd4c8cccdefbd49d954bf18d3636a3.png",
+            "left": 44,
+            "top": 52,
+            "scale": 0.4,
+            "left_hover": 76,
+            "top_hover": 74,
+            "scale_hover": 2
+          }
+        },
+        "hover_image_AtNKjk": {
+          "type": "hover_image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2024-10-07_at_15.15.11_1.png",
+            "left": 40,
+            "top": 42,
+            "scale": 0.1,
+            "left_hover": 26,
+            "top_hover": -2,
+            "scale_hover": 0.5
+          }
+        }
+      },
+      "block_order": [
+        "hover_image_WaPHHr",
+        "hover_image_Nq8xk8",
+        "hover_image_AtNKjk"
+      ],
       "settings": {
-        "show_to": "all",
-        "custom_liquid": "Banner\n<ul>\n<li>Background Color</li>\n<li>Background shape & color</li>\n<li>Image with hover</li>\n<li>Overlay Image</li>\n</ul>",
-        "section_height": "default",
-        "full_width": false,
-        "dividers": "none",
-        "prevent_animation": false
+        "title": "Download Our 2024 Catalogue!",
+        "text_color": "#ffffff",
+        "download_text": "Download Now",
+        "download_link": "https://cdn.shopify.com/s/files/1/0844/7416/7644/files/SV22058_10_2024_EN71.pdf?v=1739448151",
+        "background": "radial-gradient(rgba(248, 171, 99, 1) 51.99%, rgba(245, 135, 32, 1) 100%)",
+        "add_shape": false,
+        "shape_color": "#e83c4d",
+        "overlay_image": "shopify://shop_images/268d9ae828b8f7f66526ba0725848adf.png"
       }
     },
     "newsletter_8qYTFa": {
@@ -433,7 +478,7 @@
     "custom_liquid_m3fNyL",
     "rich_text_EWLmPY",
     "contact_form_9gHCWb",
-    "custom_liquid_UfPMfR",
+    "custom_download_banner_FicNQi",
     "newsletter_8qYTFa"
   ]
 }
