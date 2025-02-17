@@ -49,6 +49,7 @@
     padding-top: calc(5 * var(--space-unit));
   }
 }
+
 @media (min-width: 1024px) {
   .product-details__highlight .h3,
 .product-details__highlight .rte {

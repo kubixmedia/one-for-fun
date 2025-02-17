@@ -94,7 +94,9 @@
   <link rel="stylesheet" href="{{ 'model-viewer.css' | asset_url }}" media="print" onload="this.media='all'">
   <script src="{{ 'product-model.js' | asset_url }}" defer></script>
 {%- endif -%}
-
+<svg class="product__shape" xmlns="http://www.w3.org/2000/svg" width="1440" height="414" viewBox="0 0 1440 414" fill="none">
+  <path d="M1440 0V290L0 414V0H1440Z" fill="{{ section.settings.shape_color }}"/>
+</svg>
 <div class="container">
   <div class="product js-product" data-section="{{ section.id }}">
     <div id="product-media" class="product-media product-media--{{ section.settings.media_layout }}">
@@ -777,6 +779,12 @@
       "label": "Select the first available variant",
       "info": "When disabled, the first product media always shows by default.",
       "default": true
+    },
+    {
+      "type":"color",
+      "id":"shape_color",
+      "label":"Shape Color",
+      "default":"#B7E3E7"
     },
     {
       "type": "header",
