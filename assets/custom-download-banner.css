@@ -5,6 +5,8 @@
 }
 .download__overlay {
   margin-top: -70px;
+  position: relative;
+  z-index: 2;
 }
 .download__shape {
   position: absolute;
@@ -14,6 +16,7 @@
   width: auto;
   height: auto;
   max-height: calc(100% - 28px);
+  z-index: 1;
 }
 .download__image {
   position: absolute;
@@ -25,6 +28,11 @@
 }
 .download__hover {
   position: relative;
+  z-index: 2;
+}
+.download__content {
+  position: relative;
+  z-index: 2;
 }
 @media (hover: hover) {
   .download:hover .download__image {
@@ -51,6 +59,7 @@
     display: block;
   }
 }
+
 @media (min-width: 769px) {
   .download__content {
     text-align: right;

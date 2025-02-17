@@ -30,6 +30,9 @@
         <div
           class="parallax-images__image flex {% if block.settings.right %}justify-end{% else %}justify-start{% endif %}"
           {{ block.shopify_attributes }}
+          {% if settings.animations_enabled != 'disabled' and section.settings.prevent_animation == false %}
+            data-cc-animate
+          {% endif %}
         >
           {% assign most = block.settings.width |  default: 350 %}
           {%  assign image_width = block.settings.image.width | at_most: most  %}

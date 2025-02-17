@@ -23,12 +23,38 @@
             "overlay_text_align": "text-start",
             "mob_center_text": false,
             "text_max": 515,
+            "subheading": "Example Slide",
+            "heading": "The Fun||Starts at <strong>One!</strong>",
+            "heading_size": "h0",
+            "heading_h1": false,
+            "text": "<p>One For Fun is a leading wholesaler and distributor of toys, games, gadgets and more, for both the UK and international markets.</p>",
+            "enlarge_text": false,
+            "button_1_label": "Shop Now",
+            "button_1_link": "shopify://collections",
+            "button_1_style": "btn btn--primary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn btn--primary",
+            "transparent_content_color": "#ffffff"
+          }
+        },
+        "slide_MgtHBV": {
+          "type": "slide",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Hero-Slides-bg-min.png",
+            "background_color": "#20CBD4",
+            "url": "shopify://collections",
+            "overlay_image": "shopify://shop_images/19608-5transparent_1.png",
+            "background_text": "shopify://shop_images/Slider-1.png",
+            "overlay_text_align": "text-start",
+            "mob_center_text": false,
+            "text_max": 515,
             "subheading": "",
             "heading": "The Fun||Starts at <strong>One!</strong>",
             "heading_size": "h0",
             "heading_h1": false,
             "text": "<p>One For Fun is a leading wholesaler and distributor of toys, games, gadgets and more, for both the UK and international markets.</p>",
-            "enlarge_text": true,
+            "enlarge_text": false,
             "button_1_label": "Shop Now",
             "button_1_link": "shopify://collections",
             "button_1_style": "btn btn--primary",
@@ -40,7 +66,8 @@
         }
       },
       "block_order": [
-        "slide_hTHxzA"
+        "slide_hTHxzA",
+        "slide_MgtHBV"
       ],
       "custom_css": [
         ".text-overlay__heading,.text-overlay__heading * {line-height: 100%;}"
@@ -109,22 +136,34 @@
             "depth": 0.5
           }
         },
-        "image_6DUpC9": {
+        "image_TFhd3k": {
           "type": "image",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Screenshot_2024-10-07_at_15.15.11_1.png",
-            "vertical": 25,
-            "horizontal": -50,
+            "image": "shopify://shop_images/Screenshot_2024-10-07_at_12.42.42_1.png",
+            "vertical": 200,
+            "horizontal": 24,
+            "right": true,
+            "depth": 0.1,
+            "width": 350
+          }
+        },
+        "image_Y63yqT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/e_sv12330_a_3.png",
+            "vertical": 275,
+            "horizontal": 16,
             "right": false,
-            "depth": 0
+            "depth": 0.1,
+            "width": 250
           }
         }
       },
       "block_order": [
         "image_93XDnm",
         "image_VNKDwk",
-        "image_6DUpC9"
+        "image_TFhd3k",
+        "image_Y63yqT"
       ],
       "settings": {
         "show_to": "all",
@@ -493,7 +532,7 @@
         "download_text": "Download Now",
         "download_link": "https://cdn.shopify.com/s/files/1/0844/7416/7644/files/SV22058_10_2024_EN71.pdf?v=1739448151",
         "background": "radial-gradient(rgba(248, 171, 99, 1) 51.99%, rgba(245, 135, 32, 1) 100%)",
-        "add_shape": false,
+        "add_shape": true,
         "shape_color": "#e83c4d",
         "overlay_image": "shopify://shop_images/268d9ae828b8f7f66526ba0725848adf.png"
       }
