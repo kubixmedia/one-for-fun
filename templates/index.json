@@ -185,12 +185,10 @@
     "rich_text_UnbEnz": {
       "type": "rich-text",
       "blocks": {
-        "heading_tkNi6d": {
-          "type": "heading",
+        "single_image_9yhFFr": {
+          "type": "single_image",
           "settings": {
-            "heading": "Add Image Block",
-            "heading_size": "h2",
-            "heading_h1": false
+            "image": "shopify://shop_images/Group_1739.svg"
           }
         },
         "text_d6i3Lx": {
@@ -213,7 +211,7 @@
         }
       },
       "block_order": [
-        "heading_tkNi6d",
+        "single_image_9yhFFr",
         "text_d6i3Lx",
         "button_KEVBc4"
       ],
@@ -268,10 +266,11 @@
             "button_2_style": "btn btn--primary"
           }
         },
-        "subheading_GhtEwV": {
-          "type": "subheading",
+        "dual_image_mCAXR6": {
+          "type": "dual_image",
           "settings": {
-            "text": "Add Image bottom blocks"
+            "left": "shopify://shop_images/01ba8cd455eac34e5229dab4b4020cf8.png",
+            "right": "shopify://shop_images/car1880659b23217a465444649c79852ee7916be5b1p_1.png"
           }
         }
       },
@@ -279,7 +278,7 @@
         "heading_BFBNTn",
         "text_DanjrA",
         "button_DzVYYT",
-        "subheading_GhtEwV"
+        "dual_image_mCAXR6"
       ],
       "settings": {
         "show_to": "all",
@@ -419,6 +418,7 @@
         "hover_image_AtNKjk"
       ],
       "settings": {
+        "show_to": "all",
         "title": "Download Our 2024 Catalogue!",
         "text_color": "#ffffff",
         "download_text": "Download Now",

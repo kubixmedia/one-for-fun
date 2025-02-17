@@ -75,6 +75,19 @@
                 {%- endif -%}
               </div>
             {%- endif -%}
+          {% when 'single_image' %}
+            {% if block.settings.image %}
+              <div class="section__block{% if section.settings.text_align == 'text-start' %} mr-auto{% elsif section.settings.text_align == 'text-end' %} ml-auto{% else %} mx-auto{% endif %}">
+                {{ block.settings.image | image_url: width: block.settins.image.width | image_tag }}
+              </div>
+            {% endif %}
+            {% when 'dual_image' %}
+              {% if block.settings.left and block.settings.right %}
+                <div class="section__block{% if section.settings.text_align == 'text-start' %} mr-auto{% elsif section.settings.text_align == 'text-end' %} ml-auto{% else %} mx-auto{% endif %} flex justify-between rte__dual-image">
+                  {{ block.settings.left | image_url: width: block.settins.left.width | image_tag }}
+                  {{ block.settings.right | image_url: width: block.settins.left.right | image_tag }}
+                </div>
+              {% endif %}
         {%- endcase -%}
       {%- endfor -%}
     </div>
@@ -374,6 +387,28 @@
           "default": "btn btn--primary"
         }
       ]
+    },
+    {
+      "type":"single_image",
+      "name":"Single Image",
+      "settings": [{
+        "type":"image_picker",
+        "id":"image",
+        "label":"Image"
+      }]
+    },
+    {
+      "type":"dual_image",
+      "name":"Dual Image",
+      "settings": [{
+        "type":"image_picker",
+        "id":"left",
+        "label":"Left Image"
+      },{
+        "type": "image_picker",
+        "id":"right",
+        "label":"Right Image"
+      }]
     }
   ],
   "presets": [
