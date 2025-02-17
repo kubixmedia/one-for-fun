@@ -31,7 +31,8 @@
           class="parallax-images__image flex {% if block.settings.right %}justify-end{% else %}justify-start{% endif %}"
           {{ block.shopify_attributes }}
         >
-          {%  assign image_width = block.settings.image.width | at_most: 350  %}
+          {% assign most = block.settings.width |  default: 350 %}
+          {%  assign image_width = block.settings.image.width | at_most: most  %}
           {{ block.settings.image | image_url: width: image_width | image_tag: loading: 'lazy' }}
         </div>
       </div>
@@ -117,6 +118,11 @@
           "max": 1,
           "step": 0.1,
           "default": 0.1
+        },
+        {
+          "type":"number",
+          "id":"width",
+          "label":"Width"
         }
       ]
     }

@@ -2187,9 +2187,6 @@ ul {
   background-color: currentColor;
   vertical-align: middle;
 }
-.rte__dual-image img {
-  max-width: calc(50% - 16px);
-}
 .overlay {
   visibility: hidden;
   z-index: 30;
