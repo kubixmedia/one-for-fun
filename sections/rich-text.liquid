@@ -75,6 +75,12 @@
                 {%- endif -%}
               </div>
             {%- endif -%}
+          {% when 'single_image' %}
+            {% if block.settings.image %}
+              <div class="section__block{% if section.settings.text_align == 'text-start' %} mr-auto{% elsif section.settings.text_align == 'text-end' %} ml-auto{% else %} mx-auto{% endif %}">
+                {{ block.settings.image | image_url: width: block.settins.image.width | image_tag }}
+              </div>
+            {% endif %}
         {%- endcase -%}
       {%- endfor -%}
     </div>
@@ -374,6 +380,15 @@
           "default": "btn btn--primary"
         }
       ]
+    },
+    {
+      "type":"single_image",
+      "name":"Single Image",
+      "settings": [{
+        "type":"image_picker",
+        "id":"image",
+        "label":"Image"
+      }]
     }
   ],
   "presets": [

@@ -409,7 +409,7 @@
           {% if request.design_mode or content_stripped.size > 0 %}
             <div class="product-details__block" {{ block.shopify_attributes }}>
               {%- if block.settings.title != blank -%}
-                <h3 class="h5 mb-6">{{- block.settings.title | escape -}}</h3>
+                <h3 class="h3 mb-6">{{- block.settings.title | escape -}}</h3>
               {%- endif -%}
               <div class="flex flex-wrap gap-3">
                 {{ content }}
@@ -435,7 +435,7 @@
           {% if request.design_mode or feature_content_stripped.size > 0 %}
             <div class="product-details__block" {{ block.shopify_attributes }}>
               {%- if block.settings.title != blank -%}
-                <h3 class="h5">{{- block.settings.title | escape -}}</h3>
+                <h3 class="h3">{{- block.settings.title | escape -}}</h3>
               {%- endif -%}
               {{ feature_content }}
               {% unless feature_content_stripped.size > 0 %}
@@ -450,7 +450,8 @@
 {% if section.settings.headings_override.alpha == 1 %}
   {% style %}
       #shopify-section-{{ section.id }} {
-        --heading-color: {{ section.settings.headings_override.rgb }}
+        --heading-color: {{ section.settings.headings_override.rgb }};
+        --panel-heading-color: {{ section.settings.headings_override.rgb }};
       }
   {% endstyle %}
 {% endif %}

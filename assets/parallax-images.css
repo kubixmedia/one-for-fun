@@ -1,6 +1,7 @@
 .parallax-images {
   display: block;
   position: relative;
+  z-index: 10;
 }
 .parallax-images__image {
   position: absolute;
