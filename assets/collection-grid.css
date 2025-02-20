@@ -1,0 +1,19 @@
+.collection-grid__card {
+  aspect-ratio: 6/5;
+  border-radius: 12px;
+  background: radial-gradient(74.11% 50.08% at 50% 50%, rgba(255, 255, 255, 0.20) 51.99%, rgba(255, 255, 255, 0.00) 100%), var(--feature-color);
+  position: relative;
+}
+.collection-grid__card img{
+  width: auto;
+  height: auto;
+}
+.collection-grid__logo {
+  max-width: 50%;
+}
+@media (min-width: 600px) {
+  .collection-grid__slider {
+    grid-auto-flow: row;
+    overflow: hidden;
+  }
+}

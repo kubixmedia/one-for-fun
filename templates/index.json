@@ -120,7 +120,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/25dd4c8cccdefbd49d954bf18d3636a3.png",
-            "vertical": 0,
+            "vertical": -100,
             "horizontal": -100,
             "right": false,
             "depth": 0.1,
@@ -268,6 +268,74 @@
         "full_width": true,
         "prevent_animation": false
       }
+    },
+    "collection_grid_TYkRka": {
+      "type": "collection-grid",
+      "blocks": {
+        "collection_Dk4mBT": {
+          "type": "collection",
+          "settings": {
+            "collection": "1-24-diecast-car-kits",
+            "background_override": "#644b84",
+            "logo_override": "shopify://shop_images/HGL.png",
+            "image_override": "shopify://shop_images/e_sv12330_a_3.png"
+          }
+        },
+        "collection_WbkU4p": {
+          "type": "collection",
+          "settings": {
+            "collection": "1-24-scale-diecast-cars",
+            "background_override": "#e54a50",
+            "logo_override": "shopify://shop_images/TObar.png",
+            "image_override": "shopify://shop_images/Screenshot_2024-10-07_at_12.42.42_1.png"
+          }
+        },
+        "collection_mGAMUw": {
+          "type": "collection",
+          "settings": {
+            "collection": "action",
+            "background_override": "#fab730",
+            "logo_override": "shopify://shop_images/tb-brands-ozbozz_0920.png",
+            "image_override": "shopify://shop_images/Screenshot_2024-12-03_at_23.52.39_1.png"
+          }
+        },
+        "collection_wnFKBB": {
+          "type": "collection",
+          "settings": {
+            "collection": "all-maisto-bburago",
+            "background_override": "#de0029",
+            "logo_override": "shopify://shop_images/tb-brands-maisto.png",
+            "image_override": "shopify://shop_images/19608-5transparent_1.png"
+          }
+        },
+        "collection_MLNDnU": {
+          "type": "collection",
+          "settings": {
+            "collection": "animigos",
+            "background_override": "#0073bf",
+            "logo_override": "shopify://shop_images/DREAM.png",
+            "image_override": "shopify://shop_images/787f854dca51dab07583337d0ba49101.png"
+          }
+        },
+        "collection_YimBGP": {
+          "type": "collection",
+          "settings": {
+            "collection": "animigos-funky-friends",
+            "background_override": "#aaa1ff",
+            "logo_override": "shopify://shop_images/DINOCOLL.png",
+            "image_override": "shopify://shop_images/01ba8cd455eac34e5229dab4b4020cf8.png"
+          }
+        }
+      },
+      "block_order": [
+        "collection_Dk4mBT",
+        "collection_WbkU4p",
+        "collection_mGAMUw",
+        "collection_wnFKBB",
+        "collection_MLNDnU",
+        "collection_YimBGP"
+      ],
+      "settings": {}
     },
     "custom_liquid_m3fNyL": {
       "type": "custom-liquid",
@@ -616,6 +684,7 @@
     "parallax_images_rwBCKx",
     "scrolling-banner",
     "rich_text_UnbEnz",
+    "collection_grid_TYkRka",
     "custom_liquid_m3fNyL",
     "parallax_images_j4eN6h",
     "rich_text_EWLmPY",
