@@ -5478,6 +5478,7 @@ body > .os-scrollbar {
     padding-top: 0;
   }
   .mobile-only {
+    /* force on utility class */
     display: none !important;
   }
 }
