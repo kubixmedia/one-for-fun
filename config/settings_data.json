@@ -370,7 +370,7 @@
     "slider_show_arrows": "never",
     "slider_button_style": "btn--primary",
     "drawer_border_radius": 16,
-    "overlay_border_radius": 0,
+    "overlay_border_radius": 12,
     "show_breadcrumbs_product": false,
     "show_breadcrumbs_collection": false,
     "show_breadcrumbs_collection_list": true,
