@@ -11,6 +11,7 @@
   endif
 %}
 {% if show %}
+  {{'contact-form-hover.css' |  asset_url |  stylesheet_tag }}
   {%- liquid
     assign form_id = section.id | append: '-contact'
     assign color_scheme = section.settings.color_scheme
@@ -44,6 +45,15 @@
         src_width: 1600,
         sizes: sizes
       %}
+      {% assign hovers = section.blocks | where: 'type', 'hover_image' %}
+      {% for block in hovers %}
+        <div
+          class="contact__image"
+          style="--top: {{ block.settings.top | append: '%' }};--left:{{ block.settings.left | append: '%' }};--scale:{{ block.settings.scale }};--hover-top: {{ block.settings.top_hover | append: '%' }};--hover-left:{{ block.settings.left_hover | append: '%'}};--hover-scale: {{ block.settings.scale_hover }}"
+        >
+          {{ block.settings.image | image_url: width: block.settings.image.width | image_tag }}
+        </div>
+      {% endfor %}
     </div>
   {%- endcapture -%}
   {%- endif -%}
@@ -53,25 +63,28 @@
   {%- endunless -%}
 
   <div class="section{% if bg_color != false %} section--padded{% if section.settings.full_width %} section--full-width{% endif %}{% endif %}{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}">
-    <div class="container">
-      {%- if section.settings.heading != blank -%}
-        <div
-          class="mb-heading reading-width rte"
-          {% if settings.animations_enabled != 'disabled' %}
-            data-cc-animate
-          {% endif %}
-        >
-          <h2 class="h4 section__heading {{ section.settings.heading_align }}">
-            {{ section.settings.heading | escape }}
-          </h2>
-        </div>
-      {%- endif -%}
+    <div class="container{% if section.settings.image_position == 'left' or section.settings.image_position == 'right' %} grid md:grid-cols-2 items-center{% endif %}">
 
-      {%- if image and section.settings.image_position == 'top' -%}
+
+      {%- if image -%}
+        {% if section.settings.image_position == 'top' or section.settings.image_position == 'left'  %}
         {{ image }}
+        {% endif %}
       {%- endif -%}
 
       {%- form 'contact', id: form_id, class: 'form reading-width' -%}
+        {%- if section.settings.heading != blank -%}
+          <div
+            class="mb-heading rte"
+            {% if settings.animations_enabled != 'disabled' %}
+              data-cc-animate
+            {% endif %}
+          >
+            <h2 class="h4 section__heading {{ section.settings.heading_align }}">
+              {{ section.settings.heading | escape }}
+            </h2>
+          </div>
+        {%- endif -%}
         <div
           class="form__grid grid grid-cols-2 gap-x-theme gap-y-6"
           {% if settings.animations_enabled != 'disabled' %}
@@ -79,186 +92,196 @@
           {% endif %}
         >
           {%- for block in section.blocks -%}
-            <div
-              class="col-span-2{% if block.settings.half_width %} md:col-span-1{% endif %}{% if block.settings.required %} is-required{% endif %}"
-              {{ block.shopify_attributes }}
-            >
-              {%- case block.type -%}
-                {%- when 'name' -%}
-                  <label class="label" for="{{ form_id }}-name">{{ 'contact.form.name' | t }}</label>
-                  <input
-                    type="text"
-                    class="input w-full"
-                    id="{{ form_id }}-name"
-                    name="contact[{{ 'contact.form.name' | t }}]"
-                    autocomplete="name"
-                    value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-                    {%- if block.settings.required %}
-                      aria-required="true"
-                      required
-                    {%- endif %}
-                  >
-
-                {%- when 'email' -%}
-                  <label class="label" for="{{ form_id }}-email">{{ 'contact.form.email' | t }}</label>
-                  <input
-                    type="email"
-                    class="input w-full"
-                    id="{{ form_id }}-email"
-                    name="contact[email]"
-                    autocomplete="email"
-                    value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-                    {%- if form.errors contains 'email' %}
-                      aria-invalid="true"
-                      aria-describedby="{{ form_id }}-email-error"
-                    {%- endif %}
-                    {%- if block.settings.required %}
-                      aria-required="true"
-                      required
-                    {%- endif %}
-                  >
-
-                {%- when 'phone' -%}
-                  <label class="label" for="{{ form_id }}-phone">{{ 'contact.form.phone' | t }}</label>
-                  <input
-                    type="tel"
-                    class="input w-full"
-                    id="{{ form_id }}-phone"
-                    name="contact[{{ 'contact.form.phone' | t }}]"
-                    pattern="[0-9\-]*"
-                    autocomplete="tel"
-                    value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-                    {%- if block.settings.required %}
-                      aria-required="true"
-                      required
-                    {%- endif %}
-                  >
-
-                {%- when 'body' -%}
-                  <label class="label" for="{{ form_id }}-body">{{ 'contact.form.message' | t }}</label>
-                  <textarea
-                    class="input w-full"
-                    id="{{ form_id }}-body"
-                    name="contact[{{ 'contact.form.message' | t }}]"
-                    rows="8"
-                    {%- if block.settings.required %}
-                      aria-required="true"
-                      required
-                    {%- endif -%}
-                  >
-                  {{- form.body -}}
-                </textarea>
-
-                {%- when 'custom' -%}
-                  {%- if block.settings.title != blank -%}
-                    {%- assign field_handle = block.settings.title | handleize -%}
-                    <label class="label" for="{{ form_id }}-field-{{ forloop.index }}">
-                      {{- block.settings.title -}}
-                    </label>
-                    {%- if block.settings.type == 'textarea' -%}
-                      <textarea
-                        class="input w-full"
-                        id="{{ form_id }}-field-{{ forloop.index }}"
-                        name="contact[{{ field_handle }}]"
-                        rows="8"
-                        {%- if block.settings.required %}
-                          aria-required="true"
-                          required
-                        {%- endif -%}
-                      >
-                      {{- form[field_handle] -}}
-                    </textarea>
-                    {%- else -%}
-                      <input
-                        type="{{ block.settings.type }}"
-                        class="input w-full"
-                        id="{{ form_id }}-field-{{ forloop.index }}"
-                        name="contact[{{ field_handle }}]"
-                        value="{{ form[field_handle] }}"
-                        {%- if block.settings.type == 'tel' %}
-                          pattern="[0-9\-]*"
-                        {% endif %}
-                        {%- if block.settings.required %}
-                          aria-required="true"
-                          required
-                        {%- endif %}
-                      >
-                    {%- endif -%}
-                  {%- endif -%}
-
-                {%- when 'dropdown' -%}
-                  {%- if block.settings.title != blank -%}
-                    {%- liquid
-                      assign field_handle = block.settings.title | handleize
-                      assign field_options = block.settings.options | newline_to_br | strip_newlines | split: '<br />'
-                      assign native_name = 'contact[' | append: field_handle | append: ']'
-                      assign selected_value = form[field_handle] | default: field_options.first
-                    -%}
-                    <label class="label" for="{{ form_id }}-field-{{ forloop.index }}">
-                      {{- block.settings.title -}}
-                    </label>
-                    <div class="select relative">
-                      <select
-                        class="w-full input"
-                        name="{{ native_name }}"
-                        id="{{ form_id }}-field-{{ forloop.index }}"
-                      >
-                        {% for option in field_options %}
-                          <option
-                            value="{{ option | escape }}"
-                            {% if option == selected_value %}
-                              selected
-                            {% endif %}
-                          >
-                            {{ option }}
-                          </option>
-                        {% endfor %}
-                      </select>
-                    </div>
-                  {%- endif -%}
-
-                {%- when 'text' -%}
-                  {%- if block.settings.text != blank -%}
-                    <div class="w-full rte">
-                      {{ block.settings.text }}
-                    </div>
-                  {%- endif -%}
-
-                {%- when 'checkbox' -%}
-                  {% if block.settings.title != blank %}
-                    {%- assign title_handle = block.settings.title | handle -%}
+            {% unless block.type == 'hover_image' %}
+              <div
+                class="col-span-2{% if block.settings.half_width %} md:col-span-1{% endif %}{% if block.settings.required %} is-required{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                {%- case block.type -%}
+                  {%- when 'name' -%}
+                    <label class="label sr-only" for="{{ form_id }}-name">{{ 'contact.form.name' | t }}</label>
                     <input
-                      type="hidden"
-                      name="contact[{{ title_handle }}]"
-                      value="{{ block.settings.value_no | escape }}"
-                    >
-                    <input
-                      type="checkbox"
-                      class="checkbox checkbox--small"
-                      id="contact_{{ title_handle }}"
-                      name="contact[{{ title_handle }}]"
-                      value="{{ block.settings.value_yes | escape }}"
+                      type="text"
+                      class="input w-full"
+                      id="{{ form_id }}-name"
+                      name="contact[{{ 'contact.form.name' | t }}]"
+                      autocomplete="name"
+                      placeholder="{{ 'contact.form.name' | t }}"
+                      value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
                       {%- if block.settings.required %}
+                        aria-required="true"
                         required
-                      {% endif %}
-                      {% if form[title_handle] == block.settings.value_yes %}
-                        checked
-                      {% endif %}
+                      {%- endif %}
                     >
-                    <label for="contact_{{ title_handle }}" class="required-inline label">
-                      {{ block.settings.title | escape -}}
-                      {%- if block.settings.required %} *{% endif %}
-                    </label>
-                  {% endif %}
-              {%- endcase -%}
 
-              {%- if form.errors contains block.type -%}
-                <p class="form__field-error" id="{{ form_id }}-{{ block.type }}-error">
-                  {{ form.errors.translated_fields[block.type] | capitalize }}
-                  {{ form.errors.messages[block.type] }}
-                </p>
-              {%- endif -%}
-            </div>
+                  {%- when 'email' -%}
+                    <label class="label sr-only" for="{{ form_id }}-email">{{ 'contact.form.email' | t }}</label>
+                    <input
+                      type="email"
+                      class="input w-full"
+                      id="{{ form_id }}-email"
+                      name="contact[email]"
+                      autocomplete="email"
+                      placeholder="{{ 'contact.form.email' | t }}"
+                      value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                      {%- if form.errors contains 'email' %}
+                        aria-invalid="true"
+                        aria-describedby="{{ form_id }}-email-error"
+                      {%- endif %}
+                      {%- if block.settings.required %}
+                        aria-required="true"
+                        required
+                      {%- endif %}
+                    >
+
+                  {%- when 'phone' -%}
+                    <label class="label sr-only" for="{{ form_id }}-phone">{{ 'contact.form.phone' | t }}</label>
+                    <input
+                      type="tel"
+                      class="input w-full"
+                      id="{{ form_id }}-phone"
+                      name="contact[{{ 'contact.form.phone' | t }}]"
+                      pattern="[0-9\-]*"
+                      autocomplete="tel"
+                      placeholder="{{ 'contact.form.phone' | t }}"
+                      value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                      {%- if block.settings.required %}
+                        aria-required="true"
+                        required
+                      {%- endif %}
+                    >
+
+                  {%- when 'body' -%}
+                    <label class="label sr-only" for="{{ form_id }}-body">{{ 'contact.form.message' | t }}</label>
+                    <textarea
+                      class="input w-full"
+                      id="{{ form_id }}-body"
+                      name="contact[{{ 'contact.form.message' | t }}]"
+                      rows="8"
+                      placeholder="{{ 'contact.form.message' | t }}"
+                      {%- if block.settings.required %}
+                        aria-required="true"
+                        required
+                      {%- endif -%}
+                    >
+                    {{- form.body -}}
+                  </textarea>
+
+                  {%- when 'custom' -%}
+                    {%- if block.settings.title != blank -%}
+                      {%- assign field_handle = block.settings.title | handleize -%}
+                      <label class="label sr-only" for="{{ form_id }}-field-{{ forloop.index }}">
+                        {{- block.settings.title -}}
+                      </label>
+                      {%- if block.settings.type == 'textarea' -%}
+                        <textarea
+                          class="input w-full"
+                          id="{{ form_id }}-field-{{ forloop.index }}"
+                          name="contact[{{ field_handle }}]"
+                          rows="8"
+                          placeholder="{{- block.settings.title -}}"
+                          {%- if block.settings.required %}
+                            aria-required="true"
+                            required
+                          {%- endif -%}
+                        >
+                        {{- form[field_handle] -}}
+                      </textarea>
+                      {%- else -%}
+                        <input
+                          type="{{ block.settings.type }}"
+                          class="input w-full"
+                          id="{{ form_id }}-field-{{ forloop.index }}"
+                          name="contact[{{ field_handle }}]"
+                          value="{{ form[field_handle] }}"
+                          placeholder="{{- block.settings.title -}}"
+                          {%- if block.settings.type == 'tel' %}
+                            pattern="[0-9\-]*"
+                          {% endif %}
+                          {%- if block.settings.required %}
+                            aria-required="true"
+                            required
+                          {%- endif %}
+                        >
+                      {%- endif -%}
+                    {%- endif -%}
+
+                  {%- when 'dropdown' -%}
+                    {%- if block.settings.title != blank -%}
+                      {%- liquid
+                        assign field_handle = block.settings.title | handleize
+                        assign field_options = block.settings.options | newline_to_br | strip_newlines | split: '<br />'
+                        assign native_name = 'contact[' | append: field_handle | append: ']'
+                        assign selected_value = form[field_handle] | default: field_options.first
+                      -%}
+                      <label class="label sr-only" for="{{ form_id }}-field-{{ forloop.index }}">
+                        {{- block.settings.title -}}
+                      </label>
+                      <div class="select relative">
+                        <select
+                          class="w-full input"
+                          name="{{ native_name }}"
+                          aria-placeholder="{{- block.settings.title -}}"
+                          placeholder="{{- block.settings.title -}}"
+                          id="{{ form_id }}-field-{{ forloop.index }}"
+                        >
+                          {% for option in field_options %}
+                            <option
+                              value="{{ option | escape }}"
+                              {% if option == selected_value %}
+                                selected
+                              {% endif %}
+                            >
+                              {{ option }}
+                            </option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    {%- endif -%}
+
+                  {%- when 'text' -%}
+                    {%- if block.settings.text != blank -%}
+                      <div class="w-full rte">
+                        {{ block.settings.text }}
+                      </div>
+                    {%- endif -%}
+
+                  {%- when 'checkbox' -%}
+                    {% if block.settings.title != blank %}
+                      {%- assign title_handle = block.settings.title | handle -%}
+                      <input
+                        type="hidden"
+                        name="contact[{{ title_handle }}]"
+                        value="{{ block.settings.value_no | escape }}"
+                      >
+                      <input
+                        type="checkbox"
+                        class="checkbox checkbox--small"
+                        id="contact_{{ title_handle }}"
+                        name="contact[{{ title_handle }}]"
+                        value="{{ block.settings.value_yes | escape }}"
+                        {%- if block.settings.required %}
+                          required
+                        {% endif %}
+                        {% if form[title_handle] == block.settings.value_yes %}
+                          checked
+                        {% endif %}
+                      >
+                      <label for="contact_{{ title_handle }}" class="required-inline label">
+                        {{ block.settings.title | escape -}}
+                        {%- if block.settings.required %} *{% endif %}
+                      </label>
+                    {% endif %}
+                {%- endcase -%}
+
+                {%- if form.errors contains block.type -%}
+                  <p class="form__field-error" id="{{ form_id }}-{{ block.type }}-error">
+                    {{ form.errors.translated_fields[block.type] | capitalize }}
+                    {{ form.errors.messages[block.type] }}
+                  </p>
+                {%- endif -%}
+              </div>
+            {% endunless %}
           {%- endfor -%}
         </div>
 
@@ -305,10 +328,11 @@
           </div>
         {%- endif -%}
       {%- endform -%}
-
-      {%- if image and section.settings.image_position == 'bottom' -%}
-        {{ image }}
-      {%- endif -%}
+      {% if image %}
+        {%- if section.settings.image_position == 'right' or section.settings.image_position == 'bottom' -%}
+          {{ image }}
+        {%- endif -%}
+      {% endif %}
     </div>
   </div>
 
@@ -320,7 +344,7 @@
 {
   "name": "Contact form",
   "tag": "section",
-  "class": "cc-contact-form",
+  "class": "cc-contact-form contact",
   "settings": [
     {
       "type": "header",
@@ -398,6 +422,14 @@
         {
           "value": "bottom",
           "label": "Below form"
+        },
+        {
+          "value":"left",
+          "label":"Left"
+        },
+        {
+          "value":"right",
+          "label":"Right"
         }
       ],
       "default": "top"
@@ -454,6 +486,79 @@
     }
   ],
   "blocks": [
+    {
+      "type": "hover_image",
+      "name": "Hover Image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        {
+          "type": "header",
+          "content": "Prehover"
+        },
+        {
+          "type": "range",
+          "id": "left",
+          "label": "Left",
+          "min": -100,
+          "max": 100,
+          "unit": "%",
+          "step": 2,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "top",
+          "label": "Top",
+          "min": -100,
+          "max": 100,
+          "unit": "%",
+          "step": 2,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "scale",
+          "label": "Scale",
+          "min": 0,
+          "max": 2,
+          "step": 0.1,
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "Hover"
+        },
+        {
+          "type": "range",
+          "id": "left_hover",
+          "label": "Left",
+          "min": -100,
+          "max": 100,
+          "unit": "%",
+          "step": 2,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "top_hover",
+          "label": "Top",
+          "min": -100,
+          "max": 100,
+          "unit": "%",
+          "step": 2,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "scale_hover",
+          "label": "Scale",
+          "min": 0,
+          "max": 2,
+          "step": 0.1,
+          "default": 0
+        }
+      ]
+    },
     {
       "type": "name",
       "name": "Name",

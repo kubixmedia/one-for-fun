@@ -123,7 +123,8 @@
             "vertical": 0,
             "horizontal": -100,
             "right": false,
-            "depth": 0.1
+            "depth": 0.1,
+            "visibility": ""
           }
         },
         "image_VNKDwk": {
@@ -133,7 +134,8 @@
             "vertical": 15,
             "horizontal": -50,
             "right": true,
-            "depth": 0.5
+            "depth": 0.5,
+            "visibility": ""
           }
         },
         "image_TFhd3k": {
@@ -144,7 +146,8 @@
             "horizontal": 24,
             "right": true,
             "depth": 0.1,
-            "width": 350
+            "width": 350,
+            "visibility": ""
           }
         },
         "image_Y63yqT": {
@@ -155,7 +158,8 @@
             "horizontal": 16,
             "right": false,
             "depth": 0.1,
-            "width": 250
+            "width": 250,
+            "visibility": ""
           }
         }
       },
@@ -287,7 +291,8 @@
             "horizontal": 40,
             "right": false,
             "depth": 0.1,
-            "width": 180
+            "width": 180,
+            "visibility": ""
           }
         },
         "image_eTrLYJ": {
@@ -297,7 +302,8 @@
             "horizontal": -20,
             "right": true,
             "depth": 0.1,
-            "width": 400
+            "width": 400,
+            "visibility": ""
           }
         },
         "image_zThKhB": {
@@ -308,7 +314,8 @@
             "horizontal": 30,
             "right": false,
             "depth": 0.3,
-            "width": 225
+            "width": 225,
+            "visibility": ""
           }
         }
       },
@@ -377,7 +384,8 @@
             "image": "shopify://shop_images/01ba8cd455eac34e5229dab4b4020cf8.png",
             "vertical": -300,
             "right": false,
-            "depth": 0.4
+            "depth": 0.4,
+            "visibility": ""
           }
         },
         "image_xyH9Uk": {
@@ -386,7 +394,8 @@
             "image": "shopify://shop_images/car1880659b23217a465444649c79852ee7916be5b1p_1.png",
             "vertical": -350,
             "right": true,
-            "depth": 0.1
+            "depth": 0.1,
+            "visibility": ""
           }
         }
       },
@@ -402,13 +411,6 @@
     "contact_form_9gHCWb": {
       "type": "contact-form",
       "blocks": {
-        "text_TV6Vke": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Layout Option</p><p>Animation on hover</p><p>Labels within input</p>",
-            "half_width": false
-          }
-        },
         "custom_7z6w3P": {
           "type": "custom",
           "settings": {
@@ -458,23 +460,48 @@
             "required": false,
             "half_width": false
           }
+        },
+        "hover_image_Nq8xk8": {
+          "type": "hover_image",
+          "settings": {
+            "image": "shopify://shop_images/25dd4c8cccdefbd49d954bf18d3636a3.png",
+            "left": 44,
+            "top": 52,
+            "scale": 0.4,
+            "left_hover": 76,
+            "top_hover": 74,
+            "scale_hover": 2
+          }
+        },
+        "hover_image_AtNKjk": {
+          "type": "hover_image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2024-10-07_at_15.15.11_1.png",
+            "left": 40,
+            "top": 42,
+            "scale": 0.1,
+            "left_hover": 26,
+            "top_hover": 14,
+            "scale_hover": 0.5
+          }
         }
       },
       "block_order": [
-        "text_TV6Vke",
         "custom_7z6w3P",
         "custom_qDfwaU",
         "phone_Ftdpi6",
         "email_6rB8XM",
         "custom_XXnB46",
-        "custom_TWTgxe"
+        "custom_TWTgxe",
+        "hover_image_Nq8xk8",
+        "hover_image_AtNKjk"
       ],
       "settings": {
         "show_to": "all",
-        "heading": "Contact form",
-        "heading_align": "text-center",
+        "heading": "Register for Our Catalogue!",
+        "heading_align": "text-left",
         "image": "shopify://shop_images/Frame_48095884.png",
-        "image_position": "top",
+        "image_position": "left",
         "color_scheme": "none",
         "full_width": true,
         "button_style": "btn btn--primary"
