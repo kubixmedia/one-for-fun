@@ -23,9 +23,9 @@
   >
     {% for block in section.blocks %}
       <div
-        class="parallax-images__container"
+        class="parallax-images__container {{ block.settings.visibility }}"
         data-depth="{{ block.settings.depth }}"
-        style="--vertical: {{ block.settings.vertical | default: 0 | append: 'px' }}; --horizontal: {{ block.settings.horizontal | default: 0 | append: 'px' }};--vertical-mobile: {{ block.settings.vertical_mobile | default: 0 | append: 'px' }}; --horizontal-mobile: {{ block.settings.horizontal_mobile | default: 0 | append: 'px' }};"
+        style="--vertical: {{ block.settings.vertical | default: 0 | append: 'px' }}; --horizontal: {{ block.settings.horizontal | default: 0 | append: 'px' }};--vertical-mobile: {{ block.settings.vertical_mobile | default: 0 | append: 'px' }}; --horizontal-mobile: {{ block.settings.horizontal_mobile | default: 0 | append: 'px' }};--mobile-width: {{ block.settings.mobile_width | default: 100 | append: 'px' }}"
       >
         <div
           class="parallax-images__image flex {% if block.settings.right %}justify-end{% else %}justify-start{% endif %}"
@@ -34,8 +34,8 @@
             data-cc-animate
           {% endif %}
         >
-          {% assign most = block.settings.width |  default: 350 %}
-          {%  assign image_width = block.settings.image.width | at_most: most  %}
+          {% assign most = block.settings.width | default: 350 %}
+          {% assign image_width = block.settings.image.width | at_most: most %}
           {{ block.settings.image | image_url: width: image_width | image_tag: loading: 'lazy' }}
         </div>
       </div>
@@ -123,9 +123,30 @@
           "default": 0.1
         },
         {
-          "type":"number",
-          "id":"width",
-          "label":"Width"
+          "type": "number",
+          "id": "width",
+          "label": "Width"
+        },
+        {
+          "type": "number",
+          "id": "mobile_width",
+          "label": "Mobile Width"
+        },
+        {
+          "type": "select",
+          "id": "visibility",
+          "label": "Show on",
+          "options": [
+            { "label": "Both", "value": "" },
+            {
+              "label": "Mobile",
+              "value": "mobile-only"
+            },
+            {
+              "label": "Desktop",
+              "value": "visible-lg"
+            }
+          ]
         }
       ]
     }

@@ -5477,6 +5477,10 @@ body > .os-scrollbar {
   .md\:pt-0{
     padding-top: 0;
   }
+  .mobile-only {
+    /* force on utility class */
+    display: none !important;
+  }
 }
 @media (min-width: 1024px){
   .lg\:col-span-1{
