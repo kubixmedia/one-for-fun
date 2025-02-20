@@ -68,7 +68,7 @@
     float: right;
     background-color: rgba(var(--bg-color));
     margin-top: 144px;
-    border-radius: var(--input-border-radius);
+    border-radius: var(--overlay-border-radius);
   }
   /* .product-main .product-info::before, .product-main .product-info::after {
     content: "";
@@ -140,6 +140,6 @@
   height: auto;
 }
 .product-main .media-viewer {
-  border-radius: var(--input-border-radius);
+  border-radius: var(--overlay-border-radius);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
 }

@@ -1923,7 +1923,7 @@ select {
   align-items: center;
   border-radius: var(--input-lg-border-radius, var(--input-border-radius));
   background-color: rgb(var(--input-bg-color));
-  box-shadow: inset 0 0 0 var(--input-border-width) rgba(var(--input-text-color)/0.2);
+  box-shadow: inset 0 0 0 var(--input-border-width) rgba(var(--input-text-color)/1);
 }
 .input-with-button:focus-within {
   box-shadow: inset 0 0 0 var(--input-border-width) rgba(var(--input-text-color)/0.6);
@@ -5575,4 +5575,8 @@ body > .os-scrollbar {
   .xl\:grid-cols-8{
     grid-template-columns: repeat(8, minmax(0, 1fr));
   }
+}
+.newsletter {
+  border-radius: var(--overlay-border-radius);
+  overflow: hidden;
 }

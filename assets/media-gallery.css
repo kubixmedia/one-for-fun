@@ -41,7 +41,7 @@
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  border-radius: var(--input-border-radius);
+  border-radius: var(--overlay-border-radius);
 }
 .media-viewer::-webkit-scrollbar,
 .media-thumbs::-webkit-scrollbar {

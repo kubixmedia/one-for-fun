@@ -600,12 +600,13 @@
         "show_to": "all",
         "overlay_position": "justify-start",
         "text_align": "text-start",
-        "image": "shopify://shop_images/c76eb664124e2107db78a287a987f6ef.png",
+        "image": "shopify://shop_images/Hero-Slider.jpg",
         "color_scheme": "white",
-        "full_width": true,
+        "full_width": false,
         "transparent_content_color": "#ffffff",
         "tint_color": "#20cbd4",
-        "tint_opacity": 70
+        "tint_opacity": 0,
+        "background_css": ""
       }
     }
   },

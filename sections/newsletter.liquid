@@ -74,6 +74,7 @@
     id="{{ section.id }}"
   >
     <div class="flex relative {{ section.settings.overlay_position }}">
+
       {%- if section.settings.image != blank -%}
         {%- assign sizes = false -%}
         <div class="media media--has-overlay absolute top-0 left-0 w-full h-full">
@@ -106,7 +107,7 @@
               {%- when 'subheading' -%}
                 {%- if block.settings.text != blank -%}
                   <p class="section__block subheading" {{ block.shopify_attributes }}>
-                    {{- block.settings.text | escape -}}
+                    {{- block.settings.text -}}
                   </p>
                 {%- endif -%}
 
@@ -116,7 +117,7 @@
                     class="section__block section__block--heading {{ block.settings.heading_size }}"
                     {{ block.shopify_attributes }}
                   >
-                    {{- block.settings.heading | escape -}}
+                    {{- block.settings.heading -}}
                   </h2>
                 {%- endif -%}
 
@@ -297,6 +298,11 @@
       "unit": "%",
       "label": "Background image tint opacity",
       "default": 20
+    },
+    {
+      "type":"color_background",
+      "id":"background_css",
+      "label":"Background CSS"
     }
   ],
   "blocks": [
