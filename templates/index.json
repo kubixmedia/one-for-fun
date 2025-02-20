@@ -383,8 +383,11 @@
           "settings": {
             "image": "shopify://shop_images/01ba8cd455eac34e5229dab4b4020cf8.png",
             "vertical": -300,
+            "vertical_mobile": -150,
+            "horizontal_mobile": 0,
             "right": false,
             "depth": 0.4,
+            "mobile_width": 150,
             "visibility": ""
           }
         },
@@ -393,8 +396,10 @@
           "settings": {
             "image": "shopify://shop_images/car1880659b23217a465444649c79852ee7916be5b1p_1.png",
             "vertical": -350,
+            "vertical_mobile": -150,
             "right": true,
             "depth": 0.1,
+            "mobile_width": 150,
             "visibility": ""
           }
         }
