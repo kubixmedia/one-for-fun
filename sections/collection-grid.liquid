@@ -1,14 +1,14 @@
 {{ 'collection-grid.css' | asset_url | stylesheet_tag }}
 <div class="collection-grid">
   <carousel-slider
-    class="carousel block container"
+    class="carousel block"
     inactive
     disable-desktop="true"
   >
     <div class="container relative">
       <div class="slider" id="slider-{{ section.id }}">
         <ul
-          class="collection-grid__slider slider__grid grid grid-flow-col auto-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-theme gap-y-8"
+          class="collection-grid__slider container slider__grid grid grid-flow-col auto-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-theme gap-y-8"
           role="list"
         >
           {% for block in section.blocks %}
