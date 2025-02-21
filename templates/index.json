@@ -278,7 +278,8 @@
             "collection": "1-24-diecast-car-kits",
             "background_override": "#644b84",
             "logo_override": "shopify://shop_images/HGL.png",
-            "image_override": "shopify://shop_images/e_sv12330_a_3.png"
+            "image_override": "shopify://shop_images/e_sv12330_a_3.png",
+            "hover_text": "Discover"
           }
         },
         "collection_WbkU4p": {
@@ -287,7 +288,8 @@
             "collection": "1-24-scale-diecast-cars",
             "background_override": "#e54a50",
             "logo_override": "shopify://shop_images/TObar.png",
-            "image_override": "shopify://shop_images/Screenshot_2024-10-07_at_12.42.42_1.png"
+            "image_override": "shopify://shop_images/Screenshot_2024-10-07_at_12.42.42_1.png",
+            "hover_text": "Discover"
           }
         },
         "collection_mGAMUw": {
@@ -296,7 +298,8 @@
             "collection": "action",
             "background_override": "#fab730",
             "logo_override": "shopify://shop_images/tb-brands-ozbozz_0920.png",
-            "image_override": "shopify://shop_images/Screenshot_2024-12-03_at_23.52.39_1.png"
+            "image_override": "shopify://shop_images/Screenshot_2024-12-03_at_23.52.39_1.png",
+            "hover_text": "Discover"
           }
         },
         "collection_wnFKBB": {
@@ -305,7 +308,8 @@
             "collection": "all-maisto-bburago",
             "background_override": "#de0029",
             "logo_override": "shopify://shop_images/tb-brands-maisto.png",
-            "image_override": "shopify://shop_images/19608-5transparent_1.png"
+            "image_override": "shopify://shop_images/19608-5transparent_1.png",
+            "hover_text": "Discover"
           }
         },
         "collection_MLNDnU": {
@@ -314,7 +318,8 @@
             "collection": "animigos",
             "background_override": "#0073bf",
             "logo_override": "shopify://shop_images/DREAM.png",
-            "image_override": "shopify://shop_images/787f854dca51dab07583337d0ba49101.png"
+            "image_override": "shopify://shop_images/787f854dca51dab07583337d0ba49101.png",
+            "hover_text": "Discover"
           }
         },
         "collection_YimBGP": {
@@ -323,7 +328,8 @@
             "collection": "animigos-funky-friends",
             "background_override": "#aaa1ff",
             "logo_override": "shopify://shop_images/DINOCOLL.png",
-            "image_override": "shopify://shop_images/01ba8cd455eac34e5229dab4b4020cf8.png"
+            "image_override": "shopify://shop_images/01ba8cd455eac34e5229dab4b4020cf8.png",
+            "hover_text": "Discover"
           }
         }
       },
@@ -336,17 +342,6 @@
         "collection_YimBGP"
       ],
       "settings": {}
-    },
-    "custom_liquid_m3fNyL": {
-      "type": "custom-liquid",
-      "settings": {
-        "show_to": "all",
-        "custom_liquid": "<h2>Custom Collection Grid</h2>\n<ul>\n<li>Block per collection</li>\n<li>Image override (can come from metafield dyanmically)</li>\n<li>Background (can come from metadfield dynamically)</li>\n<li>Hover text</li>\n<li>Link</li>\n</ul>",
-        "section_height": "default",
-        "full_width": false,
-        "dividers": "none",
-        "prevent_animation": false
-      }
     },
     "parallax_images_j4eN6h": {
       "type": "parallax-images",
@@ -685,7 +680,6 @@
     "scrolling-banner",
     "rich_text_UnbEnz",
     "collection_grid_TYkRka",
-    "custom_liquid_m3fNyL",
     "parallax_images_j4eN6h",
     "rich_text_EWLmPY",
     "parallax_images_XRCEgV",
