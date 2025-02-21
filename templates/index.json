@@ -673,18 +673,27 @@
         "form_pGMmcE": {
           "type": "form",
           "settings": {}
+        },
+        "spacer_PHVxxP": {
+          "type": "spacer",
+          "settings": {
+            "height": 0,
+            "height_mobile": 200
+          }
         }
       },
       "block_order": [
         "heading_A9XwqC",
         "text_daLwPD",
-        "form_pGMmcE"
+        "form_pGMmcE",
+        "spacer_PHVxxP"
       ],
       "settings": {
         "show_to": "all",
         "overlay_position": "justify-start",
         "text_align": "text-start",
         "image": "shopify://shop_images/Hero-Slider.jpg",
+        "image_mobile": "shopify://shop_images/Hero-Slider_1.jpg",
         "color_scheme": "white",
         "full_width": false,
         "transparent_content_color": "#ffffff",
