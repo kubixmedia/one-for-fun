@@ -379,7 +379,7 @@
     "coll_border_color": "#f2f2f2",
     "prod_card_image_ratio": "0.75",
     "prod_card_image_fit": "contain",
-    "card_show_vendor": true,
+    "card_show_vendor": false,
     "card_show_subtitle": false,
     "card_show_rating": false,
     "card_show_inventory": false,
