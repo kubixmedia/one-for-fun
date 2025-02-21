@@ -1,14 +1,14 @@
 {{ 'collection-grid.css' | asset_url | stylesheet_tag }}
 <div class="collection-grid">
   <carousel-slider
-    class="carousel block"
+    class="carousel block container"
     inactive
     disable-desktop="true"
   >
     <div class="container relative">
       <div class="slider" id="slider-{{ section.id }}">
         <ul
-          class="collection-grid__slider slider__grid grid grid-flow-col auto-cols-1 sm:grid-cols-3 xl:grid-cols-4 gap-x-theme gap-y-8"
+          class="collection-grid__slider slider__grid grid grid-flow-col auto-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-theme gap-y-8"
           role="list"
         >
           {% for block in section.blocks %}
@@ -19,23 +19,32 @@
               style="animation-delay: 0.07s;"
             >
               <div
-
-                class="collection-grid__card"
+                class="collection-grid__card flex flex-col justify-center items-center"
                 style="--feature-color: {% unless block.settings.background_override.alpha == 0 %} {{ block.settings.background_override }}{% else %} {{ block.settings.collection.metafields.custom.collection_background_ }}{% endunless %}"
               >
-              <a href="{{ block.settings.collection.url }}" class="collection-grid__link absolute w-full h-full top-0 left-0"></a>
                 {{
                   block.settings.logo_override
                   | default: block.settings.collection.metafields.custom.logo
                   | image_url: width: 400
                   | image_tag: class: 'collection-grid__logo'
                 }}
-                {{
-                  block.settings.image_override
-                  | default: block.settings.collection.image
-                  | image_url: width: 600
-                  | image_tag
-                }}
+                <div class="grow relative w-full">
+                  {{
+                    block.settings.image_override
+                    | default: block.settings.collection.image
+                    | image_url: width: 600
+                    | image_tag: class: 'collection-grid__img img-fit img-fit--contain'
+                  }}
+                </div>
+                {% if block.settings.hover_text != blank %}
+                  <div class="collection-grid__hover absolute h2 text-center m-0">
+                    {{ block.settings.hover_text }}
+                  </div>
+                {% endif %}
+                <a
+                  href="{{ block.settings.collection.url }}"
+                  class="collection-grid__link absolute w-full h-full top-0 left-0"
+                ></a>
               </div>
             </li>
           {% endfor %}
@@ -72,6 +81,12 @@
           "type": "image_picker",
           "id": "image_override",
           "label": "Image Override"
+        },
+        {
+          "type":"text",
+          "id":"hover_text",
+          "label":"Hover Text",
+          "default":"Discover"
         }
       ]
     }
