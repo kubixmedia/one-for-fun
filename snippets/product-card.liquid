@@ -397,7 +397,7 @@
           {%- if product.has_only_default_variant and product_not_for_sale == false -%}
             <product-form>
               <div class="alert mb-8 bg-error-bg text-error-text js-form-error text-start" role="alert" hidden></div>
-              {%- form 'product', product, class: 'js-product-form flex gap-3', id: product_form_id, novalidate: 'novalidate' -%}
+              {%- form 'product', product, class: 'js-product-form flex md:flex-row flex-col items-center gap-3', id: product_form_id, novalidate: 'novalidate' -%}
                 <input type="hidden" name="id" value="{{ current_variant.id }}" disabled>
 
                 {%- capture button_text -%}

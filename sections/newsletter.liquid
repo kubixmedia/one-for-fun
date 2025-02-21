@@ -74,7 +74,6 @@
     id="{{ section.id }}"
   >
     <div class="flex relative {{ section.settings.overlay_position }}">
-
       {%- if section.settings.image != blank -%}
         {%- assign sizes = false -%}
         <div class="media media--has-overlay absolute top-0 left-0 w-full h-full">
@@ -83,14 +82,26 @@
             {%- render 'sizes-attribute', min: '100vw', sm: 'page', md: false, lg: false, xl: 'page', max: 'page' -%}
           {%- endcapture -%}
           {%- endunless -%}
-
+          {% assign class = 'img-fit' %}
+          {% if section.settings.image_mobile != blank %}
+            {% assign mobile_class = class | append: ' mobile-only' %}
+            {% render 'image',
+              image: section.settings.image_mobile,
+              src_width: 800,
+              widths: '320, 460, 600, 700, 800, 900, 1200',
+              sizes: sizes,
+              section_index: section.index,
+              class: mobile_class
+            %}
+            {% assign class = class | append: ' visible-lg' %}
+          {% endif %}
           {% render 'image',
             image: section.settings.image,
             widths: '750, 856, 1440, 1680, 1920, 2560',
             src_width: 1680,
             sizes: sizes,
             section_index: section.index,
-            class: 'img-fit'
+            class: class
           %}
         </div>
       {%- endif -%}
@@ -139,6 +150,12 @@
                   {%- assign form_id = section.id | append: '-signup' -%}
                   {% render 'newsletter-signup', id: form_id, arrow_button: true, tags: 'newsletter' %}
                 </div>
+              {% when 'spacer' %}
+                <div
+                  class="spacer block w-full"
+                  style="--height: {{ block.settings.height | append: 'px' }};--mobile-height: {{ block.settings.height_mobile | append: 'px' }}"
+                  {{ block.shopify_attributes }}
+                ></div>
             {%- endcase -%}
           {%- endfor -%}
         </div>
@@ -239,6 +256,11 @@
       "info": "For best results, use an image with 16:9 aspect ratio and width of 3200px."
     },
     {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image Mobile"
+    },
+    {
       "type": "header",
       "content": "Style"
     },
@@ -300,9 +322,9 @@
       "default": 20
     },
     {
-      "type":"color_background",
-      "id":"background_css",
-      "label":"Background CSS"
+      "type": "color_background",
+      "id": "background_css",
+      "label": "Background CSS"
     }
   ],
   "blocks": [
@@ -391,6 +413,24 @@
       "type": "form",
       "name": "Form",
       "limit": 1
+    },
+    {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": [
+        {
+          "type": "number",
+          "id": "height",
+          "label": "Height",
+          "default": 16
+        },
+        {
+          "type": "number",
+          "id": "height_mobile",
+          "label": "Height Mobile",
+          "default": 16
+        }
+      ]
     }
   ],
   "presets": [

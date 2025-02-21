@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "custom_slider_UHJCi6": {
       "type": "custom-slider",
@@ -100,7 +100,7 @@
         "collection": "best-sellers",
         "layout": "carousel",
         "card_size_mobile": "small",
-        "card_size": "small",
+        "card_size": "medium",
         "products_to_show": 8,
         "show_highlight_products": true,
         "show_promo_info": false,
@@ -122,6 +122,7 @@
             "image": "shopify://shop_images/25dd4c8cccdefbd49d954bf18d3636a3.png",
             "vertical": -100,
             "horizontal": -100,
+            "vertical_mobile": 175,
             "right": false,
             "depth": 0.1,
             "visibility": ""
@@ -133,6 +134,7 @@
             "image": "shopify://shop_images/Screenshot_2024-10-07_at_15.15.11_1.png",
             "vertical": 15,
             "horizontal": -50,
+            "vertical_mobile": 125,
             "right": true,
             "depth": 0.5,
             "visibility": ""
@@ -144,6 +146,7 @@
             "image": "shopify://shop_images/Screenshot_2024-10-07_at_12.42.42_1.png",
             "vertical": 200,
             "horizontal": 24,
+            "vertical_mobile": 500,
             "right": true,
             "depth": 0.1,
             "width": 350,
@@ -156,6 +159,7 @@
             "image": "shopify://shop_images/e_sv12330_a_3.png",
             "vertical": 275,
             "horizontal": 16,
+            "vertical_mobile": 500,
             "right": false,
             "depth": 0.1,
             "width": 250,
@@ -355,7 +359,7 @@
             "right": false,
             "depth": 0.1,
             "width": 180,
-            "visibility": ""
+            "visibility": "visible-lg"
           }
         },
         "image_eTrLYJ": {
@@ -366,7 +370,7 @@
             "right": true,
             "depth": 0.1,
             "width": 400,
-            "visibility": ""
+            "visibility": "visible-lg"
           }
         },
         "image_zThKhB": {
@@ -378,7 +382,7 @@
             "right": false,
             "depth": 0.3,
             "width": 225,
-            "visibility": ""
+            "visibility": "visible-lg"
           }
         }
       },
@@ -395,6 +399,13 @@
     "rich_text_EWLmPY": {
       "type": "rich-text",
       "blocks": {
+        "spacer_UpHzLD": {
+          "type": "spacer",
+          "settings": {
+            "height": 40,
+            "height_mobile": 40
+          }
+        },
         "heading_BFBNTn": {
           "type": "heading",
           "settings": {
@@ -420,12 +431,21 @@
             "button_2_link": "",
             "button_2_style": "btn btn--primary"
           }
+        },
+        "spacer_FW7xCM": {
+          "type": "spacer",
+          "settings": {
+            "height": 40,
+            "height_mobile": 150
+          }
         }
       },
       "block_order": [
+        "spacer_UpHzLD",
         "heading_BFBNTn",
         "text_DanjrA",
-        "button_DzVYYT"
+        "button_DzVYYT",
+        "spacer_FW7xCM"
       ],
       "settings": {
         "show_to": "all",
@@ -446,11 +466,11 @@
           "settings": {
             "image": "shopify://shop_images/01ba8cd455eac34e5229dab4b4020cf8.png",
             "vertical": -300,
-            "vertical_mobile": -150,
-            "horizontal_mobile": 0,
+            "vertical_mobile": -180,
+            "horizontal_mobile": -25,
             "right": false,
             "depth": 0.4,
-            "mobile_width": 150,
+            "mobile_width": 200,
             "visibility": ""
           }
         },
@@ -459,10 +479,11 @@
           "settings": {
             "image": "shopify://shop_images/car1880659b23217a465444649c79852ee7916be5b1p_1.png",
             "vertical": -350,
-            "vertical_mobile": -150,
+            "vertical_mobile": -220,
+            "horizontal_mobile": 20,
             "right": true,
             "depth": 0.1,
-            "mobile_width": 150,
+            "mobile_width": 200,
             "visibility": ""
           }
         }

@@ -81,6 +81,8 @@
                 {{ block.settings.image | image_url: width: block.settins.image.width | image_tag }}
               </div>
             {% endif %}
+          {% when 'spacer' %}
+            <div class="spacer block w-full" style="--height: {{ block.settings.height | append: 'px' }};--mobile-height: {{ block.settings.height_mobile | append: 'px' }}" {{ block.shopify_attributes }}></div>
         {%- endcase -%}
       {%- endfor -%}
     </div>
@@ -388,6 +390,22 @@
         "type":"image_picker",
         "id":"image",
         "label":"Image"
+      }]
+    },
+    {
+      "type":"spacer",
+      "name":"Spacer",
+      "settings": [{
+        "type":"number",
+        "id":"height",
+        "label":"Height",
+        "default": 16
+      },
+      {
+        "type":"number",
+        "id":"height_mobile",
+        "label":"Height Mobile",
+        "default": 16
       }]
     }
   ],

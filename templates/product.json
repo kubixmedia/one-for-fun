@@ -56,18 +56,10 @@
             "text_no_stock_backordered": "<p>Backordered</p>"
           }
         },
-        "delivery_countdown_AQCYfY": {
-          "type": "delivery-countdown",
+        "custom_liquid_jBA8XX": {
+          "type": "custom-liquid",
           "settings": {
-            "next_day_cutoff": "21",
-            "delivery_information": "",
-            "monday": true,
-            "tuesday": true,
-            "wednesday": true,
-            "thursday": true,
-            "friday": true,
-            "saturday": false,
-            "sunday": false
+            "custom_liquid": "Delivery countdown"
           }
         },
         "buy-buttons": {
@@ -118,7 +110,7 @@
         "price",
         "variant-picker",
         "inventory_status_cKhkUC",
-        "delivery_countdown_AQCYfY",
+        "custom_liquid_jBA8XX",
         "buy-buttons",
         "complementary_e7ccMh",
         "collapsible-content-1",
@@ -160,68 +152,19 @@
         "richtext_Midzzm": {
           "type": "richtext",
           "settings": {
-            "text": "<h2>Product Description</h2>{{ product.description }}"
+            "text": "<h3>Product Description</h3>{{ product.description }}"
           }
         },
-        "downloads_zR6yNJ": {
-          "type": "downloads",
+        "custom_liquid_n3fcrN": {
+          "type": "custom-liquid",
           "settings": {
-            "title": "Downloads"
+            "custom_liquid": "Downloads"
           }
         },
-        "features_mWmj4n": {
-          "type": "features",
+        "custom_liquid_Cwen9t": {
+          "type": "custom-liquid",
           "settings": {
-            "title": "Features"
-          }
-        },
-        "feature_row_KyTQNi": {
-          "type": "feature_row",
-          "settings": {
-            "title": "Age Recommendation",
-            "feature": "Placeholder"
-          }
-        },
-        "feature_row_CQFmTH": {
-          "type": "feature_row",
-          "settings": {
-            "title": "Volume Per Carton",
-            "feature": "Placeholder"
-          }
-        },
-        "feature_row_6KeEAx": {
-          "type": "feature_row",
-          "settings": {
-            "title": "Delivery Restriction",
-            "feature": "Placeholder"
-          }
-        },
-        "feature_row_CpEgJd": {
-          "type": "feature_row",
-          "settings": {
-            "title": "Display Size",
-            "feature": "Placeholder"
-          }
-        },
-        "feature_row_77TibN": {
-          "type": "feature_row",
-          "settings": {
-            "title": "Availability",
-            "feature": "Placeholder"
-          }
-        },
-        "feature_row_MbxUFK": {
-          "type": "feature_row",
-          "settings": {
-            "title": "EAN",
-            "feature": "Placeholder"
-          }
-        },
-        "feature_row_Gajx4p": {
-          "type": "feature_row",
-          "settings": {
-            "title": "Cube Unit",
-            "feature": "Placeholder"
+            "custom_liquid": "Features<br>\ntable rows"
           }
         },
         "payment_methods_7gP4dk": {
@@ -235,37 +178,20 @@
             "image": "shopify://shop_images/ShopPay_-_Color_0bdd2445-7372-4e87-9a84-3241cb8f080a_svg.png",
             "text2": ""
           }
-        },
-        "feature_row_6UMn7N": {
-          "type": "feature_row",
-          "settings": {
-            "title": "Example",
-            "feature": "Hello"
-          }
         }
       },
       "block_order": [
         "richtext_Midzzm",
-        "downloads_zR6yNJ",
-        "features_mWmj4n",
-        "feature_row_KyTQNi",
-        "feature_row_CQFmTH",
-        "feature_row_6KeEAx",
-        "feature_row_CpEgJd",
-        "feature_row_77TibN",
-        "feature_row_MbxUFK",
-        "feature_row_Gajx4p",
-        "payment_methods_7gP4dk",
-        "feature_row_6UMn7N"
+        "custom_liquid_n3fcrN",
+        "custom_liquid_Cwen9t",
+        "payment_methods_7gP4dk"
       ],
-      "settings": {
-        "headings_override": "#2a2b2a"
-      }
+      "settings": {}
     },
     "recommendations": {
       "type": "product-recommendations",
       "settings": {
-        "heading": "People who bought this also looked at...",
+        "heading": "Peopl who bought this also looked at...",
         "heading_align": "text-center",
         "layout": "carousel",
         "card_size_mobile": "small",
@@ -273,61 +199,14 @@
         "products_to_show": 8
       }
     },
-    "custom_download_banner_R6kML9": {
-      "type": "custom-download-banner",
-      "blocks": {
-        "hover_image_WaPHHr": {
-          "type": "hover_image",
-          "settings": {
-            "image": "shopify://shop_images/Group_1744.png",
-            "left": 50,
-            "top": 50,
-            "scale": 1,
-            "left_hover": 50,
-            "top_hover": 50,
-            "scale_hover": 2
-          }
-        },
-        "hover_image_Nq8xk8": {
-          "type": "hover_image",
-          "settings": {
-            "image": "shopify://shop_images/25dd4c8cccdefbd49d954bf18d3636a3.png",
-            "left": 44,
-            "top": 52,
-            "scale": 0.4,
-            "left_hover": 76,
-            "top_hover": 74,
-            "scale_hover": 2
-          }
-        },
-        "hover_image_AtNKjk": {
-          "type": "hover_image",
-          "settings": {
-            "image": "shopify://shop_images/Screenshot_2024-10-07_at_15.15.11_1.png",
-            "left": 40,
-            "top": 42,
-            "scale": 0.1,
-            "left_hover": 26,
-            "top_hover": -2,
-            "scale_hover": 0.5
-          }
-        }
-      },
-      "block_order": [
-        "hover_image_WaPHHr",
-        "hover_image_Nq8xk8",
-        "hover_image_AtNKjk"
-      ],
+    "custom_liquid_7bkdN8": {
+      "type": "custom-liquid",
       "settings": {
-        "show_to": "all",
-        "title": "Download Our<br>2024 Catalogue!",
-        "text_color": "#fdc52c",
-        "download_text": "Download Now",
-        "download_link": "https://cdn.shopify.com/s/files/1/0844/7416/7644/files/SV22058_10_2024_EN71.pdf?v=1739448151",
-        "background": "radial-gradient(rgba(248, 171, 99, 1) 51.99%, rgba(245, 135, 32, 1) 100%)",
-        "add_shape": true,
-        "shape_color": "#e83c4d",
-        "overlay_image": "shopify://shop_images/268d9ae828b8f7f66526ba0725848adf.png"
+        "custom_liquid": "Download catalog banner from homepage - check functionality on this",
+        "section_height": "default",
+        "full_width": false,
+        "dividers": "none",
+        "prevent_animation": false
       }
     }
   },
@@ -335,6 +214,6 @@
     "main",
     "details",
     "recommendations",
-    "custom_download_banner_R6kML9"
+    "custom_liquid_7bkdN8"
   ]
 }
