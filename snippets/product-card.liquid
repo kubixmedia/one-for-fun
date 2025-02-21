@@ -184,17 +184,15 @@
           {%- endif -%}
         </a>
       {%- endif -%}
-
-      {%- liquid
-        if settings.product_label_card_position != "none"
-          render 'product-label', product: product, position: settings.product_label_card_position, is_product_card: true, limit: 2
-        endif
-      -%}
     </div>
-
+    {%- liquid
+      if settings.product_label_card_position != "none"
+        render 'product-label', product: product, position: settings.product_label_card_position, is_product_card: true, limit: 2
+      endif
+    -%}
     <div class="card__info-container flex flex-col flex-auto relative">
       <div class="card__info w-full">
-        <div class="card__info-inner{% if settings.card_price_bottom %} flex flex-col h-full{% else %} inline-block{% endif %} w-full">
+        <div class="card__info-inner{% if settings.card_price_bottom %} flex flex-col h-full{% else %} inline-block{% endif %} w-full text-center">
           {%- if settings.card_show_vendor -%}
             <p class="card__vendor{% if settings.show_dividers %} mb-1{% else %} mb-0{% endif %} text-sm text-theme-light">
               {{- product.vendor -}}

@@ -24,6 +24,7 @@
 <div class="price{%- if compare_at_price > price %} price--on-sale{% endif -%}
                  {%- if available == false %} price--sold-out{% endif -%}{% if class %} {{ class }}{% endif %}">
   <div class="price__default">
+    <span>{{ 'products.product.pre_price' | t }}</span>
     {%- if product.price_varies and use_variant == false %}
       <span class="price__from">{{ 'products.product.from' | t }}</span>
     {%- endif %}
