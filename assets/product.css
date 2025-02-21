@@ -237,7 +237,9 @@
 .product-vendor-sku + .product-info__title {
   margin-top: -4px;
 }
-
+.product-vendor-sku {
+  font-size: var(--h5-font-size);
+}
 .product-info__title + .product-info__rating,
 .product-price + variant-label {
   margin-top: -8px;
@@ -248,9 +250,11 @@
 }
 
 .product-info__price {
-  font-size: var(--h4-font-size);
+  font-size: var(--h5-font-size);
 }
-
+.product-info__price .price--pre {
+  font-weight: 500;
+}
 .product-info__add-to-cart quantity-input {
   flex: 1 1 35%;
   margin-inline-end: calc(2 * var(--space-unit));
@@ -280,7 +284,11 @@ quantity-input + .product-info__add-button {
   --shopify-accelerated-checkout-skeleton-animation-opacity-end: 0;
   --shopify-accelerated-checkout-skeleton-animation-duration: 0s;
 }
-
+.product-info__dynamic-checkout-button shopify-accelerated-checkout button[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: .5;
+  pointer-events: none;
+}
 .product-info__disclosure {
   font-size: calc(var(--body-font-size) * 0.1rem);
 }
