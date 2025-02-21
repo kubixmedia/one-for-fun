@@ -24,11 +24,11 @@
 <div class="price{%- if compare_at_price > price %} price--on-sale{% endif -%}
                  {%- if available == false %} price--sold-out{% endif -%}{% if class %} {{ class }}{% endif %}">
   <div class="price__default">
-    <span>{{ 'products.product.pre_price' | t }}</span>
+    <span class="price--pre">{{ 'products.product.pre_price' | t }}</span>
     {%- if product.price_varies and use_variant == false %}
       <span class="price__from">{{ 'products.product.from' | t }}</span>
     {%- endif %}
-    <strong class="price__current">{%- render 'price-as-money', price: price -%}</strong>
+    <span class="price__current">{%- render 'price-as-money', price: price -%}</span>
     <s class="price__was{% if settings.superscript_decimals %} price__was--supercents{% endif %}">
       {%- if compare_at_price and compare_at_price > price -%}
         {%- render 'price-as-money', price: compare_at_price, show_money_with_currency: false -%}

@@ -155,7 +155,7 @@
             </div>
           {%- when 'vendor-sku' -%}
             {%- if block.settings.show_vendor or block.settings.show_sku or block.settings.show_barcode -%}
-              <div class="product-info__block product-info__block--sm product-vendor-sku text-sm" {{ block.shopify_attributes }}>
+              <div class="product-info__block product-info__block--sm product-vendor-sku font-bold" {{ block.shopify_attributes }}>
                 {%- if block.settings.show_vendor and product.vendor != blank -%}
                   {%- liquid
                     assign vendor_handle = product.vendor | handle
