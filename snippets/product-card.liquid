@@ -192,7 +192,7 @@
     -%}
     <div class="card__info-container flex flex-col flex-auto relative">
       <div class="card__info w-full">
-        <div class="card__info-inner{% if settings.card_price_bottom %} flex flex-col h-full{% else %} inline-block{% endif %} w-full text-center">
+        <div class="card__info-inner{% if settings.card_price_bottom %} flex flex-col items-center h-full{% else %} inline-block{% endif %} w-full text-center">
           {%- if settings.card_show_vendor -%}
             <p class="card__vendor{% if settings.show_dividers %} mb-1{% else %} mb-0{% endif %} text-sm text-theme-light">
               {{- product.vendor -}}
@@ -227,7 +227,7 @@
           {%- endif -%}
 
           {%- if settings.card_price_bottom == false -%}
-            {%- render 'price', product: product, class: "price--top" -%}
+            {%- render 'price', product: product, class: "price--top text-sm" -%}
           {%- endif -%}
 
           {%- if settings.card_colors_style != 'none' -%}
@@ -379,7 +379,7 @@
 
           {%- if settings.card_price_bottom -%}
             <div class="flex grow items-end">
-              {%- render 'price', product: product, class: "price--bottom" -%}
+              {%- render 'price', product: product, class: "price--bottom text-sm" -%}
             </div>
           {%- endif -%}
         </div>
@@ -397,7 +397,7 @@
           {%- if product.has_only_default_variant and product_not_for_sale == false -%}
             <product-form>
               <div class="alert mb-8 bg-error-bg text-error-text js-form-error text-start" role="alert" hidden></div>
-              {%- form 'product', product, class: 'js-product-form', id: product_form_id, novalidate: 'novalidate' -%}
+              {%- form 'product', product, class: 'js-product-form flex gap-3', id: product_form_id, novalidate: 'novalidate' -%}
                 <input type="hidden" name="id" value="{{ current_variant.id }}" disabled>
 
                 {%- capture button_text -%}
@@ -424,6 +424,7 @@
                 <a href="{{ product_url }}" class="btn btn--secondary quick-add-view-btn">
                   {{- 'products.product.view_details' | t -}}
                 </a>
+                {% render 'quantity-input', layout_style: "combined" %}
               {%- endform -%}
             </product-form>
           {%- else -%}
