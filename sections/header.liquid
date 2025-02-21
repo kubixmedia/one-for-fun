@@ -1,5 +1,5 @@
 {% # theme-check-disable LiquidTag, TemplateLength %}
-
+{% assign dev = true %}
 {%- liquid
   assign has_mega_nav_pills = false
   assign has_mega_nav_columns = false
@@ -90,7 +90,7 @@
         </h1>
       {%- endif -%}
     </div>
-    {% if customer or request.design_mode or theme.name contains '(995e9e-Mac)' %}
+    {% if customer or request.design_mode or dev %}
       {%- if section.settings.enable_search -%}
         {%- if settings.enable_predictive_search -%}
           <link rel="stylesheet" href="{{ 'predictive-search.css' | asset_url }}"{% unless show_search_types %} media="print" onload="this.media='all'"{% endunless %}>

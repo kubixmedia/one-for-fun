@@ -2,6 +2,7 @@
   position: relative;
   display: grid;
   grid-template-columns: 200px 1fr 350px;
+  border-radius: var(--overlay-border-radius);
 }
 .download__overlay {
   margin-top: -70px;

@@ -12,6 +12,16 @@
         "name": "color",
         "category": "COLOR"
       }
+    },
+    {
+      "key": "logo",
+      "namespace": "custom",
+      "name": "Logo",
+      "description": "",
+      "type": {
+        "name": "file_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "company": [],
