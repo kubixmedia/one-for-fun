@@ -227,6 +227,9 @@
     position: static;
     padding: calc(4 * var(--space-unit)) 0 0 0;
   }
+  .card--product-contained .desktop\:card__quick-add--below {
+    margin: 0 calc(var(--space-unit) * -2.5);
+  }
   .main-products-grid:not([data-layout=list]) .desktop\:card__quick-add--icon,
 .products-grid-container .desktop\:card__quick-add--icon {
     text-align: end;
