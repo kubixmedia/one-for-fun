@@ -165,7 +165,7 @@
         "feature_row_mkqtEz": {
           "type": "feature_row",
           "settings": {
-            "title": "Age",
+            "title": "Age Recommendation",
             "feature": "{{ product.metafields.custom.age.value }}"
           }
         },
