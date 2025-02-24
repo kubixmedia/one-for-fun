@@ -169,6 +169,19 @@
             "feature": "{{ product.metafields.custom.age.value }}"
           }
         },
+        "feature_row_V3zFVt": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Volume Per Carton",
+            "feature": "{{ product.metafields.custom.volume_per_carton.value }}"
+          }
+        },
+        "features_8WyPhF": {
+          "type": "features",
+          "settings": {
+            "title": "Features"
+          }
+        },
         "payment_methods_7gP4dk": {
           "type": "payment-methods",
           "settings": {
@@ -186,6 +199,8 @@
         "richtext_Midzzm",
         "downloads_iV7rp8",
         "feature_row_mkqtEz",
+        "feature_row_V3zFVt",
+        "features_8WyPhF",
         "payment_methods_7gP4dk"
       ],
       "settings": {
