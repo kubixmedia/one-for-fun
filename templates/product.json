@@ -182,6 +182,13 @@
             "title": "Features"
           }
         },
+        "feature_row_iQLiej": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Display Size",
+            "feature": "{{ product.metafields.custom.display_size.value }}"
+          }
+        },
         "payment_methods_7gP4dk": {
           "type": "payment-methods",
           "settings": {
@@ -201,6 +208,7 @@
         "feature_row_mkqtEz",
         "feature_row_V3zFVt",
         "features_8WyPhF",
+        "feature_row_iQLiej",
         "payment_methods_7gP4dk"
       ],
       "settings": {
