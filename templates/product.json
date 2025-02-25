@@ -56,10 +56,18 @@
             "text_no_stock_backordered": "<p>Backordered</p>"
           }
         },
-        "custom_liquid_jBA8XX": {
-          "type": "custom-liquid",
+        "delivery_countdown_P4gtY3": {
+          "type": "delivery-countdown",
           "settings": {
-            "custom_liquid": "Delivery countdown"
+            "next_day_cutoff": "21",
+            "delivery_information": "",
+            "monday": true,
+            "tuesday": true,
+            "wednesday": true,
+            "thursday": true,
+            "friday": true,
+            "saturday": false,
+            "sunday": false
           }
         },
         "buy-buttons": {
@@ -110,7 +118,7 @@
         "price",
         "variant-picker",
         "inventory_status_cKhkUC",
-        "custom_liquid_jBA8XX",
+        "delivery_countdown_P4gtY3",
         "buy-buttons",
         "complementary_e7ccMh",
         "collapsible-content-1",
@@ -120,6 +128,7 @@
       "settings": {
         "stick_on_scroll": true,
         "select_first_variant": true,
+        "shape_color": "#B7E3E7",
         "sticky_atc_panel": true,
         "sticky_atc_position": "end",
         "sticky_atc_mobile": true,
@@ -186,7 +195,9 @@
         "custom_liquid_Cwen9t",
         "payment_methods_7gP4dk"
       ],
-      "settings": {}
+      "settings": {
+        "headings_override": ""
+      }
     },
     "recommendations": {
       "type": "product-recommendations",
@@ -202,6 +213,7 @@
     "custom_liquid_7bkdN8": {
       "type": "custom-liquid",
       "settings": {
+        "show_to": "all",
         "custom_liquid": "Download catalog banner from homepage - check functionality on this",
         "section_height": "default",
         "full_width": false,

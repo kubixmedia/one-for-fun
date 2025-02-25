@@ -97,7 +97,7 @@
         "title": "Best Sellers",
         "heading_align": "text-center",
         "show_view_all": false,
-        "collection": "best-sellers",
+        "collection": "test-collection",
         "layout": "carousel",
         "card_size_mobile": "small",
         "card_size": "medium",

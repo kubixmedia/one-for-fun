@@ -998,6 +998,11 @@
         ]
       },
       {
+        "type":"checkbox",
+        "id":"force_outside_card",
+        "label":"Force outside card"
+      },
+      {
         "type": "checkbox",
         "id": "quick_add_sticky_buttons",
         "label": "Fix the Quick Buy footer to the bottom of the drawer when it scrolls",
