@@ -85,7 +85,7 @@
     {
       "key": "minumum_order_quantity",
       "namespace": "custom",
-      "name": "minimum Order Quantity ",
+      "name": "Minimum Order Quantity ",
       "description": "",
       "type": {
         "name": "number_integer",
@@ -105,7 +105,7 @@
     {
       "key": "age",
       "namespace": "custom",
-      "name": "Age",
+      "name": "Age Recommendation",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -135,8 +135,8 @@
     {
       "key": "availability",
       "namespace": "custom",
-      "name": "Availability",
-      "description": "What countries the product is available ",
+      "name": "Languages",
+      "description": "Warning Packaging Labels ",
       "type": {
         "name": "list.single_line_text_field",
         "category": "TEXT"
@@ -160,6 +160,26 @@
       "type": {
         "name": "list.file_reference",
         "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "redirects",
+      "namespace": "custom",
+      "name": "Redirects",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "label",
+      "namespace": "theme",
+      "name": "Custom Label",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
       }
     }
   ],

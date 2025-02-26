@@ -429,6 +429,9 @@ quantity-input + .product-info__add-button {
   .product-details .disclosure__content {
     padding-bottom: calc(8 * var(--space-unit));
   }
+  .product-info {
+    margin-top: 144px;
+  }
 }
 .product-details__feature {
   border-bottom: 1px dashed rgba(42, 43, 42, 0.15);
@@ -436,4 +439,9 @@ quantity-input + .product-info__add-button {
 }
 .product-details__feature p:first-of-type {
   font-weight: 500;
+}
+.product__shape {
+  pointer-events: none;
+  height: auto;
+
 }
