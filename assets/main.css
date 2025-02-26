@@ -3584,6 +3584,8 @@ sup {
 .qty-input__input {
   flex: 1 1 auto;
   width: 2.5em;
+}
+.card--product .qty-input__input {
   max-width: 2.5rem;
 }
 .no-js .qty-input__input {
@@ -5595,4 +5597,5 @@ body > .os-scrollbar {
 .card--product {
   border-radius: var(--overlay-border-radius);
   overflow: hidden;
+  margin: 0;
 }
