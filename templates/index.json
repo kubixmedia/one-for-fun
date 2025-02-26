@@ -77,7 +77,6 @@
         "height_mode": "auto",
         "fixed_height_desktop": 600,
         "fixed_height_mobile": 350,
-        "mobile_stacked": false,
         "nav_style": "slideshow_nav_lines",
         "pagination_color": "#20cbd4",
         "nav_position": "justify-center",
@@ -417,7 +416,7 @@
         "text_DanjrA": {
           "type": "text",
           "settings": {
-            "text": "<h6>QUALITY, INNOVATION AND SAFETY:</h6><p>Our products undergo rigorous testing to ensure they delight and inspire</p><h6>GLOBAL PRESENCE:</h6><p>Showrooms in the UK, US, and Honk Kong provide accessibility and convenience for customers around the world</p><h6>TREND-DRIVEN EXPERIENCE:</h6><p>We stay ahead of the curve, delivering the latest innovations to meet your needs seamlessly</p>",
+            "text": "<h6>QUALITY, INNOVATION AND SAFETY:</h6><p>Our products undergo rigorous testing to ensure they delight and inspire</p><p></p><h6>GLOBAL PRESENCE:</h6><p>Showrooms in the UK, US, and Honk Kong provide accessibility and convenience for customers around the world</p><p></p><h6>TREND-DRIVEN EXPERIENCE:</h6><p>We stay ahead of the curve, delivering the latest innovations to meet your needs seamlessly</p>",
             "enlarge_text": false
           }
         },
@@ -643,7 +642,7 @@
       ],
       "settings": {
         "show_to": "all",
-        "title": "Download Our 2024 Catalogue!",
+        "title": "Download Our<br>2024 Catalogue!",
         "text_color": "#ffffff",
         "download_text": "Download Now",
         "download_link": "https://cdn.shopify.com/s/files/1/0844/7416/7644/files/SV22058_10_2024_EN71.pdf?v=1739448151",

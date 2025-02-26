@@ -49,8 +49,8 @@
     assign grid_desktop_large = ' sm:grid-cols-2 lg:grid-cols-3'
 
     if section.settings.card_size_mobile == 'small'
-      assign carousel_mobile_cols = 'grid-flow-col auto-cols-2 small-cards-mobile'
-      assign grid_mobile_cols = 'grid-cols-2 small-cards-mobile'
+      assign carousel_mobile_cols = 'grid-flow-col auto-cols-1 small-cards-mobile'
+      assign grid_mobile_cols = 'grid-cols-1 small-cards-mobile'
       if section.settings.layout == 'carousel_on_mobile'
         assign carousel_mobile_cols = carousel_mobile_cols | append: ' sm:grid-cols-2'
       endif
