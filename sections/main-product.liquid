@@ -174,7 +174,7 @@
                 {%- if block.settings.show_sku -%}
                   <span class="product-sku"{% if current_variant.sku == blank %} hidden{% endif %}>
                     {%- if block.settings.show_vendor and product.vendor != blank %} &nbsp;|&nbsp; {% endif -%}
-                    {% comment %} <span>{{ 'products.product.sku' | t }}</span> {% endcomment %}
+                    {% if block.settings.show_sku_label %} <span>{{ 'products.product.sku' | t }}</span> {% endif %}
                     <span class="product-sku__value">{{ current_variant.sku }}</span>
                   </span>
                 {%- endif -%}
@@ -1929,6 +1929,11 @@
           "id": "show_sku",
           "label": "Show SKU",
           "default": true
+        },
+        {
+          "type":"checkbox",
+          "id":"show_sku_label",
+          "label":"Show SKU label"
         },
         {
           "type": "checkbox",
