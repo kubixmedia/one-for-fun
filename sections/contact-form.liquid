@@ -80,7 +80,7 @@
               data-cc-animate
             {% endif %}
           >
-            <h2 class="h4 section__heading {{ section.settings.heading_align }}">
+            <h2 class="h4 section__heading {{ section.settings.heading_align }} {{ section.settings.heading_align_mobile }}">
               {{ section.settings.heading | escape }}
             </h2>
           </div>
@@ -400,6 +400,26 @@
         }
       ],
       "default": "text-center"
+    },
+    {
+      "type": "select",
+      "id": "heading_align_mobile",
+      "label": "Heading alignment mobile",
+      "options": [
+        {
+          "value": "md-down:text-left",
+          "label": "Left"
+        },
+        {
+          "value": "md-down:text-center",
+          "label": "Center"
+        },
+        {
+          "value": "md-down:text-right",
+          "label": "Right"
+        }
+      ],
+      "default": "md-down:text-center"
     },
     {
       "type": "header",

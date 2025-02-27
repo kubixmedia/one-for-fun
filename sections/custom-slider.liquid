@@ -114,6 +114,9 @@
             assign transparent_text_contrast = "0 0 0"
             assign transparent_hover_color = block.settings.transparent_content_color | color_darken: 10
           endif
+          if block.settings.button_color.alpha > 0
+            assign transparent_text_contrast = block.settings.button_color.rgb
+          endif
         -%}
         {% capture 'style' %}
           --color-scheme-white-text: {{ block.settings.transparent_content_color.red }} {{ block.settings.transparent_content_color.green }} {{ block.settings.transparent_content_color.blue }};
@@ -722,6 +725,11 @@
                     "label": "Text and button color",
                     "info": "Only applies when the \"Transparent background\" color scheme is chosen and the text shows over an image.",
                     "default": "#ffffff"
+                },
+                {
+                  "type":"color",
+                  "id":"button_color",
+                  "label":"Button text color"
                 }
             ]
         }

@@ -119,3 +119,6 @@
     padding-top: calc(12 * var(--space-unit));
   }
 }
+.product-main .product-info {
+  padding-top: 30px;
+}

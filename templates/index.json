@@ -35,7 +35,8 @@
             "button_2_label": "",
             "button_2_link": "",
             "button_2_style": "btn btn--primary",
-            "transparent_content_color": "#ffffff"
+            "transparent_content_color": "#ffffff",
+            "button_color": "#20cbd4"
           }
         },
         "slide_MgtHBV": {
@@ -61,7 +62,8 @@
             "button_2_label": "",
             "button_2_link": "",
             "button_2_style": "btn btn--primary",
-            "transparent_content_color": "#ffffff"
+            "transparent_content_color": "#ffffff",
+            "button_color": ""
           }
         }
       },
@@ -587,7 +589,8 @@
       "settings": {
         "show_to": "all",
         "heading": "Register for Our Catalogue!",
-        "heading_align": "text-left",
+        "heading_align": "text-start",
+        "heading_align_mobile": "md-down:text-center",
         "image": "shopify://shop_images/Frame_48095884.png",
         "image_position": "left",
         "color_scheme": "none",

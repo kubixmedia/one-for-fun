@@ -25,7 +25,7 @@
       <div
         class="parallax-images__container {{ block.settings.visibility }}"
         data-depth="{{ block.settings.depth }}"
-        style="--vertical: {{ block.settings.vertical | default: 0 | append: 'px' }}; --horizontal: {{ block.settings.horizontal | default: 0 | append: 'px' }};--vertical-mobile: {{ block.settings.vertical_mobile | default: 0 | append: 'px' }}; --horizontal-mobile: {{ block.settings.horizontal_mobile | default: 0 | append: 'px' }};--mobile-width: {{ block.settings.mobile_width | default: 100 | append: 'px' }}"
+        style="--vertical: {{ block.settings.vertical | default: 0 | append: 'px' }}; --horizontal: {{ block.settings.horizontal | default: 0 | append: 'px' }};--vertical-mobile: {{ block.settings.vertical_mobile | default: 0 | append: 'px' }}; --horizontal-mobile: {{ block.settings.horizontal_mobile | default: 0 | at_least: -20  | append: 'px' }};--mobile-width: {{ block.settings.mobile_width | default: 100 | append: 'px' }}"
       >
         <div
           class="parallax-images__image flex {% if block.settings.right %}justify-end{% else %}justify-start{% endif %}"
