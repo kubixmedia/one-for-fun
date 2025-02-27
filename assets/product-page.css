@@ -120,5 +120,5 @@
   }
 }
 .product-main .product-info {
-  padding-top: 30px;
+  padding-top: calc(6 * var(--space-unit));
 }
