@@ -15,7 +15,7 @@
 {%- if section.settings.show_back_to_top -%}
   <a href="#" class="back-to-top text-sm block border-top font-bold text-center text-current p-6 border-bottom"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %}>{{ 'sections.footer.back_to_top' | t }}</a>
 {%- endif -%}
-<footer class="footer bg-theme-bg text-theme-text">
+<footer class="footer bg-theme-bg text-theme-text{% if section.settings.shape %} footer--shape{% endif %}">
   <div class="container">
     {%- if section.blocks.size > 0 -%}
       <div class="footer__main md:flex md:flex-wrap mb-10 md:mb-6">
@@ -31,7 +31,7 @@
                     </div>
                   {%- endif -%}
                   {%- if block.settings.heading != blank -%}
-                    <h2 class="footer-block__heading font-body font-bold text-h6 regular-text">{{ block.settings.heading | escape }}</h2>
+                    <h2 class="h5">{{ block.settings.heading | escape }}</h2>
                   {%- endif -%}
                   {%- if block.settings.text != blank -%}
                     <div class="footer-block__text rte">
@@ -67,6 +67,23 @@
                     </div>
                   {%- endif -%}
                 </div>
+                {% if block.settings.newsletter %}
+                  <div class="footer-block">
+                    <h2 class="h5">
+                      {%- if block.settings.newsletter_heading != blank -%}
+                        {{ block.settings.newsletter_heading | escape }}
+                      {%- endif -%}
+                    </h2>
+
+                    {%- if block.settings.newsletter_text != blank -%}
+                      <div class="rte mb-4">
+                        {{ block.settings.newsletter_text }}
+                      </div>
+                    {%- endif -%}
+
+                    {% render 'newsletter-signup', id: 'footer-signup', arrow_button: true, tags: 'newsletter' %}
+                  </div>
+                {% endif %}
               </div>
 
             {%- when 'newsletter' -%}
@@ -104,7 +121,7 @@
                   {%- assign is_first_disclosure = false -%}
                 {%- else -%}
                   <div class="footer-block">
-                    <h2 class="footer-block__heading font-body font-bold text-h6 regular-text">
+                    <h2 class="h5">
                       {%- if block.settings.heading != blank -%}
                         {{ block.settings.heading | escape }}
                       {%- endif -%}
@@ -128,7 +145,7 @@
                     <details class="footer-menu disclosure{% if is_first_disclosure %} footer-menu--first{% endif %}" open>
                       <summary tabindex="-1">
                         <div class="flex justify-between items-center">
-                          <h2 class="disclosure__title font-body font-bold text-h6 regular-text">
+                          <h2 class="disclosure__title h5">
                             {{- block.settings.heading | escape -}}
                           </h2>
                           <span class="disclosure__toggle">
@@ -148,6 +165,23 @@
                             </li>
                           {%- endfor -%}
                         </ul>
+                        {% if block.settings.newsletter %}
+                          <div class="footer-block">
+                            <h2 class="footer-block__heading h5">
+                              {%- if block.settings.newsletter_heading != blank -%}
+                                {{ block.settings.newsletter_heading | escape }}
+                              {%- endif -%}
+                            </h2>
+
+                            {%- if block.settings.newsletter_text != blank -%}
+                              <div class=" mb-4">
+                                {{ block.settings.newsletter_text }}
+                              </div>
+                            {%- endif -%}
+
+                            {% render 'newsletter-signup', id: 'footer-signup', arrow_button: true, tags: 'newsletter' %}
+                          </div>
+                        {% endif %}
                       </div>
                     </details>
                   </footer-menu>
@@ -305,9 +339,14 @@
       "id": "text_color",
       "label": "Text color",
       "default": "#070707"
+    },
+    {
+      "type":"checkbox",
+      "id":"shape",
+      "label":"Add Shape",
+      "default": true
     }
   ],
-  "max_blocks": 4,
   "blocks": [
     {
       "type": "link_list",
@@ -325,6 +364,31 @@
           "label": "Menu",
           "info": "This menu won't show dropdown items.",
           "default": "footer"
+        },
+        {
+          "type":"header",
+          "content":"Newsletter"
+        },
+        {
+          "type": "checkbox",
+          "id":"newsletter",
+          "label": "Newsletter"
+        },
+        {
+          "type": "text",
+          "id": "newsletter_heading",
+          "label": "Heading",
+          "default": "Newsletter"
+        },
+        {
+          "type": "richtext",
+          "id": "newsletter_text",
+          "label": "Text",
+          "default": "<p>Sign up for exclusive offers, original stories, events and more.</p>"
+        },
+        {
+          "type": "paragraph",
+          "content": "Customers who subscribe will have their email address added to the \"accepts marketing\" [customer list](/admin/customers?query=&accepts_marketing=1)"
         }
       ]
     },
@@ -403,6 +467,31 @@
             }
           ],
           "default": "text-start"
+        },
+        {
+          "type":"header",
+          "content":"Newsletter"
+        },
+        {
+          "type": "checkbox",
+          "id":"newsletter",
+          "label": "Newsletter"
+        },
+        {
+          "type": "text",
+          "id": "newsletter_heading",
+          "label": "Heading",
+          "default": "Newsletter"
+        },
+        {
+          "type": "richtext",
+          "id": "newsletter_text",
+          "label": "Text",
+          "default": "<p>Sign up for exclusive offers, original stories, events and more.</p>"
+        },
+        {
+          "type": "paragraph",
+          "content": "Customers who subscribe will have their email address added to the \"accepts marketing\" [customer list](/admin/customers?query=&accepts_marketing=1)"
         }
       ]
     },
