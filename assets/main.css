@@ -1304,6 +1304,21 @@ address {
     padding-right: var(--gutter);
     padding-left: var(--gutter);
   }
+  .md-down\:text-left{
+    text-align: left;
+  }
+  .md-down\:text-center{
+    text-align: center;
+  }
+  .md-down\:text-right{
+    text-align: right;
+  }
+  .md-down\:text-start{
+    text-align: start;
+  }
+  .md-down\:text-end{
+    text-align: end;
+  }
 }
 .visible-lg {
   display: none !important;
@@ -2244,7 +2259,10 @@ ul {
 html:not([dir=rtl]) .is-success::before {
   animation: checkmark 1.4s ease;
 }
-
+html {
+  width: 100vw;
+  overflow-x: hidden;
+}
 .panel {
   --heading-color: var(--panel-heading-color);
   padding: calc(5 * var(--space-unit));
@@ -5581,6 +5599,9 @@ body > .os-scrollbar {
   }
   .xl\:grid-cols-8{
     grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+  .newsletter .section__block--heading {
+    margin-right: 110px;
   }
 }
 .newsletter {

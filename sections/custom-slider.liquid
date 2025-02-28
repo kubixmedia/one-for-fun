@@ -38,10 +38,6 @@
   #{{ section.id }} {
     background: none;
 
-    {%- if section.settings.height_mode == 'fixed' and section.settings.mobile_stacked -%}
-      --image-height: {{ section.settings.fixed_height_mobile }}px;
-    {%- endif -%}
-
     {%- if section.settings.autoplay -%}
       --duration: {{ section.settings.autoplay_speed }}s;
       --play-state: paused;
@@ -54,13 +50,8 @@
   }
 
   {%- if section.settings.height_mode == 'fixed' -%}
-    {%- if section.settings.mobile_stacked -%}
-      @media (max-width: {{ breakpoint_sm_down }}px) {
-        #{{ section.id }} .image-banner__image { height: {{ section.settings.fixed_height_mobile }}px; }
-      }
-    {%- else -%}
+
       #{{ section.id }} .image-banner { min-height: {{ section.settings.fixed_height_mobile }}px; }
-    {%- endif -%}
 
     @media (min-width: {{ breakpoint_sm }}px) {
       #{{ section.id }} .image-banner {
@@ -88,16 +79,7 @@
     #{{ section.id }} .image-banner::after,
     #{{ section.id }} .media::after { content: ''; padding-top: {{ img_padding }}; }
 
-    {%- if section.settings.mobile_stacked -%}
-      @media (max-width: {{ breakpoint_sm }}px) {
-        #{{ section.id }} { --image-height: {{ m_img_padding }}; }
-        #{{ section.id }} .image-banner::after,
-        #{{ section.id }} .media::after {
-          content: '';
-          padding-top: 0;
-        }
-      }
-    {%- elsif section.blocks.first.settings.image_mobile != blank -%}
+    {% if section.blocks.first.settings.image_mobile != blank -%}
       @media (max-width: {{ breakpoint_sm }}px) {
         #{{ section.id }} .image-banner::after,
         #{{ section.id }} .media::after { content: ''; padding-top: {{ m_img_padding }}; }
@@ -107,7 +89,7 @@
 
 {%- endstyle -%}
 
-<div class="slideshow-section section section--full-width{% if section.settings.mobile_stacked and section.settings.height_mode != 'screen' %} mobile-stacked{% endif %}" id="{{ section.id }}">
+<div class="slideshow-section section section--full-width" id="{{ section.id }}">
   <slide-show class="block relative overflow-hidden" role="region" aria-roledescription="{{ 'sections.slideshow.carousel' | t }}" aria-label="{{ section.settings.accessibility_info | escape }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}" data-transition="{{ section.settings.transition }}">
     <div class="slideshow flex" id="slideshow-{{ section.id }}" aria-live="polite" aria-atomic="true">
       {%- for block in section.blocks -%}
@@ -132,6 +114,9 @@
             assign transparent_text_contrast = "0 0 0"
             assign transparent_hover_color = block.settings.transparent_content_color | color_darken: 10
           endif
+          if block.settings.button_color.alpha > 0
+            assign transparent_text_contrast = block.settings.button_color.rgb
+          endif
         -%}
         {% capture 'style' %}
           --color-scheme-white-text: {{ block.settings.transparent_content_color.red }} {{ block.settings.transparent_content_color.green }} {{ block.settings.transparent_content_color.blue }};
@@ -140,7 +125,7 @@
           background-color: {{ block.settings.background_color }};
           --max-width: {{ block.settings.text_max | append: 'px' }};
         {% endcapture %}
-        <div class="slideshow__slide slideshow__slide--ignore-pagination {% if forloop.first %} is-active{% endif %} image-banner flex w-full {{ overlay_position | last }} {{ section.settings.height_mode }}-height{% if section.settings.mobile_stacked and section.settings.height_mode != 'screen' %} mobile-stacked{% endif %} color-scheme color-scheme--white{% if section.settings.shape %} slideshow__slide--shape{% endif %}" id="{{ section.id }}_{{ forloop.index }}"
+        <div class="slideshow__slide slideshow__slide--ignore-pagination {% if forloop.first %} is-active{% endif %} image-banner flex w-full {{ overlay_position | last }} {{ section.settings.height_mode }}-height color-scheme color-scheme--white{% if section.settings.shape %} slideshow__slide--shape{% endif %}" id="{{ section.id }}_{{ forloop.index }}"
              role="group" aria-roledescription="{{ 'sections.slideshow.slide' | t }}"
              aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
              {% if style %}style="{{ style }}"{% endif %}
@@ -185,8 +170,8 @@
           {%- endif -%}
 
           {%- if block.settings.heading != blank or block.settings.subheading != blank or block.settings.text != blank or block.settings.button_1_label != blank or block.settings.button_2_label != blank or block.settings.background_text != blank or block.settings.background_text_video != blank -%}
-            <div class="slideshow__text container flex {{ overlay_position | first }}{% if block.settings.mob_center_text %} md-down:center{% endif %}{% if section.settings.mobile_stacked %} md-down:p-xl h-full md:h-auto{% endif %}"{% if settings.animations_enabled != "disabled" and section.settings.prevent_animation == false %} data-cc-animate{% endif %}>
-              <div class="text-overlay max-w-text-large w-full {{ block.settings.overlay_text_align }}{% if block.settings.mob_center_text %} md-down:text-center{% endif %}{% if section.settings.mobile_stacked %} md-down:p-xl h-full md:h-auto{% endif %} has-motion">
+            <div class="slideshow__text container flex {{ overlay_position | first }}{% if block.settings.mob_center_text %} md-down:center{% endif %}"{% if settings.animations_enabled != "disabled" and section.settings.prevent_animation == false %} data-cc-animate{% endif %}>
+              <div class="text-overlay max-w-text-large w-full {{ block.settings.overlay_text_align }}{% if block.settings.mob_center_text %} md-down:text-center{% endif %} has-motion">
                 {% assign class = '' %}
                 {%- if block.settings.subheading != blank -%}
                   {% assign class = 'img-fit' %}
@@ -393,13 +378,6 @@
             "unit": "px",
             "label": "Minimum fixed height on mobile",
             "default": 350
-        },
-        {
-            "type": "checkbox",
-            "id": "mobile_stacked",
-            "label": "Show text below image on mobile",
-            "info": "Does not apply to \"Full screen height\".",
-            "default": false
         },
         {
             "type": "header",
@@ -747,6 +725,11 @@
                     "label": "Text and button color",
                     "info": "Only applies when the \"Transparent background\" color scheme is chosen and the text shows over an image.",
                     "default": "#ffffff"
+                },
+                {
+                  "type":"color",
+                  "id":"button_color",
+                  "label":"Button text color"
                 }
             ]
         }

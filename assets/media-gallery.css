@@ -34,6 +34,8 @@
 .media-gallery__viewer {
   border: 1px solid var(--gallery-border-color);
   background-color: var(--gallery-bg-color);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+  border-radius: var(--overlay-border-radius);
 }
 
 .media-viewer,

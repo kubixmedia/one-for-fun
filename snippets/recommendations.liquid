@@ -98,12 +98,12 @@
           {%- if cart_matches.size == 0 -%}
             {%- assign rec_count = rec_count | plus: 1 -%}
             <li{% if carousel %} class="slider__item"{% endif %}>
-              {%- render 'product-card-mini', product: product, always_open_quickbuy: always_open_quickbuy -%}
+              {%- render 'product-card-mini', product: product, always_open_quickbuy: always_open_quickbuy, disable_quickbuy: true -%}
             </li>
           {%- endif -%}
         {%- else -%}
           <li{% if carousel %} class="slider__item"{% endif %}>
-            {%- render 'product-card-mini', product: product, always_open_quickbuy: always_open_quickbuy -%}
+            {%- render 'product-card-mini', product: product, always_open_quickbuy: always_open_quickbuy, disable_quickbuy: true -%}
           </li>
         {%- endif -%}
       {%- endfor -%}

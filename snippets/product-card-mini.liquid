@@ -49,14 +49,17 @@
   </div>
 
   <div class="card__info grow">
+    <p class="font-bold">{{ product.selected_or_first_available_variant.sku }}</p>
     <p class="h6 regular-text mt-2 mb-1">
       <a href="{{ product.url }}" class="card-link text-current">
         {{ product.title | escape }}
       </a>
     </p>
-
-    {%- render 'price', product: product -%}
-
+    <a class="btn btn--secondary btn--sm mobile-only" href="{{ product.url }}">
+      {% if product.has_only_default_variant and product_not_for_sale == false %}
+        {{ 'products.product.complementary_view' | t }}
+      {% endif %}
+    </a>
 
 
     {%- if show_close -%}
@@ -110,5 +113,11 @@
         </a>
       {%- endif -%}
     {%- endif -%}
+    {% else %}
+    <a class="btn btn--secondary btn--sm visible-lg" href="{{ product.url }}">
+      {% if product.has_only_default_variant and product_not_for_sale == false %}
+        {{ 'products.product.complementary_view' | t }}
+      {% endif %}
+    </a>
   {%- endunless -%}
 </div>

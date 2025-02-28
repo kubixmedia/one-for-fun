@@ -151,7 +151,8 @@
       "vendor": "By",
       "view_details": "View details",
       "weight": "Weight",
-      "xr_button": "View in your space"
+      "xr_button": "View in your space",
+      "complementary_view": "View"
     },
     "filtering": {
       "title": "Filters",

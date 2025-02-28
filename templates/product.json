@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-product",
@@ -17,6 +17,7 @@
           "settings": {
             "show_vendor": false,
             "show_sku": true,
+            "show_sku_label": false,
             "show_barcode": false
           }
         },
@@ -128,6 +129,7 @@
       "settings": {
         "stick_on_scroll": true,
         "select_first_variant": true,
+        "shape_color": "#b7e3e7",
         "sticky_atc_panel": true,
         "sticky_atc_position": "end",
         "sticky_atc_mobile": true,
@@ -144,12 +146,12 @@
         "underline_active": true,
         "media_arrows": "desktop",
         "show_slide_count": true,
-        "media_thumbs": "desktop",
+        "media_thumbs": "always",
         "lightbox_thumbnails": true,
         "thumb_ratio": "1",
         "thumb_crop": "none",
-        "border_color": "#eeeeee",
-        "bg_color": "#f4f4f4",
+        "border_color": "rgba(0,0,0,0)",
+        "bg_color": "rgba(0,0,0,0)",
         "enable_media_grouping": false,
         "media_grouping_option": "Color,Colour,Couleur,Farbe"
       }
