@@ -1,1 +1,87 @@
-{"type":"footer","name":"Footer Group","sections":{"footer":{"type":"footer","blocks":{"text":{"type":"text","settings":{"image":"shopify:\/\/shop_images\/oneforfunlogo.svg","image_width":170,"heading":"The Fun Starts at One!","text":"<p>One For Fun is a leading wholesaler and distributor of toys, games, gadgets and more, for both the UK and international markets. We supply a range of products from our house brands HGL, Tobar, and Ozbozz to leading licensed distribution brands such as Maisto & Bburago and Dreambeams<\/p>","button_label":"","button_link":"","enable_follow_on_shop":false,"show_social":true,"text_align":"text-start"}},"link-list-1":{"type":"link_list","settings":{"heading":"About Us","menu":"footer"}},"link-list-2":{"type":"link_list","settings":{"heading":"Info & Help","menu":"footer"}},"link_list_Dndp3f":{"type":"link_list","settings":{"heading":"Contact Us","menu":"footer"}}},"block_order":["text","link-list-1","link-list-2","link_list_Dndp3f"],"settings":{"show_back_to_top":false,"show_payment_icons":true,"show_powered_by":false,"enable_country_selector":true,"enable_language_selector":true,"secondary_menu":"footer","bg_color":"#20cbd4","text_color":"#ffffff"}}},"order":["footer"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer Group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/oneforfunlogo.svg",
+            "image_width": 170,
+            "heading": "The Fun Starts at One!",
+            "text": "<p>One For Fun is a leading wholesaler and distributor of toys, games, gadgets and more, for both the UK and international markets. We supply a range of products from our house brands HGL, Tobar, and Ozbozz to leading licensed distribution brands such as Maisto & Bburago and Dreambeams</p>",
+            "button_label": "",
+            "button_link": "",
+            "enable_follow_on_shop": false,
+            "show_social": true,
+            "text_align": "text-start",
+            "newsletter": false,
+            "newsletter_heading": "Newsletter",
+            "newsletter_text": "<p>Sign up for exclusive offers, original stories, events and more.</p>"
+          }
+        },
+        "link-list-1": {
+          "type": "link_list",
+          "settings": {
+            "heading": "About Us",
+            "menu": "footer",
+            "newsletter": false,
+            "newsletter_heading": "Newsletter",
+            "newsletter_text": "<p>Sign up for exclusive offers, original stories, events and more.</p>"
+          }
+        },
+        "link-list-2": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Info & Help",
+            "menu": "footer",
+            "newsletter": false,
+            "newsletter_heading": "Newsletter",
+            "newsletter_text": "<p>Sign up for exclusive offers, original stories, events and more.</p>"
+          }
+        },
+        "link_list_Dndp3f": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Contact Us",
+            "menu": "footer",
+            "newsletter": true,
+            "newsletter_heading": "Newsletter",
+            "newsletter_text": "<p>Sign up for exclusive offers, original stories, events and more.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text",
+        "link-list-1",
+        "link-list-2",
+        "link_list_Dndp3f"
+      ],
+      "settings": {
+        "show_back_to_top": false,
+        "show_payment_icons": true,
+        "show_powered_by": false,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "secondary_menu": "footer",
+        "bg_color": "#20cbd4",
+        "text_color": "#ffffff",
+        "shape": true
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}
