@@ -1,1 +1,342 @@
-{"sections":{"main":{"type":"main-product","blocks":{"vendor-sku":{"type":"vendor-sku","settings":{"show_vendor":false,"show_sku":true,"show_barcode":false}},"title":{"type":"title","settings":{"show_weight":false}},"price":{"type":"price","settings":{"show_tax_and_shipping":false}},"variant-picker":{"type":"variant-picker","settings":{"selector_style":"buttons","enable_dynamic_availability":true,"dynamic_availability_downwards":false,"show_backorder_text":true,"enable_size_chart":false,"size_chart_variant":"Size","size_chart_page":""}},"inventory_status_cKhkUC":{"type":"inventory-status","settings":{"show_indicator_bar":true,"show_urgency_message":true,"text_very_low":"<p>- Almost gone!<\/p>","text_low":"<p>- Hurry while stocks last!<\/p>","text_normal":"","text_no_stock":"","text_no_stock_backordered":"<p>Backordered<\/p>"}},"custom_liquid_jBA8XX":{"type":"custom-liquid","settings":{"custom_liquid":"Delivery countdown"}},"buy-buttons":{"type":"buy-buttons","settings":{"show_qty_selector":true,"enable_dynamic_checkout":true,"show_pickup_availability":true,"show_gift_card_recipient":false}},"complementary_e7ccMh":{"type":"complementary","settings":{"heading":"You might also like","products_to_show":4,"layout":"carousel"}},"collapsible-content-1":{"type":"collapsible-content","settings":{"heading":"Need help or advice?","icon":"chat_bubble","text":"<p>Display general product information or specific product information using metafields.<\/p>","page":"","open":false}},"collapsible-content-2":{"type":"collapsible-content","settings":{"heading":"Returning an item","icon":"return","text":"<p>Add some general information about your delivery and shipping policies.<\/p>","page":"","open":false}},"share":{"type":"share","settings":{}}},"block_order":["vendor-sku","title","price","variant-picker","inventory_status_cKhkUC","custom_liquid_jBA8XX","buy-buttons","complementary_e7ccMh","collapsible-content-1","collapsible-content-2","share"],"settings":{"stick_on_scroll":true,"select_first_variant":true,"sticky_atc_panel":true,"sticky_atc_position":"end","sticky_atc_mobile":true,"media_layout":"slider","media_size":"default","media_ratio":"1","media_crop":"none","enable_video_looping":false,"enable_zoom":true,"zoom_mode":"hover","enable_lightbox_mobile":false,"hover_zoom":"large","stacked_scroll":"always","underline_active":true,"media_arrows":"desktop","show_slide_count":true,"media_thumbs":"desktop","lightbox_thumbnails":true,"thumb_ratio":"1","thumb_crop":"none","border_color":"#eeeeee","bg_color":"#f4f4f4","enable_media_grouping":false,"media_grouping_option":"Color,Colour,Couleur,Farbe"}},"details":{"type":"product-details","blocks":{"richtext_Midzzm":{"type":"richtext","settings":{"text":"<h3>Product Description<\/h3>{{ product.description }}"}},"custom_liquid_n3fcrN":{"type":"custom-liquid","settings":{"custom_liquid":"Downloads"}},"custom_liquid_Cwen9t":{"type":"custom-liquid","settings":{"custom_liquid":"Features<br>\ntable rows"}},"payment_methods_7gP4dk":{"type":"payment-methods","settings":{"title":"Safe & Secure","title1":"","show_payment_icons":true,"text1":"<p>We ensure secure processing of your payment information and do notretain or have any access to your credit card details.<\/p>","title2":"","image":"shopify:\/\/shop_images\/ShopPay_-_Color_0bdd2445-7372-4e87-9a84-3241cb8f080a_svg.png","text2":""}}},"block_order":["richtext_Midzzm","custom_liquid_n3fcrN","custom_liquid_Cwen9t","payment_methods_7gP4dk"],"settings":{}},"recommendations":{"type":"product-recommendations","settings":{"heading":"Peopl who bought this also looked at...","heading_align":"text-center","layout":"carousel","card_size_mobile":"small","card_size":"small","products_to_show":8}},"custom_liquid_7bkdN8":{"type":"custom-liquid","settings":{"custom_liquid":"Download catalog banner from homepage - check functionality on this","section_height":"default","full_width":false,"dividers":"none","prevent_animation":false}}},"order":["main","details","recommendations","custom_liquid_7bkdN8"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor-sku": {
+          "type": "vendor-sku",
+          "settings": {
+            "show_vendor": false,
+            "show_sku": true,
+            "show_sku_label": false,
+            "show_barcode": false
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_weight": false
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": false
+          }
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "buttons",
+            "enable_dynamic_availability": true,
+            "dynamic_availability_downwards": false,
+            "show_backorder_text": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "inventory_status_cKhkUC": {
+          "type": "inventory-status",
+          "settings": {
+            "show_indicator_bar": true,
+            "show_urgency_message": true,
+            "text_very_low": "<p>- Almost gone!</p>",
+            "text_low": "<p>- Hurry while stocks last!</p>",
+            "text_normal": "",
+            "text_no_stock": "",
+            "text_no_stock_backordered": "<p>Backordered</p>"
+          }
+        },
+        "delivery_countdown_AQCYfY": {
+          "type": "delivery-countdown",
+          "settings": {
+            "next_day_cutoff": "21",
+            "delivery_information": "",
+            "monday": true,
+            "tuesday": true,
+            "wednesday": true,
+            "thursday": true,
+            "friday": true,
+            "saturday": false,
+            "sunday": false
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_pickup_availability": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "complementary_e7ccMh": {
+          "type": "complementary",
+          "settings": {
+            "heading": "You might also like",
+            "products_to_show": 4,
+            "layout": "carousel"
+          }
+        },
+        "collapsible-content-1": {
+          "type": "collapsible-content",
+          "settings": {
+            "heading": "Need help or advice?",
+            "icon": "chat_bubble",
+            "text": "<p>Display general product information or specific product information using metafields.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible-content-2": {
+          "type": "collapsible-content",
+          "settings": {
+            "heading": "Returning an item",
+            "icon": "return",
+            "text": "<p>Add some general information about your delivery and shipping policies.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vendor-sku",
+        "title",
+        "price",
+        "variant-picker",
+        "inventory_status_cKhkUC",
+        "delivery_countdown_AQCYfY",
+        "buy-buttons",
+        "complementary_e7ccMh",
+        "collapsible-content-1",
+        "collapsible-content-2",
+        "share"
+      ],
+      "settings": {
+        "stick_on_scroll": true,
+        "select_first_variant": true,
+        "shape_color": "#b7e3e7",
+        "sticky_atc_panel": true,
+        "sticky_atc_position": "end",
+        "sticky_atc_mobile": true,
+        "media_layout": "slider",
+        "media_size": "default",
+        "media_ratio": "1",
+        "media_crop": "none",
+        "enable_video_looping": false,
+        "enable_zoom": true,
+        "zoom_mode": "hover",
+        "enable_lightbox_mobile": false,
+        "hover_zoom": "large",
+        "stacked_scroll": "always",
+        "underline_active": true,
+        "media_arrows": "desktop",
+        "show_slide_count": true,
+        "media_thumbs": "always",
+        "lightbox_thumbnails": true,
+        "thumb_ratio": "1",
+        "thumb_crop": "none",
+        "border_color": "rgba(0,0,0,0)",
+        "bg_color": "rgba(0,0,0,0)",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "details": {
+      "type": "product-details",
+      "blocks": {
+        "richtext_Midzzm": {
+          "type": "richtext",
+          "settings": {
+            "text": "<h2>Product Description</h2>{{ product.description }}"
+          }
+        },
+        "downloads_zR6yNJ": {
+          "type": "downloads",
+          "settings": {
+            "title": "Downloads"
+          }
+        },
+        "features_mWmj4n": {
+          "type": "features",
+          "settings": {
+            "title": "Features"
+          }
+        },
+        "feature_row_KyTQNi": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Age Recommendation",
+            "feature": "Placeholder"
+          }
+        },
+        "feature_row_CQFmTH": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Volume Per Carton",
+            "feature": "Placeholder"
+          }
+        },
+        "feature_row_6KeEAx": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Delivery Restriction",
+            "feature": "Placeholder"
+          }
+        },
+        "feature_row_CpEgJd": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Display Size",
+            "feature": "Placeholder"
+          }
+        },
+        "feature_row_77TibN": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Availability",
+            "feature": "Placeholder"
+          }
+        },
+        "feature_row_MbxUFK": {
+          "type": "feature_row",
+          "settings": {
+            "title": "EAN",
+            "feature": "Placeholder"
+          }
+        },
+        "feature_row_Gajx4p": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Cube Unit",
+            "feature": "Placeholder"
+          }
+        },
+        "payment_methods_7gP4dk": {
+          "type": "payment-methods",
+          "settings": {
+            "title": "Safe & Secure",
+            "title1": "",
+            "show_payment_icons": true,
+            "text1": "<p>We ensure secure processing of your payment information and do notretain or have any access to your credit card details.</p>",
+            "title2": "",
+            "image": "shopify://shop_images/ShopPay_-_Color_0bdd2445-7372-4e87-9a84-3241cb8f080a_svg.png",
+            "text2": ""
+          }
+        },
+        "feature_row_6UMn7N": {
+          "type": "feature_row",
+          "settings": {
+            "title": "Example",
+            "feature": "Hello"
+          }
+        }
+      },
+      "block_order": [
+        "richtext_Midzzm",
+        "downloads_zR6yNJ",
+        "features_mWmj4n",
+        "feature_row_KyTQNi",
+        "feature_row_CQFmTH",
+        "feature_row_6KeEAx",
+        "feature_row_CpEgJd",
+        "feature_row_77TibN",
+        "feature_row_MbxUFK",
+        "feature_row_Gajx4p",
+        "payment_methods_7gP4dk",
+        "feature_row_6UMn7N"
+      ],
+      "settings": {
+        "headings_override": "#2a2b2a"
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "People who bought this also looked at...",
+        "heading_align": "text-center",
+        "layout": "carousel",
+        "card_size_mobile": "small",
+        "card_size": "small",
+        "products_to_show": 8
+      }
+    },
+    "custom_download_banner_R6kML9": {
+      "type": "custom-download-banner",
+      "blocks": {
+        "hover_image_WaPHHr": {
+          "type": "hover_image",
+          "settings": {
+            "image": "shopify://shop_images/Group_1744.png",
+            "left": 50,
+            "top": 50,
+            "scale": 1,
+            "left_hover": 50,
+            "top_hover": 50,
+            "scale_hover": 2
+          }
+        },
+        "hover_image_Nq8xk8": {
+          "type": "hover_image",
+          "settings": {
+            "image": "shopify://shop_images/25dd4c8cccdefbd49d954bf18d3636a3.png",
+            "left": 44,
+            "top": 52,
+            "scale": 0.4,
+            "left_hover": 76,
+            "top_hover": 74,
+            "scale_hover": 2
+          }
+        },
+        "hover_image_AtNKjk": {
+          "type": "hover_image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2024-10-07_at_15.15.11_1.png",
+            "left": 40,
+            "top": 42,
+            "scale": 0.1,
+            "left_hover": 26,
+            "top_hover": -2,
+            "scale_hover": 0.5
+          }
+        }
+      },
+      "block_order": [
+        "hover_image_WaPHHr",
+        "hover_image_Nq8xk8",
+        "hover_image_AtNKjk"
+      ],
+      "settings": {
+        "show_to": "all",
+        "title": "Download Our<br>2024 Catalogue!",
+        "text_color": "#fdc52c",
+        "download_text": "Download Now",
+        "download_link": "https://cdn.shopify.com/s/files/1/0844/7416/7644/files/SV22058_10_2024_EN71.pdf?v=1739448151",
+        "background": "radial-gradient(rgba(248, 171, 99, 1) 51.99%, rgba(245, 135, 32, 1) 100%)",
+        "add_shape": true,
+        "shape_color": "#e83c4d",
+        "overlay_image": "shopify://shop_images/268d9ae828b8f7f66526ba0725848adf.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "details",
+    "recommendations",
+    "custom_download_banner_R6kML9"
+  ]
+}

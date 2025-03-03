@@ -3,6 +3,11 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
 {{ 'product-page.css' | asset_url | stylesheet_tag }}
 
+<div class="relative">
+  <svg class="product__shape absolute w-full top-0 left-0" xmlns="http://www.w3.org/2000/svg" width="1440" height="414" viewBox="0 0 1440 414" fill="none">
+    <path d="M1440 0V290L0 414V0H1440Z" fill="{{ section.settings.shape_color }}"/>
+  </svg>
+</div>
 {%- assign messages = section.blocks | where: "type", "message" -%}
 {%- if messages -%}
   <script src="{{ 'product-message.js' | asset_url }}" defer="defer"></script>
@@ -138,10 +143,22 @@
             <div class="product-info__block" {{ block.shopify_attributes }}>
               {% render block %}
             </div>
-
+          {%- when 'delivery-countdown' -%}
+            <div class="product-info__block" {{ block.shopify_attributes }}>
+              {%- render 'delivery-countdown'
+              cutoff: block.settings.next_day_cutoff,
+              monday: block.settings.monday,
+              tuesday: block.settings.tuesday,
+              wednesday: block.settings.wednesday,
+              thursday: block.settings.thursday,
+              friday: block.settings.friday,
+              saturday: block.settings.saturday,
+              sunday: block.settings.sunday
+            -%}
+            </div>
           {%- when 'vendor-sku' -%}
             {%- if block.settings.show_vendor or block.settings.show_sku or block.settings.show_barcode -%}
-              <div class="product-info__block product-info__block--sm product-vendor-sku text-sm" {{ block.shopify_attributes }}>
+              <div class="product-info__block product-info__block--sm product-vendor-sku font-bold" {{ block.shopify_attributes }}>
                 {%- if block.settings.show_vendor and product.vendor != blank -%}
                   {%- liquid
                     assign vendor_handle = product.vendor | handle
@@ -157,7 +174,7 @@
                 {%- if block.settings.show_sku -%}
                   <span class="product-sku"{% if current_variant.sku == blank %} hidden{% endif %}>
                     {%- if block.settings.show_vendor and product.vendor != blank %} &nbsp;|&nbsp; {% endif -%}
-                    <span>{{ 'products.product.sku' | t }}</span>
+                    {% if block.settings.show_sku_label %} <span>{{ 'products.product.sku' | t }}</span> {% endif %}
                     <span class="product-sku__value">{{ current_variant.sku }}</span>
                   </span>
                 {%- endif -%}
@@ -189,7 +206,7 @@
 
         {%- when 'title' -%}
             <div class="product-info__block product-info__block--sm product-info__title" {{ block.shopify_attributes }}>
-              <h1 class="product-title h5">
+              <h1 class="product-title h1">
                 {{ product.title | escape }}
 
                 {% if block.settings.show_weight %}
@@ -767,6 +784,12 @@
       "default": true
     },
     {
+      "type":"color",
+      "id":"shape_color",
+      "label":"Shape Color",
+      "default":"#B7E3E7"
+    },
+    {
       "type": "header",
       "content": "Sticky \"Add to cart\" prompt"
     },
@@ -1148,6 +1171,63 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type":"delivery-countdown",
+      "name":"Delivery Countdown",
+      "settings": [
+        {
+          "type": "text",
+          "id": "next_day_cutoff",
+          "label": "Next Day Cutoff hour",
+          "info": "21",
+          "default": "21"
+        },
+        {
+          "type": "richtext",
+          "id": "delivery_information",
+          "label": "Delivery Information"
+        },
+        {
+          "type": "paragraph",
+          "content": "Show delivery countdown messaging on the following days"
+        },
+        {
+          "type": "checkbox",
+          "id": "monday",
+          "label": "Monday"
+        },
+        {
+          "type": "checkbox",
+          "id": "tuesday",
+          "label": "Tuesday"
+        },
+        {
+          "type": "checkbox",
+          "id": "wednesday",
+          "label": "Wednesday"
+        },
+        {
+          "type": "checkbox",
+          "id": "thursday",
+          "label": "Thursday"
+        },
+        {
+          "type": "checkbox",
+          "id": "friday",
+          "label": "Friday"
+        },
+        {
+          "type": "checkbox",
+          "id": "saturday",
+          "label": "Saturday"
+        },
+        {
+          "type": "checkbox",
+          "id": "sunday",
+          "label": "Sunday"
+        }
+      ]
     },
     {
       "type": "buy-buttons",
@@ -1849,6 +1929,11 @@
           "id": "show_sku",
           "label": "Show SKU",
           "default": true
+        },
+        {
+          "type":"checkbox",
+          "id":"show_sku_label",
+          "label":"Show SKU label"
         },
         {
           "type": "checkbox",

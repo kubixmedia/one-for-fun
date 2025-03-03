@@ -1,3 +1,16 @@
+{% liquid
+  assign show = false
+  if section.settings.show_to == 'all' or request.design_mode
+    assign show = true
+  elsif customer and section.settings.show_to == 'customer'
+    assign show = true
+  elsif section.settings.show_to == 'guest'
+    unless customer
+      assign show = true
+    endunless
+  endif
+%}
+{% if show %}
 {%- unless section.settings.video_external == blank and section.settings.video_shopify == blank -%}
 
   {%- if section.index > 2 -%}
@@ -206,12 +219,37 @@
     </div>
   </div>
 {%- endunless -%}
-
+{% endif %}
 {% schema %}
 {
   "name": "Background video",
   "class": "cc-background-video",
   "settings": [
+    {
+      "type": "header",
+      "content": "Show to"
+    },
+    {
+      "type": "select",
+      "id": "show_to",
+      "label": "Show To",
+      "default": "all",
+      "info": "Will always show in customiser",
+      "options": [
+        {
+          "label": "All",
+          "value": "all"
+        },
+        {
+          "label": "Customers",
+          "value": "customer"
+        },
+        {
+          "label": "Non Customer",
+          "value": "guest"
+        }
+      ]
+    },
     {
       "type": "paragraph",
       "content": "Background videos are designed to autoplay and be silent. If you want a video with sound use the Video section. Please read documentation before using. [Read more](https://cleancanvas.co.uk/support/enterprise/background-video)"

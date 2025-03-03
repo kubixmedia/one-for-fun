@@ -1,5 +1,5 @@
 {% # theme-check-disable LiquidTag, TemplateLength %}
-
+{% assign dev = true %}
 {%- liquid
   assign has_mega_nav_pills = false
   assign has_mega_nav_columns = false
@@ -37,7 +37,8 @@
   --nav-child-bg-color:  {{ section.settings.bg_color.rgb }};
   --nav-child-text-color: {{ section.settings.text_color.rgb }};
   --header-accent-color: {{ section.settings.accent_color.rgb }};
-  --search-bg-color: {{ section.settings.bg_color | color_mix: section.settings.text_color, 90 }};
+  --search-bg-color: {{ section.settings.search_bg_color }};
+
   {% unless section.settings.logo %}
     --logo_type_scale: var(--body-font-size) * {{ section.settings.logo_type_scale }};
     --logo_font-size: calc((var(--logo_type_scale) / 1.5) * var(--fluid-1-5));
@@ -45,6 +46,12 @@
   {% if settings.cart_shaking and cart != empty %}
     --shake-delay: 4s;
   {% endif %}
+  }
+  #shopify-section-{{ section.id }} .search__input {
+    --text-color: {{ section.settings.search_text_color.rgba }}
+  }
+  #shopify-section-{{ section.id }} .search__submit {
+    color: {{ section.settings.search_button_color }}
   }
 {%- endstyle -%}
 
@@ -83,51 +90,53 @@
         </h1>
       {%- endif -%}
     </div>
-
-    {%- if section.settings.enable_search -%}
-      {%- if settings.enable_predictive_search -%}
-        <link rel="stylesheet" href="{{ 'predictive-search.css' | asset_url }}"{% unless show_search_types %} media="print" onload="this.media='all'"{% endunless %}>
-        <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
-        <script src="{{ 'tabs.js' | asset_url }}" defer="defer"></script>
-      {%- endif -%}
-
-      <div class="header__search{% if section.settings.minimise_search_mobile %} header__search--collapsible-mob{% endif %}{% if section.settings.minimise_search_desktop %} header__search--collapsible-desktop{% endif %}{% if search_is_minimised %} js-search-bar{% endif %} relative js-closes-menu"{% if search_is_minimised %} id="search-bar"{% endif %}>
-        {%- if section.settings.logo_center and section.settings.minimise_search_desktop -%}
-          <a class="header__icon header__icon--search-left absolute hidden md:block js-show-search-left" href="{{ routes.search_url }}" aria-controls="search-bar">
-            <span class="header__icon--search-left-search">
-              {% render 'icon-search' %}
-            </span>
-            <span class="header__icon--search-left-close">
-              {% render 'icon-close' %}
-            </span>
-            <span class="visually-hidden">{{ 'general.icon_labels.search' | t }}</span>
-          </a>
+    {% if customer or request.design_mode or dev %}
+      {%- if section.settings.enable_search -%}
+        {%- if settings.enable_predictive_search -%}
+          <link rel="stylesheet" href="{{ 'predictive-search.css' | asset_url }}"{% unless show_search_types %} media="print" onload="this.media='all'"{% endunless %}>
+          <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+          <script src="{{ 'tabs.js' | asset_url }}" defer="defer"></script>
         {%- endif -%}
 
-        {% render 'predictive-search', id: 'header-search', show_search_types: show_search_types %}
-      </div>
-    {%- elsif section.settings.logo_center -%}
-      <div class="header__search"></div>
-    {%- endif -%}
+        <div class="header__search{% if section.settings.minimise_search_mobile %} header__search--collapsible-mob{% endif %}{% if section.settings.minimise_search_desktop %} header__search--collapsible-desktop{% endif %}{% if search_is_minimised %} js-search-bar{% endif %} relative js-closes-menu"{% if search_is_minimised %} id="search-bar"{% endif %}>
+          {%- if section.settings.logo_center and section.settings.minimise_search_desktop -%}
+            <a class="header__icon header__icon--search-left absolute hidden md:block js-show-search-left" href="{{ routes.search_url }}" aria-controls="search-bar">
+              <span class="header__icon--search-left-search">
+                {% render 'icon-search' %}
+              </span>
+              <span class="header__icon--search-left-close">
+                {% render 'icon-close' %}
+              </span>
+              <span class="visually-hidden">{{ 'general.icon_labels.search' | t }}</span>
+            </a>
+          {%- endif -%}
 
-    <div class="header__icons flex justify-end mis-auto js-closes-menu">
-      {%- if section.settings.enable_search and search_is_minimised -%}
-        {%- unless section.settings.logo_center and section.settings.minimise_search_mobile == false and section.settings.minimise_search_desktop -%}
-          {%- liquid
-            if section.settings.logo_center and section.settings.minimise_search_mobile
-              assign search_button_class = "md:hidden"
-            elsif section.settings.minimise_search_mobile and section.settings.minimise_search_desktop == false
-              assign search_button_class = "md:hidden"
-            elsif section.settings.minimise_search_mobile == false and section.settings.minimise_search_desktop
-              assign search_button_class = "hidden md:block"
-            endif
-          -%}
-          <a class="header__icon {{ search_button_class }} js-show-search" href="{{ routes.search_url }}" aria-controls="search-bar">
-            {% render 'icon-search' %}
-            <span class="visually-hidden">{{ 'general.icon_labels.search' | t }}</span>
-          </a>
-        {%- endunless -%}
+          {% render 'predictive-search', id: 'header-search', show_search_types: show_search_types %}
+        </div>
+      {%- elsif section.settings.logo_center -%}
+        <div class="header__search"></div>
       {%- endif -%}
+    {% endif %}
+    <div class="header__icons flex justify-end mis-auto js-closes-menu">
+      {% if customer %}
+        {%- if section.settings.enable_search and search_is_minimised -%}
+          {%- unless section.settings.logo_center and section.settings.minimise_search_mobile == false and section.settings.minimise_search_desktop -%}
+            {%- liquid
+              if section.settings.logo_center and section.settings.minimise_search_mobile
+                assign search_button_class = "md:hidden"
+              elsif section.settings.minimise_search_mobile and section.settings.minimise_search_desktop == false
+                assign search_button_class = "md:hidden"
+              elsif section.settings.minimise_search_mobile == false and section.settings.minimise_search_desktop
+                assign search_button_class = "hidden md:block"
+              endif
+            -%}
+            <a class="header__icon {{ search_button_class }} js-show-search" href="{{ routes.search_url }}" aria-controls="search-bar">
+              {% render 'icon-search' %}
+              <span class="visually-hidden">{{ 'general.icon_labels.search' | t }}</span>
+            </a>
+          {%- endunless -%}
+        {%- endif -%}
+      {% endif %}
       {%- if shop.customer_accounts_enabled -%}
         {%- if customer -%}
           <a class="header__icon text-current" href="{{ routes.account_url }}">
@@ -135,36 +144,36 @@
             <span class="visually-hidden">{{ 'sections.header.account' | t }}</span>
           </a>
         {%- else -%}
-          <a class="header__icon text-current" href="{{ routes.account_login_url }}">
-            {% render 'icon-customer' %}
-            <span class="visually-hidden">{{ 'sections.header.log_in' | t }}</span>
+          <a class="btn btn--primary header__login" href="{{ routes.account_login_url }}" style="--btn-bg-color: {{ section.settings.login_background.rgb }}; --btn-text-color: {{ section.settings.login_color.rgb }}; --header-login-color: {{ section.settings.login_color_hover.rgb }}; --btn-bg-color-hover: {{ section.settings.login_background_hover.rgb }}">
+           {{ 'sections.header.log_in' | t }}
           </a>
         {%- endif -%}
       {%- endif -%}
-
-      <a class="header__icon{% if settings.cart_shaking and cart != empty %} header__icon--cart-shake has-motion{% endif %} relative text-current" id="cart-icon" href="{{ routes.cart_url }}"{% if settings.cart_shaking and cart != empty %} data-shake-frequency="{{ settings.cart_shaking_frequency }}"{% endif %}{% if settings.preload_links %} data-no-instant{% endif %}>
-        {%- if settings.cart_icon == 'bag' -%}
-          {%- render 'icon-bag' -%}
-          <span class="visually-hidden">{{ 'sections.header.bag' | t }}</span>
-        {%- elsif settings.cart_icon == 'basket' -%}
-          {%- render 'icon-basket' -%}
-          <span class="visually-hidden">{{ 'sections.header.basket' | t }}</span>
-        {%- else -%}
-          {%- render 'icon-cart' -%}
-          <span class="visually-hidden">{{ 'sections.header.cart' | t }}</span>
-        {%- endif -%}
-
-        <div id="cart-icon-bubble">
-          {%- if cart != empty -%}
-            <div class="header__cart-count absolute bg-theme-text text-theme-bg text-center">
-              {%- if cart.item_count < 10000 -%}
-                <span aria-hidden="true" class="header__cart-count-number">{{ cart.item_count }}</span>
-              {%- endif -%}
-              <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-            </div>
+      {% if customer %}
+        <a class="header__icon{% if settings.cart_shaking and cart != empty %} header__icon--cart-shake has-motion{% endif %} relative text-current" id="cart-icon" href="{{ routes.cart_url }}"{% if settings.cart_shaking and cart != empty %} data-shake-frequency="{{ settings.cart_shaking_frequency }}"{% endif %}{% if settings.preload_links %} data-no-instant{% endif %}>
+          {%- if settings.cart_icon == 'bag' -%}
+            {%- render 'icon-bag' -%}
+            <span class="visually-hidden">{{ 'sections.header.bag' | t }}</span>
+          {%- elsif settings.cart_icon == 'basket' -%}
+            {%- render 'icon-basket' -%}
+            <span class="visually-hidden">{{ 'sections.header.basket' | t }}</span>
+          {%- else -%}
+            {%- render 'icon-cart' -%}
+            <span class="visually-hidden">{{ 'sections.header.cart' | t }}</span>
           {%- endif -%}
-        </div>
-      </a>
+
+          <div id="cart-icon-bubble">
+            {%- if cart != empty -%}
+              <div class="header__cart-count absolute bg-theme-text text-theme-bg text-center">
+                {%- if cart.item_count < 10000 -%}
+                  <span aria-hidden="true" class="header__cart-count-number">{{ cart.item_count }}</span>
+                {%- endif -%}
+                <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+              </div>
+            {%- endif -%}
+          </div>
+        </a>
+      {% endif %}
     </div>
 
     {%- if section.settings.menu != blank -%}
@@ -1106,6 +1115,44 @@
       "id": "accent_color",
       "label": "Header accent color",
       "default": "#777777"
+    },
+    {
+      "type":"color",
+      "id":"search_bg_color",
+      "label":"Search Background Color",
+      "default":"#fff"
+    },
+    {
+      "type":"color",
+      "id":"search_text_color",
+      "label":"Search Text Color",
+      "default":"#656565"
+    },
+    {
+      "type":"color",
+      "id":"search_button_color",
+      "label":"Search Button Color",
+      "default":"#656565"
+    },
+    {
+      "type":"color",
+      "id":"login_background",
+      "label":"Login Background"
+    },
+    {
+      "type":"color",
+      "id":"login_color",
+      "label":"Login Color"
+    },
+    {
+      "type":"color",
+      "id":"login_background_hover",
+      "label":"Login Background Hover"
+    },
+    {
+      "type":"color",
+      "id":"login_color_hover",
+      "label":"Login Color Hover"
     }
   ],
   "blocks": [

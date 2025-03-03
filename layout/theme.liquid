@@ -23,7 +23,7 @@
 <head>
   {%- render 'doc-head-core' -%}
   {%- render 'doc-head-social' -%}
-
+<script type="text/javascript" src="https://www.bugherd.com/sidebarv2.js?apikey=539cq4e3qaxwgk0jojnfpg" async="true"></script>
   <link rel="preload" href="{{ 'main.css' | asset_url }}" as="style">
 
   {%- style %}
@@ -40,7 +40,7 @@
       --heading-color: {{ settings.heading_color.rgb }};
       --text-color: {{ settings.text_color.rgb }};
       --text-color-og: {{ settings.text_color.rgb }};
-      --scrollbar-color: {{ settings.text_color.rgb }};
+      --scrollbar-color: {{ settings.link_color.rgb }};
       --link-color: {{ settings.link_color.rgb }};
       --link-color-og: {{ settings.link_color.rgb }};
       --star-color: {{ settings.star_color.rgb }};
@@ -56,32 +56,31 @@
         --swatch-variant-picker-size: {{ settings.variant_picker_swatch_size }}px;
       {%- endif -%}
 
-      {%- assign color_scheme_1_btn_bg_hover = settings.color_scheme_1_btn_bg | color_mix: settings.color_scheme_1_btn_text, 85 | color_lighten: 3 -%}
       --color-scheme-1-bg: {{ settings.color_scheme_1_bg.rgba }};
       --color-scheme-1-grad: {{ settings.color_scheme_1_bg_grad }};
       --color-scheme-1-heading: {{ settings.color_scheme_1_heading.rgb }};
       --color-scheme-1-text: {{ settings.color_scheme_1_text.rgb }};
       --color-scheme-1-btn-bg: {{ settings.color_scheme_1_btn_bg.rgb }};
       --color-scheme-1-btn-text: {{ settings.color_scheme_1_btn_text.rgb }};
-      --color-scheme-1-btn-bg-hover: {{ color_scheme_1_btn_bg_hover.rgb }};
+      --color-scheme-1-btn-bg-hover: {{ settings.color_scheme_1_btn_bg.rgb }};
 
-      {%- assign color_scheme_2_btn_bg_hover = settings.color_scheme_2_btn_bg | color_mix: settings.color_scheme_2_btn_text, 85 | color_lighten: 3 -%}
+
       --color-scheme-2-bg: {{ settings.color_scheme_2_bg.rgba }};
       --color-scheme-2-grad: {{ settings.color_scheme_2_bg_grad }};
       --color-scheme-2-heading: {{ settings.color_scheme_2_heading.rgb }};
       --color-scheme-2-text: {{ settings.color_scheme_2_text.rgb }};
       --color-scheme-2-btn-bg: {{ settings.color_scheme_2_btn_bg.rgb }};
       --color-scheme-2-btn-text: {{ settings.color_scheme_2_btn_text.rgb }};
-      --color-scheme-2-btn-bg-hover: {{ color_scheme_2_btn_bg_hover.rgb }};
+      --color-scheme-2-btn-bg-hover: {{ settings.color_scheme_2_btn_bg_hover.rgb }};
 
-      {%- assign color_scheme_3_btn_bg_hover = settings.color_scheme_3_btn_bg | color_mix: settings.color_scheme_3_btn_text, 85 | color_lighten: 3 -%}
+
       --color-scheme-3-bg: {{ settings.color_scheme_3_bg.rgba }};
       --color-scheme-3-grad: {{ settings.color_scheme_3_bg_grad }};
       --color-scheme-3-heading: {{ settings.color_scheme_3_heading.rgb }};
       --color-scheme-3-text: {{ settings.color_scheme_3_text.rgb }};
       --color-scheme-3-btn-bg: {{ settings.color_scheme_3_btn_bg.rgb }};
       --color-scheme-3-btn-text: {{ settings.color_scheme_3_btn_text.rgb }};
-      --color-scheme-3-btn-bg-hover: {{ color_scheme_3_btn_bg_hover.rgb }};
+      --color-scheme-3-btn-bg-hover: {{ settings.color_scheme_3_btn_bg_hover.rgb }};
 
       --drawer-bg-color: {{ settings.drawer_bg_color.rgba }};
       --drawer-text-color: {{ settings.drawer_text_color.rgb }};
@@ -111,6 +110,7 @@
       --navigation-font-family: {{ settings.navigation_font.family }}, {{ settings.navigation_font.fallback_families }};
       --navigation-font-style: {{ settings.navigation_font.style }};
       --navigation-font-weight: {{ settings.navigation_font.weight }};
+
       {%- if settings.heading_uppercase %}
       --heading-text-transform: uppercase;
       {%- else -%}
@@ -133,9 +133,8 @@
       {%- endif -%}
       --grid-column-gap: 20px;
 
-      {%- assign button_bg_color_hover = settings.button_bg_color | color_mix: settings.button_text_color, 85 | color_lighten: 3 -%}
       --btn-bg-color: {{ settings.button_bg_color.rgb }};
-      --btn-bg-hover-color: {{ button_bg_color_hover.rgb }};
+      --btn-bg-hover-color: {{ settings.button_bg_color_hover.rgb }};
       --btn-text-color: {{ settings.button_text_color.rgb }};
       --btn-bg-color-og: {{ settings.button_bg_color.rgb }};
       --btn-text-color-og: {{ settings.button_text_color.rgb }};
@@ -249,7 +248,9 @@
 
       --reading-width: 48em;
     }
-
+    {{ settings.custom_heading }}
+    {{ settings.custom_body }}
+    {{ settings.custom_navigation }}
     @media (max-width: {{ breakpoint_md }}px) {
       :root {
         --reading-width: 36em;
@@ -307,37 +308,42 @@
   </a>
 
   {%- sections 'header-group' -%}
+  {% assign dev = true %}
+  {% if customer or template.name == 'index' or request.design_mode or dev %}
+    <main id="main-content">
+      {%- liquid
+        assign show_breadcrumbs = false
+        if settings.show_breadcrumbs_product and request.page_type == 'product'
+          assign show_breadcrumbs = true
+        elsif settings.show_breadcrumbs_collection and request.page_type == 'collection'
+          assign show_breadcrumbs = true
+        elsif settings.show_breadcrumbs_collection_list and request.page_type == 'list-collections'
+          assign show_breadcrumbs = true
+        elsif settings.show_breadcrumbs_article and request.page_type == 'article'
+          assign show_breadcrumbs = true
+        elsif settings.show_breadcrumbs_blog and request.page_type == 'blog'
+          assign show_breadcrumbs = true
+        endif
+      -%}
+      {%- if show_breadcrumbs -%}
+        <div class="container{% if request.page_type == 'product' %} product-breadcrumbs{% endif %}">
+          {%- liquid
+            assign show_rss_link = false
+            if template.name == 'blog'
+              assign show_rss_link = settings.show_breadcrumbs_blog_rss
+            endif
+          -%}
+          {% render 'breadcrumbs', show_rss_link: show_rss_link %}
+        </div>
+      {%- endif -%}
 
-  <main id="main-content">
-    {%- liquid
-      assign show_breadcrumbs = false
-      if settings.show_breadcrumbs_product and request.page_type == 'product'
-        assign show_breadcrumbs = true
-      elsif settings.show_breadcrumbs_collection and request.page_type == 'collection'
-        assign show_breadcrumbs = true
-      elsif settings.show_breadcrumbs_collection_list and request.page_type == 'list-collections'
-        assign show_breadcrumbs = true
-      elsif settings.show_breadcrumbs_article and request.page_type == 'article'
-        assign show_breadcrumbs = true
-      elsif settings.show_breadcrumbs_blog and request.page_type == 'blog'
-        assign show_breadcrumbs = true
-      endif
-    -%}
-    {%- if show_breadcrumbs -%}
-      <div class="container{% if request.page_type == 'product' %} product-breadcrumbs{% endif %}">
-        {%- liquid
-          assign show_rss_link = false
-          if template.name == 'blog'
-            assign show_rss_link = settings.show_breadcrumbs_blog_rss
-          endif
-        -%}
-        {% render 'breadcrumbs', show_rss_link: show_rss_link %}
-      </div>
-    {%- endif -%}
-
-    {{ content_for_layout }}
-  </main>
-
+      {{ content_for_layout }}
+    </main>
+  {% else %}
+    <script>
+      window.location.href = '{{ routes.root_url }}'
+    </script>
+  {% endif %}
   {%- sections 'overlay-group' -%}
   {%- sections 'footer-group' -%}
 

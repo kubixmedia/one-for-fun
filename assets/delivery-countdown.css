@@ -1,0 +1,7 @@
+delivery-countdown {
+  font-weight: 500;
+}
+delivery-countdown strong {
+  color: rgb(var(--success-text-color));
+  font-weight: 500;
+}

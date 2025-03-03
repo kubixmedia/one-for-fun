@@ -3,14 +3,18 @@
   {%- for block in section.blocks -%}
     {%- if block.settings.show_reviews and block.settings.custom_reviews == blank and block.type == 'tabs' -%}
       <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          if (document.getElementById('shopify-product-reviews')) {
-            const link = document.createElement('link');
-            link.rel = "stylesheet";
-            link.href = "{{ 'reviews.css' | asset_url }}";
-            document.body.appendChild(link);
-          }
-        }, { once: true });
+        document.addEventListener(
+          'DOMContentLoaded',
+          () => {
+            if (document.getElementById('shopify-product-reviews')) {
+              const link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = "{{ 'reviews.css' | asset_url }}";
+              document.body.appendChild(link);
+            }
+          },
+          { once: true }
+        );
       </script>
     {%- elsif block.type == 'highlight-text' and found_highlight_text == false -%}
       <link rel="stylesheet" href="{{ 'product-highlights.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -184,7 +188,12 @@
 
                 {%- if block.settings.style == 'collapsible' and prevent_tab_render == false -%}
                   <details-disclosure>
-                    <details class="disclosure disclosure--row"{% if first_tab_rendered == false and block.settings.open_first %} open{% endif %}>
+                    <details
+                      class="disclosure disclosure--row"
+                      {% if first_tab_rendered == false and block.settings.open_first %}
+                        open
+                      {% endif %}
+                    >
                       <summary>
                         <div class="flex justify-between items-center">
                           <h2 class="disclosure__title h5 mb-0">{{ title }}</h2>
@@ -201,11 +210,11 @@
                         <div class="disclosure__content{% unless i == "4" %} rte product-description{% endunless %}">
                           {%- if forloop.first and block.settings.show_description -%}
                             {{ product.description }}
-                          {%- elsif i == "4"  and specification != blank -%}
+                          {%- elsif i == '4' and specification != blank -%}
                             <ul class="product-spec">
                               {{ specification }}
                             </ul>
-                          {%- elsif i == "5" and block.settings.show_reviews -%}
+                          {%- elsif i == '5' and block.settings.show_reviews -%}
                             {%- if block.settings.custom_reviews == blank -%}
                               <div class="spr-reviews" id="shopify-product-reviews" data-id="{{ product.id }}">
                                 {{ product.metafields.spr.reviews }}
@@ -246,16 +255,24 @@
                       assign text_id = 'tab_' | append: i | append: '_text'
                       assign page_id = 'tab_' | append: i | append: '_page'
                     -%}
-                    <div id="panel-{{ i }}" role="tabpanel" tabindex="0" aria-labelledby="tab-{{ i }}"{% unless forloop.first %} hidden{% endunless %}>
+                    <div
+                      id="panel-{{ i }}"
+                      role="tabpanel"
+                      tabindex="0"
+                      aria-labelledby="tab-{{ i }}"
+                      {% unless forloop.first %}
+                        hidden
+                      {% endunless %}
+                    >
                       {%- if forloop.first and block.settings.show_description -%}
                         <div class="rte product-description">
                           {{ product.description }}
                         </div>
-                      {%- elsif i == "4" and specification != blank -%}
+                      {%- elsif i == '4' and specification != blank -%}
                         <ul class="product-spec">
                           {{ specification }}
                         </ul>
-                      {%- elsif i == "5" and block.settings.show_reviews -%}
+                      {%- elsif i == '5' and block.settings.show_reviews -%}
                         {%- if block.settings.custom_reviews == blank -%}
                           <div class="spr-reviews" id="shopify-product-reviews" data-id="{{ product.id }}">
                             {{ product.metafields.spr.reviews }}
@@ -294,7 +311,10 @@
           </div>
 
         {%- when 'divider' -%}
-          <hr class="{{ block.settings.spacing }}{% unless block.settings.show_line %} invisible{% endunless %}" {{ block.shopify_attributes }}>
+          <hr
+            class="{{ block.settings.spacing }}{% unless block.settings.show_line %} invisible{% endunless %}"
+            {{ block.shopify_attributes }}
+          >
 
         {%- when 'highlight-text' -%}
           {%- if block.settings.title != blank or block.settings.text != blank -%}
@@ -314,10 +334,15 @@
             -%}
 
             {%- if last_section_was_highlight == false and next_section_is_highlight -%}
-              <div class="product-details__block product-details__highlight-grid grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
+              <div
+                class="product-details__block product-details__highlight-grid grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2"
+              >
             {%- endif -%}
 
-            <div class="{% unless last_section_was_highlight or next_section_is_highlight %}product-details__block {% endunless %}product-details__highlight text-center" {{ block.shopify_attributes }}>
+            <div
+              class="{% unless last_section_was_highlight or next_section_is_highlight %}product-details__block {% endunless %}product-details__highlight text-center"
+              {{ block.shopify_attributes }}
+            >
               {%- if block.settings.title != blank -%}
                 <p class="h4">{{- block.settings.title | escape -}}</p>
               {%- endif -%}
@@ -343,7 +368,13 @@
 
             {%- if block.settings.show_payment_icons -%}
               <div class="mb-4">
-                <ul class="payment-icons flex flex-wrap" role="list" {%- if block.settings.title1 != blank -%}aria-labelledby="payment-methods-title"{% endif %}>
+                <ul
+                  class="payment-icons flex flex-wrap"
+                  role="list"
+                  {%- if block.settings.title1 != blank -%}
+                    aria-labelledby="payment-methods-title"
+                  {% endif %}
+                >
                   {%- for type in shop.enabled_payment_types -%}
                     <li>{{ type | payment_type_svg_tag: class: 'payment-icon' }}</li>
                   {%- endfor -%}
@@ -360,27 +391,75 @@
             {%- endif -%}
 
             {%- if block.settings.image -%}
-              {% render 'image',
-                image: block.settings.image,
-                src_width: block.settings.image.width,
-                class: "mb-4"
-              %}
+              {% render 'image', image: block.settings.image, src_width: block.settings.image.width, class: 'mb-4' %}
             {%- endif -%}
 
             {%- if block.settings.text2 != blank -%}
               <div class="rte mb-4">{{ block.settings.text2 }}</div>
             {%- endif -%}
           </div>
-
+        {% when 'downloads' %}
+          {% capture content %}
+            {% for sheet in product.metafields.custom.data_sheet.value %}
+              {% assign default_name = sheet.url | split: '/' | last | split: '.' | first %}
+              <a href="{{ sheet.url }}" class="btn btn--secondary">{{ sheet.alt | default: default_name }}</a>
+            {% endfor %}
+          {% endcapture %}
+          {% assign content_stripped = content | strip %}
+          {% if request.design_mode or content_stripped.size > 0 %}
+            <div class="product-details__block" {{ block.shopify_attributes }}>
+              {%- if block.settings.title != blank -%}
+                <h3 class="h3 mb-6">{{- block.settings.title | escape -}}</h3>
+              {%- endif -%}
+              <div class="flex flex-wrap gap-3">
+                {{ content }}
+                {% unless content_stripped.size > 0 %}
+                  <p>This section will be hidden when there's no content</p>
+                {% endunless %}
+              </div>
+            </div>
+          {% endif %}
+        {% when 'features' %}
+          {% assign rows = section.blocks | where: 'type', 'feature_row' %}
+          {% capture feature_content %}
+            {% for row in rows %}
+              {% if row.settings.title.size > 0 and row.settings.feature.size > 0 %}
+                <div class="product-details__feature flex justify-between">
+                  <p class="m-0">{{ row.settings.title }}</p>
+                  <p class="m-0">{{ row.settings.feature }}</p>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endcapture %}
+          {% assign feature_content_stripped = feature_content | strip %}
+          {% if request.design_mode or feature_content_stripped.size > 0 %}
+            <div class="product-details__block" {{ block.shopify_attributes }}>
+              {%- if block.settings.title != blank -%}
+                <h3 class="h3">{{- block.settings.title | escape -}}</h3>
+              {%- endif -%}
+              {{ feature_content }}
+              {% unless feature_content_stripped.size > 0 %}
+                <p>This section will be hidden when there's no content</p>
+              {% endunless %}
+            </div>
+          {% endif %}
       {%- endcase -%}
     {%- endfor -%}
   </div>
 {%- endif -%}
-
+{% if section.settings.headings_override.alpha == 1 %}
+  {% style %}
+      #shopify-section-{{ section.id }} {
+        --heading-color: {{ section.settings.headings_override.rgb }};
+        --panel-heading-color: {{ section.settings.headings_override.rgb }};
+      }
+  {% endstyle %}
+{% endif %}
 {% schema %}
 {
   "name": "Product details",
   "class": "cc-product-details product-details section",
+  "settings": [{ "type": "color", "id": "headings_override", "label": "Headings override" }],
   "blocks": [
     {
       "type": "@app"
@@ -662,6 +741,41 @@
           "type": "richtext",
           "id": "text2",
           "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "downloads",
+      "name": "Downloads",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        {
+          "type": "paragraph",
+          "content": "Uses the data sheets metafield (custom.data_sheet). Will use the alt tag as the display name but will default to the file name"
+        }
+      ]
+    },
+    {
+      "type": "feature_row",
+      "name": "Feature Row",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        {
+          "type": "text",
+          "id": "feature",
+          "label": "Feature"
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "name": "Feature",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        {
+          "type": "paragraph",
+          "content": "Collate all feature rows"
         }
       ]
     }

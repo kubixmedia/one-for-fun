@@ -1,1 +1,722 @@
-{"sections":{"custom_liquid_dQVUqi":{"type":"custom-liquid","settings":{"custom_liquid":"<h2>Custom Slider<\/h2>\n<ul>\n<li>Background Image (contained)<\/li>\n<li>Background Color (full width)<\/li>\n<li>Overlay Image (bottom right)<\/li>\n<li>Slide Link<\/li>\n<li>Autoplay toggle<\/li>\n<\/ul>","section_height":"default","full_width":false,"dividers":"none","prevent_animation":false}},"featured_collection_nWtAmk":{"type":"featured-collection","settings":{"title":"Best Sellers","heading_align":"text-center","show_view_all":false,"collection":"best-sellers","layout":"carousel","card_size_mobile":"small","card_size":"small","products_to_show":8,"show_highlight_products":true,"show_promo_info":false,"image_ratio":"fill","promo_title":"A headline to grab attention","content":"<p>Use this card with an image to highlight your collections or introduce a promotion.<\/p>","link_url":"","button_label":"Button","color_scheme":"1","button_style":"btn btn--primary"}},"scrolling-banner":{"type":"scrolling-banner","blocks":{"scrolling-text-1":{"type":"text","settings":{"text":"Innovating Fun.","link":"","font":"heading","heading_size":"h1"}},"text_BLdpQw":{"type":"text","settings":{"text":"Ensuring Safety.","link":"","font":"heading","heading_size":"h1"}},"text_hyThWm":{"type":"text","settings":{"text":"Inspiring Play.","link":"","font":"heading","heading_size":"h1"}}},"block_order":["scrolling-text-1","text_BLdpQw","text_hyThWm"],"settings":{"section_height":"xsmall","spacing":40,"speed":24,"direction":"normal","pausable":true,"color_scheme":"none","dividers":"none","prevent_animation":false}},"rich_text_UnbEnz":{"type":"rich-text","blocks":{"heading_tkNi6d":{"type":"heading","settings":{"heading":"Add Image Block","heading_size":"h2","heading_h1":false}},"text_d6i3Lx":{"type":"text","settings":{"text":"<p>One For Fun is a global leader in the wholesale and distribution of toys, games, and gadgets. With over 50 years of experience, we proudly supply top brands like <a href=\"\/products\/1-100-number-carpet-2mx1-5m\" title=\"1-100 Number Carpet 2mx1.5m\">HGL<\/a>, <a href=\"\/blogs\/news\" title=\"News\">Tobar<\/a>, and <a href=\"\/pages\/contact\" title=\"Contact\">Ozbozz<\/a>, alongside renowned licensed products such as <a href=\"\/blogs\/news\" title=\"News\">Dream Beams<\/a> and <a href=\"\/collections\/all\" title=\"All products\">Dino Collecto<\/a>.<\/p>","enlarge_text":false}},"button_KEVBc4":{"type":"button","settings":{"button_1_label":"Learn More","button_1_link":"shopify:\/\/collections\/frontpage","button_1_style":"btn--primary","button_2_label":"","button_2_link":"","button_2_style":"btn btn--primary"}}},"block_order":["heading_tkNi6d","text_d6i3Lx","button_KEVBc4"],"settings":{"text_position":"justify-center","text_align":"text-center","mob_center_text":true,"wide":false,"color_scheme":"none","full_width":true,"prevent_animation":false}},"custom_liquid_m3fNyL":{"type":"custom-liquid","settings":{"custom_liquid":"<h2>Custom Collection Grid<\/h2>\n<ul>\n<li>Block per collection<\/li>\n<li>Image override (can come from metafield dyanmically)<\/li>\n<li>Background (can come from metadfield dynamically)<\/li>\n<li>Hover text<\/li>\n<li>Link<\/li>\n<\/ul>","section_height":"default","full_width":false,"dividers":"none","prevent_animation":false}},"rich_text_EWLmPY":{"type":"rich-text","blocks":{"heading_BFBNTn":{"type":"heading","settings":{"heading":"Why Choose Us?","heading_size":"h2","heading_h1":false}},"text_DanjrA":{"type":"text","settings":{"text":"<h6>QUALITY, INNOVATION AND SAFETY:<\/h6><p>Our products undergo rigorous testing to ensure they delight and inspire<\/p><h6>GLOBAL PRESENCE:<\/h6><p>Showrooms in the UK, US, and Honk Kong provide accessibility and convenience for customers around the world<\/p><h6>TREND-DRIVEN EXPERIENCE:<\/h6><p>We stay ahead of the curve, delivering the latest innovations to meet your needs seamlessly<\/p>","enlarge_text":false}},"button_DzVYYT":{"type":"button","settings":{"button_1_label":"Learn More","button_1_link":"shopify:\/\/collections","button_1_style":"btn--primary","button_2_label":"","button_2_link":"","button_2_style":"btn btn--primary"}},"subheading_GhtEwV":{"type":"subheading","settings":{"text":"Add Image bottom blocks"}}},"block_order":["heading_BFBNTn","text_DanjrA","button_DzVYYT","subheading_GhtEwV"],"settings":{"text_position":"justify-center","text_align":"text-center","mob_center_text":true,"wide":false,"color_scheme":"3","full_width":false,"prevent_animation":false}},"contact_form_9gHCWb":{"type":"contact-form","blocks":{"text_TV6Vke":{"type":"text","settings":{"text":"<p>Layout Option<\/p><p>Animation on hover<\/p><p>Labels within input<\/p>","half_width":false}},"custom_7z6w3P":{"type":"custom","settings":{"title":"First Name","type":"text","required":true,"half_width":true}},"custom_qDfwaU":{"type":"custom","settings":{"title":"Last Name","type":"text","required":true,"half_width":true}},"phone_Ftdpi6":{"type":"phone","settings":{"required":true,"half_width":false}},"email_6rB8XM":{"type":"email","settings":{"required":true,"half_width":false}},"custom_XXnB46":{"type":"custom","settings":{"title":"Company Name","type":"text","required":true,"half_width":false}},"custom_TWTgxe":{"type":"custom","settings":{"title":"Company Website","type":"url","required":false,"half_width":false}}},"block_order":["text_TV6Vke","custom_7z6w3P","custom_qDfwaU","phone_Ftdpi6","email_6rB8XM","custom_XXnB46","custom_TWTgxe"],"settings":{"heading":"Contact form","heading_align":"text-center","image":"shopify:\/\/shop_images\/Frame_48095884.png","image_position":"top","color_scheme":"none","full_width":true,"button_style":"btn btn--primary"}},"custom_liquid_UfPMfR":{"type":"custom-liquid","settings":{"custom_liquid":"Banner\n<ul>\n<li>Background Color<\/li>\n<li>Background shape & color<\/li>\n<li>Image with hover<\/li>\n<li>Overlay Image<\/li>\n<\/ul>","section_height":"default","full_width":false,"dividers":"none","prevent_animation":false}},"newsletter_8qYTFa":{"type":"newsletter","blocks":{"heading_A9XwqC":{"type":"heading","settings":{"heading":"Sign up to our<br>monthly newsletter","heading_size":"h2"}},"text_daLwPD":{"type":"text","settings":{"text":"<p>News, reviews & special offers<\/p>","enlarge_text":false}},"form_pGMmcE":{"type":"form","settings":{}}},"block_order":["heading_A9XwqC","text_daLwPD","form_pGMmcE"],"settings":{"overlay_position":"justify-start","text_align":"text-start","image":"shopify:\/\/shop_images\/c76eb664124e2107db78a287a987f6ef.png","color_scheme":"white","full_width":true,"transparent_content_color":"#ffffff","tint_color":"#20cbd4","tint_opacity":70}}},"order":["custom_liquid_dQVUqi","featured_collection_nWtAmk","scrolling-banner","rich_text_UnbEnz","custom_liquid_m3fNyL","rich_text_EWLmPY","contact_form_9gHCWb","custom_liquid_UfPMfR","newsletter_8qYTFa"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_slider_UHJCi6": {
+      "type": "custom-slider",
+      "blocks": {
+        "slide_hTHxzA": {
+          "type": "slide",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Hero-Slides-bg-min.png",
+            "background_color": "#20CBD4",
+            "url": "shopify://collections",
+            "overlay_image": "shopify://shop_images/25dd4c8cccdefbd49d954bf18d3636a3.png",
+            "background_text": "shopify://shop_images/Slider-1.png",
+            "overlay_text_align": "text-start",
+            "mob_center_text": false,
+            "text_max": 515,
+            "subheading": "Example Slide",
+            "heading": "The Fun||Starts at <strong>One!</strong>",
+            "heading_size": "h0",
+            "heading_h1": false,
+            "text": "<p>One For Fun is a leading wholesaler and distributor of toys, games, gadgets and more, for both the UK and international markets.</p>",
+            "enlarge_text": false,
+            "button_1_label": "Shop Now",
+            "button_1_link": "shopify://collections",
+            "button_1_style": "btn btn--primary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn btn--primary",
+            "transparent_content_color": "#ffffff",
+            "button_color": "#20cbd4"
+          }
+        },
+        "slide_MgtHBV": {
+          "type": "slide",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Hero-Slides-bg-min.png",
+            "background_color": "#20CBD4",
+            "url": "shopify://collections",
+            "overlay_image": "shopify://shop_images/19608-5transparent_1.png",
+            "background_text": "shopify://shop_images/Slider-1.png",
+            "overlay_text_align": "text-start",
+            "mob_center_text": false,
+            "text_max": 515,
+            "subheading": "",
+            "heading": "The Fun||Starts at <strong>One!</strong>",
+            "heading_size": "h0",
+            "heading_h1": false,
+            "text": "<p>One For Fun is a leading wholesaler and distributor of toys, games, gadgets and more, for both the UK and international markets.</p>",
+            "enlarge_text": false,
+            "button_1_label": "Shop Now",
+            "button_1_link": "shopify://collections",
+            "button_1_style": "btn btn--primary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn btn--primary",
+            "transparent_content_color": "#ffffff",
+            "button_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_hTHxzA",
+        "slide_MgtHBV"
+      ],
+      "custom_css": [
+        ".text-overlay__heading,.text-overlay__heading * {line-height: 100%;}"
+      ],
+      "settings": {
+        "show_to": "all",
+        "height_mode": "auto",
+        "fixed_height_desktop": 600,
+        "fixed_height_mobile": 350,
+        "nav_style": "slideshow_nav_lines",
+        "pagination_color": "#20cbd4",
+        "nav_position": "justify-center",
+        "transition": "slide",
+        "autoplay": true,
+        "slider_pause": false,
+        "autoplay_speed": 5,
+        "shape": true,
+        "accessibility_info": "",
+        "prevent_animation": true
+      }
+    },
+    "featured_collection_nWtAmk": {
+      "type": "featured-collection",
+      "settings": {
+        "show_to": "all",
+        "title": "Best Sellers",
+        "heading_align": "text-center",
+        "show_view_all": false,
+        "collection": "test-collection",
+        "layout": "carousel",
+        "card_size_mobile": "small",
+        "card_size": "medium",
+        "products_to_show": 8,
+        "show_highlight_products": true,
+        "show_promo_info": false,
+        "image_ratio": "fill",
+        "promo_title": "A headline to grab attention",
+        "content": "<p>Use this card with an image to highlight your collections or introduce a promotion.</p>",
+        "link_url": "",
+        "button_label": "Button",
+        "color_scheme": "1",
+        "button_style": "btn btn--primary"
+      }
+    },
+    "parallax_images_rwBCKx": {
+      "type": "parallax-images",
+      "blocks": {
+        "image_93XDnm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/25dd4c8cccdefbd49d954bf18d3636a3.png",
+            "vertical": -100,
+            "horizontal": -100,
+            "vertical_mobile": 175,
+            "right": false,
+            "depth": 0.1,
+            "visibility": ""
+          }
+        },
+        "image_VNKDwk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2024-10-07_at_15.15.11_1.png",
+            "vertical": 15,
+            "horizontal": -50,
+            "vertical_mobile": 125,
+            "right": true,
+            "depth": 0.5,
+            "visibility": ""
+          }
+        },
+        "image_TFhd3k": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2024-10-07_at_12.42.42_1.png",
+            "vertical": 200,
+            "horizontal": 24,
+            "vertical_mobile": 500,
+            "right": true,
+            "depth": 0.1,
+            "width": 350,
+            "visibility": ""
+          }
+        },
+        "image_Y63yqT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/e_sv12330_a_3.png",
+            "vertical": 275,
+            "horizontal": 16,
+            "vertical_mobile": 500,
+            "right": false,
+            "depth": 0.1,
+            "width": 250,
+            "visibility": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_93XDnm",
+        "image_VNKDwk",
+        "image_TFhd3k",
+        "image_Y63yqT"
+      ],
+      "settings": {
+        "show_to": "all",
+        "contained": false
+      }
+    },
+    "scrolling-banner": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "scrolling-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "Innovating Fun.",
+            "link": "",
+            "font": "heading",
+            "heading_size": "h0",
+            "text_color": "#ef4856"
+          }
+        },
+        "text_BLdpQw": {
+          "type": "text",
+          "settings": {
+            "text": "Ensuring Safety.",
+            "link": "",
+            "font": "heading",
+            "heading_size": "h0",
+            "text_color": "#ffc33b"
+          }
+        },
+        "text_hyThWm": {
+          "type": "text",
+          "settings": {
+            "text": "Inspiring Play.",
+            "link": "",
+            "font": "heading",
+            "heading_size": "h0",
+            "text_color": "#664e95"
+          }
+        }
+      },
+      "block_order": [
+        "scrolling-text-1",
+        "text_BLdpQw",
+        "text_hyThWm"
+      ],
+      "settings": {
+        "show_to": "all",
+        "section_height": "xsmall",
+        "spacing": 40,
+        "speed": 24,
+        "direction": "normal",
+        "pausable": false,
+        "color_scheme": "none",
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    },
+    "rich_text_UnbEnz": {
+      "type": "rich-text",
+      "blocks": {
+        "single_image_9yhFFr": {
+          "type": "single_image",
+          "settings": {
+            "image": "shopify://shop_images/Group_1739.svg"
+          }
+        },
+        "text_d6i3Lx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>One For Fun is a global leader in the wholesale and distribution of toys, games, and gadgets. With over 50 years of experience, we proudly supply top brands like <a href=\"/products/1-100-number-carpet-2mx1-5m\" title=\"1-100 Number Carpet 2mx1.5m\">HGL</a>, <a href=\"/blogs/news\" title=\"News\">Tobar</a>, and <a href=\"/pages/contact\" title=\"Contact\">Ozbozz</a>, alongside renowned licensed products such as <a href=\"/blogs/news\" title=\"News\">Dream Beams</a> and <a href=\"/collections/all\" title=\"All products\">Dino Collecto</a>.</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_KEVBc4": {
+          "type": "button",
+          "settings": {
+            "button_1_label": "Learn More",
+            "button_1_link": "shopify://collections/frontpage",
+            "button_1_style": "btn--primary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "single_image_9yhFFr",
+        "text_d6i3Lx",
+        "button_KEVBc4"
+      ],
+      "settings": {
+        "show_to": "all",
+        "text_position": "justify-center",
+        "text_align": "text-center",
+        "mob_center_text": true,
+        "wide": false,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "collection_grid_TYkRka": {
+      "type": "collection-grid",
+      "blocks": {
+        "collection_Dk4mBT": {
+          "type": "collection",
+          "settings": {
+            "collection": "1-24-diecast-car-kits",
+            "background_override": "#644b84",
+            "logo_override": "shopify://shop_images/HGL.png",
+            "image_override": "shopify://shop_images/e_sv12330_a_3.png",
+            "hover_text": "Discover"
+          }
+        },
+        "collection_WbkU4p": {
+          "type": "collection",
+          "settings": {
+            "collection": "1-24-scale-diecast-cars",
+            "background_override": "#e54a50",
+            "logo_override": "shopify://shop_images/TObar.png",
+            "image_override": "shopify://shop_images/Screenshot_2024-10-07_at_12.42.42_1.png",
+            "hover_text": "Discover"
+          }
+        },
+        "collection_mGAMUw": {
+          "type": "collection",
+          "settings": {
+            "collection": "action",
+            "background_override": "#fab730",
+            "logo_override": "shopify://shop_images/tb-brands-ozbozz_0920.png",
+            "image_override": "shopify://shop_images/Screenshot_2024-12-03_at_23.52.39_1.png",
+            "hover_text": "Discover"
+          }
+        },
+        "collection_wnFKBB": {
+          "type": "collection",
+          "settings": {
+            "collection": "all-maisto-bburago",
+            "background_override": "#de0029",
+            "logo_override": "shopify://shop_images/tb-brands-maisto.png",
+            "image_override": "shopify://shop_images/19608-5transparent_1.png",
+            "hover_text": "Discover"
+          }
+        },
+        "collection_MLNDnU": {
+          "type": "collection",
+          "settings": {
+            "collection": "animigos",
+            "background_override": "#0073bf",
+            "logo_override": "shopify://shop_images/DREAM.png",
+            "image_override": "shopify://shop_images/787f854dca51dab07583337d0ba49101.png",
+            "hover_text": "Discover"
+          }
+        },
+        "collection_YimBGP": {
+          "type": "collection",
+          "settings": {
+            "collection": "animigos-funky-friends",
+            "background_override": "#aaa1ff",
+            "logo_override": "shopify://shop_images/DINOCOLL.png",
+            "image_override": "shopify://shop_images/01ba8cd455eac34e5229dab4b4020cf8.png",
+            "hover_text": "Discover"
+          }
+        }
+      },
+      "block_order": [
+        "collection_Dk4mBT",
+        "collection_WbkU4p",
+        "collection_mGAMUw",
+        "collection_wnFKBB",
+        "collection_MLNDnU",
+        "collection_YimBGP"
+      ],
+      "settings": {}
+    },
+    "parallax_images_j4eN6h": {
+      "type": "parallax-images",
+      "blocks": {
+        "image_9Xz4FV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/787f854dca51dab07583337d0ba49101.png",
+            "vertical": -50,
+            "horizontal": 40,
+            "right": false,
+            "depth": 0.1,
+            "width": 180,
+            "visibility": "visible-lg"
+          }
+        },
+        "image_eTrLYJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/19608-5transparent_1.png",
+            "horizontal": -20,
+            "right": true,
+            "depth": 0.1,
+            "width": 400,
+            "visibility": "visible-lg"
+          }
+        },
+        "image_zThKhB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2024-12-03_at_23.52.39_1.png",
+            "vertical": 80,
+            "horizontal": 30,
+            "right": false,
+            "depth": 0.3,
+            "width": 225,
+            "visibility": "visible-lg"
+          }
+        }
+      },
+      "block_order": [
+        "image_9Xz4FV",
+        "image_eTrLYJ",
+        "image_zThKhB"
+      ],
+      "settings": {
+        "show_to": "all",
+        "contained": false
+      }
+    },
+    "rich_text_EWLmPY": {
+      "type": "rich-text",
+      "blocks": {
+        "spacer_UpHzLD": {
+          "type": "spacer",
+          "settings": {
+            "height": 40,
+            "height_mobile": 40
+          }
+        },
+        "heading_BFBNTn": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Choose Us?",
+            "heading_size": "h2",
+            "heading_h1": false
+          }
+        },
+        "text_DanjrA": {
+          "type": "text",
+          "settings": {
+            "text": "<h6>QUALITY, INNOVATION AND SAFETY:</h6><p>Our products undergo rigorous testing to ensure they delight and inspire</p><p></p><h6>GLOBAL PRESENCE:</h6><p>Showrooms in the UK, US, and Honk Kong provide accessibility and convenience for customers around the world</p><p></p><h6>TREND-DRIVEN EXPERIENCE:</h6><p>We stay ahead of the curve, delivering the latest innovations to meet your needs seamlessly</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_DzVYYT": {
+          "type": "button",
+          "settings": {
+            "button_1_label": "Learn More",
+            "button_1_link": "shopify://collections",
+            "button_1_style": "btn--primary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn btn--primary"
+          }
+        },
+        "spacer_FW7xCM": {
+          "type": "spacer",
+          "settings": {
+            "height": 40,
+            "height_mobile": 150
+          }
+        }
+      },
+      "block_order": [
+        "spacer_UpHzLD",
+        "heading_BFBNTn",
+        "text_DanjrA",
+        "button_DzVYYT",
+        "spacer_FW7xCM"
+      ],
+      "settings": {
+        "show_to": "all",
+        "text_position": "justify-center",
+        "text_align": "text-center",
+        "mob_center_text": true,
+        "wide": false,
+        "color_scheme": "3",
+        "full_width": false,
+        "prevent_animation": false
+      }
+    },
+    "parallax_images_XRCEgV": {
+      "type": "parallax-images",
+      "blocks": {
+        "image_mEMXMP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/01ba8cd455eac34e5229dab4b4020cf8.png",
+            "vertical": -300,
+            "vertical_mobile": -180,
+            "horizontal_mobile": -25,
+            "right": false,
+            "depth": 0.4,
+            "mobile_width": 200,
+            "visibility": ""
+          }
+        },
+        "image_xyH9Uk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/car1880659b23217a465444649c79852ee7916be5b1p_1.png",
+            "vertical": -350,
+            "vertical_mobile": -220,
+            "horizontal_mobile": 20,
+            "right": true,
+            "depth": 0.1,
+            "mobile_width": 200,
+            "visibility": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_mEMXMP",
+        "image_xyH9Uk"
+      ],
+      "settings": {
+        "show_to": "all",
+        "contained": true
+      }
+    },
+    "contact_form_9gHCWb": {
+      "type": "contact-form",
+      "blocks": {
+        "custom_7z6w3P": {
+          "type": "custom",
+          "settings": {
+            "title": "First Name",
+            "type": "text",
+            "required": true,
+            "half_width": true
+          }
+        },
+        "custom_qDfwaU": {
+          "type": "custom",
+          "settings": {
+            "title": "Last Name",
+            "type": "text",
+            "required": true,
+            "half_width": true
+          }
+        },
+        "phone_Ftdpi6": {
+          "type": "phone",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        },
+        "email_6rB8XM": {
+          "type": "email",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        },
+        "custom_XXnB46": {
+          "type": "custom",
+          "settings": {
+            "title": "Company Name",
+            "type": "text",
+            "required": true,
+            "half_width": false
+          }
+        },
+        "custom_TWTgxe": {
+          "type": "custom",
+          "settings": {
+            "title": "Company Website",
+            "type": "url",
+            "required": false,
+            "half_width": false
+          }
+        },
+        "hover_image_Nq8xk8": {
+          "type": "hover_image",
+          "settings": {
+            "image": "shopify://shop_images/25dd4c8cccdefbd49d954bf18d3636a3.png",
+            "left": 44,
+            "top": 52,
+            "scale": 0.4,
+            "left_hover": 76,
+            "top_hover": 74,
+            "scale_hover": 2
+          }
+        },
+        "hover_image_AtNKjk": {
+          "type": "hover_image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2024-10-07_at_15.15.11_1.png",
+            "left": 40,
+            "top": 42,
+            "scale": 0.1,
+            "left_hover": 26,
+            "top_hover": 14,
+            "scale_hover": 0.5
+          }
+        }
+      },
+      "block_order": [
+        "custom_7z6w3P",
+        "custom_qDfwaU",
+        "phone_Ftdpi6",
+        "email_6rB8XM",
+        "custom_XXnB46",
+        "custom_TWTgxe",
+        "hover_image_Nq8xk8",
+        "hover_image_AtNKjk"
+      ],
+      "settings": {
+        "show_to": "all",
+        "heading": "Register for Our Catalogue!",
+        "heading_align": "text-start",
+        "heading_align_mobile": "md-down:text-center",
+        "image": "shopify://shop_images/Frame_48095884.png",
+        "image_position": "left",
+        "color_scheme": "none",
+        "full_width": true,
+        "button_style": "btn btn--primary"
+      }
+    },
+    "custom_download_banner_FicNQi": {
+      "type": "custom-download-banner",
+      "blocks": {
+        "hover_image_WaPHHr": {
+          "type": "hover_image",
+          "settings": {
+            "image": "shopify://shop_images/Group_1744.png",
+            "left": 50,
+            "top": 50,
+            "scale": 1,
+            "left_hover": 50,
+            "top_hover": 50,
+            "scale_hover": 2
+          }
+        },
+        "hover_image_Nq8xk8": {
+          "type": "hover_image",
+          "settings": {
+            "image": "shopify://shop_images/25dd4c8cccdefbd49d954bf18d3636a3.png",
+            "left": 44,
+            "top": 52,
+            "scale": 0.4,
+            "left_hover": 76,
+            "top_hover": 74,
+            "scale_hover": 2
+          }
+        },
+        "hover_image_AtNKjk": {
+          "type": "hover_image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2024-10-07_at_15.15.11_1.png",
+            "left": 40,
+            "top": 42,
+            "scale": 0.1,
+            "left_hover": 26,
+            "top_hover": -2,
+            "scale_hover": 0.5
+          }
+        }
+      },
+      "block_order": [
+        "hover_image_WaPHHr",
+        "hover_image_Nq8xk8",
+        "hover_image_AtNKjk"
+      ],
+      "settings": {
+        "show_to": "all",
+        "title": "Download Our<br>2024 Catalogue!",
+        "text_color": "#ffffff",
+        "download_text": "Download Now",
+        "download_link": "https://cdn.shopify.com/s/files/1/0844/7416/7644/files/SV22058_10_2024_EN71.pdf?v=1739448151",
+        "background": "radial-gradient(rgba(248, 171, 99, 1) 51.99%, rgba(245, 135, 32, 1) 100%)",
+        "add_shape": true,
+        "shape_color": "#e83c4d",
+        "overlay_image": "shopify://shop_images/268d9ae828b8f7f66526ba0725848adf.png"
+      }
+    },
+    "newsletter_8qYTFa": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_A9XwqC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sign up to our<br>monthly newsletter",
+            "heading_size": "h2"
+          }
+        },
+        "text_daLwPD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>News, reviews & special offers</p>",
+            "enlarge_text": false
+          }
+        },
+        "form_pGMmcE": {
+          "type": "form",
+          "settings": {}
+        },
+        "spacer_PHVxxP": {
+          "type": "spacer",
+          "settings": {
+            "height": 0,
+            "height_mobile": 200
+          }
+        }
+      },
+      "block_order": [
+        "heading_A9XwqC",
+        "text_daLwPD",
+        "form_pGMmcE",
+        "spacer_PHVxxP"
+      ],
+      "settings": {
+        "show_to": "all",
+        "overlay_position": "justify-start",
+        "text_align": "text-start",
+        "image": "shopify://shop_images/Hero-Slider.jpg",
+        "image_mobile": "shopify://shop_images/Hero-Slider_1.jpg",
+        "color_scheme": "white",
+        "full_width": false,
+        "transparent_content_color": "#ffffff",
+        "tint_color": "#20cbd4",
+        "tint_opacity": 0,
+        "background_css": ""
+      }
+    }
+  },
+  "order": [
+    "custom_slider_UHJCi6",
+    "featured_collection_nWtAmk",
+    "parallax_images_rwBCKx",
+    "scrolling-banner",
+    "rich_text_UnbEnz",
+    "collection_grid_TYkRka",
+    "parallax_images_j4eN6h",
+    "rich_text_EWLmPY",
+    "parallax_images_XRCEgV",
+    "contact_form_9gHCWb",
+    "custom_download_banner_FicNQi",
+    "newsletter_8qYTFa"
+  ]
+}

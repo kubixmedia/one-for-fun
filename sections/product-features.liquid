@@ -1,32 +1,45 @@
-{%- if section.index > 2 -%}
-  <link rel="stylesheet" href="{{ 'hotspots-image.css' | asset_url }}" media="print" onload="this.media='all'">
-{%- else -%}
-  {{ 'hotspots-image.css' | asset_url | stylesheet_tag }}
-{%- endif -%}
+{% liquid
+  assign show = false
+  if section.settings.show_to == 'all' or request.design_mode
+    assign show = true
+  elsif customer and section.settings.show_to == 'customer'
+    assign show = true
+  elsif section.settings.show_to == 'guest'
+    unless customer
+      assign show = true
+    endunless
+  endif
+%}
+{% if show %}
+  {%- if section.index > 2 -%}
+    <link rel="stylesheet" href="{{ 'hotspots-image.css' | asset_url }}" media="print" onload="this.media='all'">
+  {%- else -%}
+    {{ 'hotspots-image.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
 
-<script src="{{ 'hotspots-image.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'hotspots-image.js' | asset_url }}" defer="defer"></script>
 
-{%- liquid
-  assign color_scheme = section.settings.color_scheme
-  assign hotspot_color_brightness = section.settings.hotspot_color | color_brightness
-  assign image = section.settings.image | default: section.settings.product.featured_image
-  assign title = section.settings.title | default: section.settings.product.title
-  assign description = section.settings.description | default: section.settings.product.description
--%}
+  {%- liquid
+    assign color_scheme = section.settings.color_scheme
+    assign hotspot_color_brightness = section.settings.hotspot_color | color_brightness
+    assign image = section.settings.image | default: section.settings.product.featured_image
+    assign title = section.settings.title | default: section.settings.product.title
+    assign description = section.settings.description | default: section.settings.product.description
+  -%}
 
-{% style %}
-  #{{ section.id }} {
-    --hotspot-color: {{ section.settings.hotspot_color.rgb }};
-    {%- if hotspot_color_brightness > 128 %}
-      --hotspot-cross-color: #000;
-    {%- else -%}
-      --hotspot-cross-color: #fff;
-    {%- endif %}
-  }
-{% endstyle %}
+  {% style %}
+    #{{ section.id }} {
+      --hotspot-color: {{ section.settings.hotspot_color.rgb }};
+      {%- if hotspot_color_brightness > 128 %}
+        --hotspot-cross-color: #000;
+      {%- else -%}
+        --hotspot-cross-color: #fff;
+      {%- endif %}
+    }
+  {% endstyle %}
 
-{%- if section.settings.show_content -%}
-  {% capture section_content_html %}
+  {%- if section.settings.show_content -%}
+    {% capture section_content_html %}
     <div class="product-features__text {{ section.settings.text_align }}{% if section.settings.mob_center_text %} md-down:center{% endif %}"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %}>
       <div class="card card--wide h-full{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}">
         <div class="card__info reading-width--inline{% if section.settings.text_align == 'text-start' %} mr-auto{% elsif section.settings.text_align == 'text-end' %} ml-auto{% else %} mx-auto{% endif %}{% if section.settings.mob_center_text %} md-down:text-center{% endif %}">
@@ -53,78 +66,121 @@
       </div>
     </div>
   {% endcapture %}
-{%- endif -%}
+  {%- endif -%}
 
-<div class="container" id="{{ section.id }}">
-  <div class="section">
-    {%- if section.settings.layout == 'text_first' and section.settings.show_content == true -%}
-      {{ section_content_html }}
-    {%- endif -%}
-    <div class="product-features relative">
-      <hotspots-image class="product-features__image block relative overflow-hidden"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %}>
-        {%- if image != blank -%}
-          {%- capture sizes -%}
+  <div class="container" id="{{ section.id }}">
+    <div class="section">
+      {%- if section.settings.layout == 'text_first' and section.settings.show_content == true -%}
+        {{ section_content_html }}
+      {%- endif -%}
+      <div class="product-features relative">
+        <hotspots-image
+          class="product-features__image block relative overflow-hidden"
+          {% if settings.animations_enabled != 'disabled' %}
+            data-cc-animate
+          {% endif %}
+        >
+          {%- if image != blank -%}
+            {%- capture sizes -%}
             {%- render 'sizes-attribute', min: 'page', sm: 'page', md: false, lg: false, xl: '1400px', max: false -%}
           {%- endcapture -%}
-          {% render 'image',
-            image: image,
-            widths: '480, 980, 1200, 1400, 1600, 1920, 2560, 3200',
-            src_width: 1200,
-            sizes: sizes,
-            quality: 1,
-            section_index: section.index,
-            class: 'block mx-auto w-full'
-          %}
-        {%- else -%}
-          <div class="media relative" style="padding-top: 56.25%;">
-            {{ 'product-2' | placeholder_svg_tag: 'media__placeholder img-fit' }}
-          </div>
-        {%- endif -%}
-
-        {%- for block in section.blocks -%}
-          <div class="hotspot absolute" data-x="{{ block.settings.hotspot_x }}" data-y="{{ block.settings.hotspot_x }}" style="top: {{ block.settings.hotspot_y }}%; left: {{ block.settings.hotspot_x }}%">
-            <button type="button" class="hotspot__btn relative tap-target no-js-hidden" aria-expanded="false">
-              <span class="visually-hidden">
-                {{- 'accessibility.view_details' | t }}
-              </span>
-              {% render 'icon-plus' %}
-            </button>
-            <div class="hotspot__card hotspot__card--wide absolute no-js-hidden {{ block.settings.content_align }}" aria-hidden="true">
-              {%- if block.settings.image != empty -%}
-                {%- liquid
-                  if block.settings.image.width > 320
-                    assign src_width = 320
-                  else
-                    assign src_width = block.settings.image.width
-                  endif
-                -%}
-                {% render 'image', image: block.settings.image, src_width: src_width, srcset_2x: true, class: 'mb-4' %}
-              {%- endif -%}
-              {%- if block.settings.heading != empty -%}
-                <h6>{{ block.settings.heading }}</h6>
-              {%- endif -%}
-              {%- if block.settings.text != empty -%}
-                <div class="rte">
-                  {{ block.settings.text }}
-                </div>
-              {%- endif -%}
+            {% render 'image',
+              image: image,
+              widths: '480, 980, 1200, 1400, 1600, 1920, 2560, 3200',
+              src_width: 1200,
+              sizes: sizes,
+              quality: 1,
+              section_index: section.index,
+              class: 'block mx-auto w-full'
+            %}
+          {%- else -%}
+            <div class="media relative" style="padding-top: 56.25%;">
+              {{ 'product-2' | placeholder_svg_tag: 'media__placeholder img-fit' }}
             </div>
-          </div>
-        {% endfor %}
-      </hotspots-image>
-    </div>
-    {%- if section.settings.layout == 'text_last' and section.settings.show_content == true -%}
-      {{ section_content_html }}
-    {%- endif -%}
-  </div>
-</div>
+          {%- endif -%}
 
+          {%- for block in section.blocks -%}
+            <div
+              class="hotspot absolute"
+              data-x="{{ block.settings.hotspot_x }}"
+              data-y="{{ block.settings.hotspot_x }}"
+              style="top: {{ block.settings.hotspot_y }}%; left: {{ block.settings.hotspot_x }}%"
+            >
+              <button type="button" class="hotspot__btn relative tap-target no-js-hidden" aria-expanded="false">
+                <span class="visually-hidden">
+                  {{- 'accessibility.view_details' | t }}
+                </span>
+                {% render 'icon-plus' %}
+              </button>
+              <div
+                class="hotspot__card hotspot__card--wide absolute no-js-hidden {{ block.settings.content_align }}"
+                aria-hidden="true"
+              >
+                {%- if block.settings.image != empty -%}
+                  {%- liquid
+                    if block.settings.image.width > 320
+                      assign src_width = 320
+                    else
+                      assign src_width = block.settings.image.width
+                    endif
+                  -%}
+                  {% render 'image',
+                    image: block.settings.image,
+                    src_width: src_width,
+                    srcset_2x: true,
+                    class: 'mb-4'
+                  %}
+                {%- endif -%}
+                {%- if block.settings.heading != empty -%}
+                  <h6>{{ block.settings.heading }}</h6>
+                {%- endif -%}
+                {%- if block.settings.text != empty -%}
+                  <div class="rte">
+                    {{ block.settings.text }}
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
+          {% endfor %}
+        </hotspots-image>
+      </div>
+      {%- if section.settings.layout == 'text_last' and section.settings.show_content == true -%}
+        {{ section_content_html }}
+      {%- endif -%}
+    </div>
+  </div>
+{% endif %}
 {% schema %}
 {
   "name": "Product features",
   "tag": "section",
   "class": "cc-product-features",
   "settings": [
+    {
+      "type": "header",
+      "content": "Show to"
+    },
+    {
+      "type": "select",
+      "id": "show_to",
+      "label": "Show To",
+      "default": "all",
+      "info": "Will always show in customiser",
+      "options": [
+        {
+          "label": "All",
+          "value": "all"
+        },
+        {
+          "label": "Customers",
+          "value": "customer"
+        },
+        {
+          "label": "Non Customer",
+          "value": "guest"
+        }
+      ]
+    },
     {
       "type": "product",
       "id": "product",
@@ -413,11 +469,7 @@
     }
   ],
   "disabled_on": {
-    "groups": [
-      "header",
-      "footer",
-      "aside"
-    ]
+    "groups": ["header", "footer", "aside"]
   }
 }
 {% endschema %}

@@ -1,0 +1,28 @@
+
+.contact__hover {
+  position: relative;
+  z-index: 2;
+}
+.contact__image {
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  translate: -50% -50%;
+  transform: scale(var(--scale));
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .5s;
+}
+@media (hover: hover) {
+  .contact:hover .contact__image {
+    top: var(--hover-top);
+    left: var(--hover-left);
+    transform: scale(var(--hover-scale));
+  }
+}
+@media (max-width: 768px) {
+  .contact__image {
+    top: var(--hover-top);
+    left: var(--hover-left);
+    transform: scale(var(--hover-scale));
+  }
+
+}

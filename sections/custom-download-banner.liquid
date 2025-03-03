@@ -1,0 +1,208 @@
+{% liquid
+  assign show = false
+  if section.settings.show_to == 'all' or request.design_mode
+    assign show = true
+  elsif customer and section.settings.show_to == 'customer'
+    assign show = true
+  elsif section.settings.show_to == 'guest'
+    unless customer
+      assign show = true
+    endunless
+  endif
+%}
+{% if show %}
+  {{ 'custom-download-banner.css' | asset_url | stylesheet_tag: defer: 'defer' }}
+  <div class="download container">
+    {% if section.settings.add_shape %}
+      <svg
+        class="download__shape"
+        xmlns="http://www.w3.org/2000/svg"
+        width="999"
+        height="267"
+        viewBox="0 0 999 267"
+        fill="none"
+      >
+        <path d="M999 106.796V254.238C999 260.865 993.627 266.238 987 266.238H0L391.785 0.237793L999 106.796Z" fill="{{ section.settings.shape_color }}"/>
+      </svg>
+    {% endif %}
+    <div class="download__hover">
+      {% for block in section.blocks %}
+        <div
+          class="download__image"
+          style="--top: {{ block.settings.top | append: '%' }};--left:{{ block.settings.left | append: '%' }};--scale:{{ block.settings.scale }};--hover-top: {{ block.settings.top_hover | append: '%' }};--hover-left:{{ block.settings.left_hover | append: '%'}};--hover-scale: {{ block.settings.scale_hover }}"
+        >
+          {{ block.settings.image | image_url: width: block.settings.image.width | image_tag }}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="download__spacer"></div>
+    <div class="download__content flex flex-col justify-center items-start">
+      <h2>{{ section.settings.title }}</h2>
+      <a
+        href="{{ section.settings.download_link }}"
+        download="{{ section.settings.download_link }}"
+        target="_blank"
+        class="btn btn--primary"
+      >
+        {{- section.settings.download_text -}}
+      </a>
+    </div>
+
+    {% if section.settings.overlay_image %}
+      {{ section.settings.overlay_image | image_url: width: 400 | image_tag: class: 'download__overlay' }}
+    {% endif %}
+  </div>
+  {% style %}
+    #shopify-section-{{ section.id }} .download {
+      background: {{ section.settings.background }};
+      --heading-color: {{ section.settings.text_color.rgb }};
+    }
+  {% endstyle %}
+{% endif %}
+{% schema %}
+{
+  "name": "Custom Download Banner",
+  "presets": [{ "name": "Custom Download Banner" }],
+  "class": "section container",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Show to"
+    },
+    {
+      "type": "select",
+      "id": "show_to",
+      "label": "Show To",
+      "default": "all",
+      "info": "Will always show in customiser",
+      "options": [
+        {
+          "label": "All",
+          "value": "all"
+        },
+        {
+          "label": "Customers",
+          "value": "customer"
+        },
+        {
+          "label": "Non Customer",
+          "value": "guest"
+        }
+      ]
+    },
+    { "type": "text", "id": "title", "label": "Title" },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color"
+    },
+    {
+      "type": "text",
+      "id": "download_text",
+      "label": "Download Text"
+    },
+    {
+      "type": "url",
+      "id": "download_link",
+      "label": "Download Link"
+    },
+    {
+      "type": "color_background",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "checkbox",
+      "id": "add_shape",
+      "label": "Add Shape",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "shape_color",
+      "label": "Shape Color",
+      "default": "#E83C4D"
+    },
+    {
+      "type": "image_picker",
+      "id": "overlay_image",
+      "label": "Overlay Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hover_image",
+      "name": "Hover Image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        {
+          "type": "header",
+          "content": "Prehover"
+        },
+        {
+          "type": "range",
+          "id": "left",
+          "label": "Left",
+          "min": -100,
+          "max": 100,
+          "unit": "%",
+          "step": 2,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "top",
+          "label": "Top",
+          "min": -100,
+          "max": 100,
+          "unit": "%",
+          "step": 2,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "scale",
+          "label": "Scale",
+          "min": 0,
+          "max": 2,
+          "step": 0.1,
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "Hover"
+        },
+        {
+          "type": "range",
+          "id": "left_hover",
+          "label": "Left",
+          "min": -100,
+          "max": 100,
+          "unit": "%",
+          "step": 2,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "top_hover",
+          "label": "Top",
+          "min": -100,
+          "max": 100,
+          "unit": "%",
+          "step": 2,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "scale_hover",
+          "label": "Scale",
+          "min": 0,
+          "max": 2,
+          "step": 0.1,
+          "default": 0
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

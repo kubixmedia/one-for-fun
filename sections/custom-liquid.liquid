@@ -1,21 +1,64 @@
-<div class="section relative section--full-width{% unless section.settings.section_height == "tight" %} section--padded-{{ section.settings.section_height }}{% endunless %}{% if section.settings.dividers != "none" %} {{ section.settings.dividers }}{% endif %}"{% if settings.animations_enabled != "disabled" and section.settings.prevent_animation == false %} data-cc-animate{% endif %}>
-  {%- unless section.settings.full_width -%}
-    <div class="container">
-  {%- endunless -%}
+{% liquid
+  assign show = false
+  if section.settings.show_to == 'all' or request.design_mode
+    assign show = true
+  elsif customer and section.settings.show_to == 'customer'
+    assign show = true
+  elsif section.settings.show_to == 'guest'
+    unless customer
+      assign show = true
+    endunless
+  endif
+%}
+{% if show %}
+  <div
+    class="section relative section--full-width{% unless section.settings.section_height == "tight" %} section--padded-{{ section.settings.section_height }}{% endunless %}{% if section.settings.dividers != "none" %} {{ section.settings.dividers }}{% endif %}"
+    {% if settings.animations_enabled != 'disabled' and section.settings.prevent_animation == false %}
+      data-cc-animate
+    {% endif %}
+  >
+    {%- unless section.settings.full_width -%}
+      <div class="container">
+    {%- endunless -%}
 
-  {{- section.settings.custom_liquid -}}
+    {{- section.settings.custom_liquid -}}
 
-  {%- unless section.settings.full_width -%}
-    </div>
-  {%- endunless -%}
-</div>
-
+    {%- unless section.settings.full_width -%}
+      </div>
+    {%- endunless -%}
+  </div>
+{% endif %}
 {% schema %}
 {
   "name": "Custom HTML/Liquid",
   "tag": "section",
   "class": "cc-custom-liquid",
   "settings": [
+    {
+      "type": "header",
+      "content": "Show to"
+    },
+    {
+      "type": "select",
+      "id": "show_to",
+      "label": "Show To",
+      "default": "all",
+      "info": "Will always show in customiser",
+      "options": [
+        {
+          "label": "All",
+          "value": "all"
+        },
+        {
+          "label": "Customers",
+          "value": "customer"
+        },
+        {
+          "label": "Non Customer",
+          "value": "guest"
+        }
+      ]
+    },
     {
       "type": "liquid",
       "id": "custom_liquid",
@@ -106,9 +149,7 @@
     }
   ],
   "disabled_on": {
-    "groups": [
-      "aside"
-    ]
+    "groups": ["aside"]
   }
 }
 {% endschema %}

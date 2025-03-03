@@ -1,74 +1,147 @@
-{% if section.blocks.size > 0 %}
-  {%- if section.index > 2 and section.location != "header" -%}
-    <link rel="stylesheet" href="{{ 'promo-strip.css' | asset_url }}" media="print" onload="this.media='all'">
-  {%- else -%}
-    {{ 'promo-strip.css' | asset_url | stylesheet_tag }}
-  {%- endif -%}
+{% liquid
+  assign show = false
+  if section.settings.show_to == 'all' or request.design_mode
+    assign show = true
+  elsif customer and section.settings.show_to == 'customer'
+    assign show = true
+  elsif section.settings.show_to == 'guest'
+    unless customer
+      assign show = true
+    endunless
+  endif
+%}
+{% if show %}
+  {% if section.blocks.size > 0 %}
+    {%- if section.index > 2 and section.location != 'header' -%}
+      <link rel="stylesheet" href="{{ 'promo-strip.css' | asset_url }}" media="print" onload="this.media='all'">
+    {%- else -%}
+      {{ 'promo-strip.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
 
-  {%- assign color_scheme = section.settings.color_scheme -%}
+    {%- assign color_scheme = section.settings.color_scheme -%}
 
-  {%- unless section.settings.full_width -%}
-    <div class="container">
-  {%- endunless -%}
+    {%- unless section.settings.full_width -%}
+      <div class="container">
+    {%- endunless -%}
 
-  <div class="section{% if section.settings.full_width %} section--full-width{% if section.settings.dividers != "none" %} {{ section.settings.dividers }}{% endif %}{% endif %} section--padded-{{ section.settings.section_height }}{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}" id="{{ section.id }}">
-    <div class="container text-center flex-wrap flex-auto items-center justify-center gap-x-theme promo-strip__container"{% if settings.animations_enabled != "disabled" and section.settings.prevent_animation == false %} data-cc-animate{% endif %}>
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when 'heading' -%}
-            {%- if block.settings.heading != blank -%}
-              <h2 class="section__block promo-strip__heading shrink-0 {{ block.settings.heading_size }}{% unless block.settings.show_on_mobile and block.settings.show_on_desktop %}{% if block.settings.show_on_mobile == false %} hidden{% endif %}{% if block.settings.show_on_desktop %} md:block{% else %} md:hidden{% endif %}{% endunless %}" {{ block.shopify_attributes }}>
-                {% render 'multiline-text' with block.settings.heading %}
-              </h2>
-            {%- endif -%}
+    <div
+      class="section{% if section.settings.full_width %} section--full-width{% if section.settings.dividers != "none" %} {{ section.settings.dividers }}{% endif %}{% endif %} section--padded-{{ section.settings.section_height }}{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}"
+      id="{{ section.id }}"
+    >
+      <div
+        class="container text-center flex-wrap flex-auto items-center justify-center gap-x-theme promo-strip__container"
+        {% if settings.animations_enabled != 'disabled' and section.settings.prevent_animation == false %}
+          data-cc-animate
+        {% endif %}
+      >
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'heading' -%}
+              {%- if block.settings.heading != blank -%}
+                <h2
+                  class="section__block promo-strip__heading shrink-0 {{ block.settings.heading_size }}{% unless block.settings.show_on_mobile and block.settings.show_on_desktop %}{% if block.settings.show_on_mobile == false %} hidden{% endif %}{% if block.settings.show_on_desktop %} md:block{% else %} md:hidden{% endif %}{% endunless %}"
+                  {{ block.shopify_attributes }}
+                >
+                  {% render 'multiline-text' with block.settings.heading %}
+                </h2>
+              {%- endif -%}
 
-          {%- when 'text' -%}
-            {%- if block.settings.text != blank -%}
-              <div class="section__block rte promo-strip__rte{% if block.settings.enlarge_text %} enlarge-text{% endif %}{% unless block.settings.show_on_mobile and block.settings.show_on_desktop %}{% if block.settings.show_on_mobile == false %} hidden{% endif %}{% if block.settings.show_on_desktop %} md:block{% else %} md:hidden{% endif %}{% endunless %}" {{ block.shopify_attributes }}>
-                {{ block.settings.text }}
-              </div>
-            {%- endif -%}
+            {%- when 'text' -%}
+              {%- if block.settings.text != blank -%}
+                <div
+                  class="section__block rte promo-strip__rte{% if block.settings.enlarge_text %} enlarge-text{% endif %}{% unless block.settings.show_on_mobile and block.settings.show_on_desktop %}{% if block.settings.show_on_mobile == false %} hidden{% endif %}{% if block.settings.show_on_desktop %} md:block{% else %} md:hidden{% endif %}{% endunless %}"
+                  {{ block.shopify_attributes }}
+                >
+                  {{ block.settings.text }}
+                </div>
+              {%- endif -%}
 
-          {%- when 'button' -%}
-            {%- if block.settings.button_label != blank -%}
-              <div class="section__block text-center promo-strip__button" {{ block.shopify_attributes }}>
-                <a class="{{ block.settings.button_style }}{% if section.settings.section_height == 'small' %} btn--narrow{% elsif section.settings.section_height == 'xsmall' %} btn--extra-narrow{% endif %}" {% if block.settings.button_link != blank %}href="{{ block.settings.button_link }}"{% else %}role="link" aria-disabled="true"{% endif %}>
-                  {{- block.settings.button_label | escape -}}
-                </a>
-              </div>
-            {%- endif -%}
+            {%- when 'button' -%}
+              {%- if block.settings.button_label != blank -%}
+                <div class="section__block text-center promo-strip__button" {{ block.shopify_attributes }}>
+                  <a
+                    class="{{ block.settings.button_style }}{% if section.settings.section_height == 'small' %} btn--narrow{% elsif section.settings.section_height == 'xsmall' %} btn--extra-narrow{% endif %}"
+                    {% if block.settings.button_link != blank %}
+                      href="{{ block.settings.button_link }}"
+                    {% else %}
+                      role="link" aria-disabled="true"
+                    {% endif %}
+                  >
+                    {{- block.settings.button_label | escape -}}
+                  </a>
+                </div>
+              {%- endif -%}
 
-          {%- when 'discount' -%}
-            {%- if block.settings.discount_code != blank -%}
-              {{ 'discount-code.css' | asset_url | stylesheet_tag }}
-              <script src="{{ 'discount-code.js' | asset_url }}" defer="defer"></script>
-              <div class="section__block promo-strip__discount shrink-0 text-center">
-                <discount-code class="discount-code inline-flex discount-code--{{ section.settings.section_height }}" {{ block.shopify_attributes }}>
-                  <div class="input-with-button relative">
-                    <span class="discount-code__code input font-bold text-sm js-discount-code">{{- block.settings.discount_code -}}</span>
-                    <button class="discount-code__btn h-full btn btn--sm no-js-hidden js-copy-button">{% render 'icon-copy' %}{{ 'general.discount_code.copy_button' | t }}</button>
-                    <div class="discount-code__success font-bold text-sm absolute top-0 left-0 right-0 bottom-0 overflow-hidden flex items-center justify-center text-theme-text js-copy-success" aria-hidden="true">
-                      <span class="flex items-center justify-center">{% render 'icon-check' %}{{ 'general.discount_code.copy_success' | t }}</span>
+            {%- when 'discount' -%}
+              {%- if block.settings.discount_code != blank -%}
+                {{ 'discount-code.css' | asset_url | stylesheet_tag }}
+                <script src="{{ 'discount-code.js' | asset_url }}" defer="defer"></script>
+                <div class="section__block promo-strip__discount shrink-0 text-center">
+                  <discount-code
+                    class="discount-code inline-flex discount-code--{{ section.settings.section_height }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    <div class="input-with-button relative">
+                      <span class="discount-code__code input font-bold text-sm js-discount-code">
+                        {{- block.settings.discount_code -}}
+                      </span>
+                      <button class="discount-code__btn h-full btn btn--sm no-js-hidden js-copy-button">
+                        {% render 'icon-copy' -%}
+                        {{- 'general.discount_code.copy_button' | t }}
+                      </button>
+                      <div
+                        class="discount-code__success font-bold text-sm absolute top-0 left-0 right-0 bottom-0 overflow-hidden flex items-center justify-center text-theme-text js-copy-success"
+                        aria-hidden="true"
+                      >
+                        <span class="flex items-center justify-center">
+                          {%- render 'icon-check' -%}
+                          {{- 'general.discount_code.copy_success' | t -}}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </discount-code>
-              </div>
-            {%- endif -%}
-        {%- endcase -%}
-      {%- endfor -%}
+                  </discount-code>
+                </div>
+              {%- endif -%}
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
     </div>
-  </div>
 
-  {%- unless section.settings.full_width -%}
-    </div>
-  {%- endunless -%}
+    {%- unless section.settings.full_width -%}
+      </div>
+    {%- endunless -%}
+  {% endif %}
 {% endif %}
-
 {% schema %}
 {
   "name": "Promo strip",
   "class": "cc-promo-strip",
   "settings": [
+    {
+      "type": "header",
+      "content": "Show to"
+    },
+    {
+      "type": "select",
+      "id": "show_to",
+      "label": "Show To",
+      "default": "all",
+      "info": "Will always show in customiser",
+      "options": [
+        {
+          "label": "All",
+          "value": "all"
+        },
+        {
+          "label": "Customers",
+          "value": "customer"
+        },
+        {
+          "label": "Non Customer",
+          "value": "guest"
+        }
+      ]
+    },
     {
       "type": "header",
       "content": "Layout"
@@ -330,9 +403,7 @@
     }
   ],
   "disabled_on": {
-    "groups": [
-      "aside"
-    ]
+    "groups": ["aside"]
   }
 }
 {% endschema %}
