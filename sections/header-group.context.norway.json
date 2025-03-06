@@ -15,7 +15,8 @@
   "sections": {
     "announcement": {
       "settings": {
-        "link2": "shopify://pages/frequently-asked-questions"
+        "link2": "shopify://pages/frequently-asked-questions",
+        "link1": "shopify://pages/about-us"
       },
       "blocks": {}
     }
