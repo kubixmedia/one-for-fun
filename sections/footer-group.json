@@ -55,7 +55,7 @@
           "type": "link_list",
           "settings": {
             "heading": "Contact Us",
-            "menu": "footer",
+            "menu": "contact-us",
             "newsletter": false,
             "newsletter_heading": "Newsletter",
             "newsletter_text": "<p>Sign up for exclusive offers, original stories, events and more.</p>"
