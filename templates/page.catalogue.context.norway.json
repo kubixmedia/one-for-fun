@@ -12,5 +12,13 @@
   "context": {
     "market": "norway"
   },
-  "sections": {}
+  "sections": {
+    "multi_column_zncUKP": {
+      "settings": {
+        "heading_align": "text-start",
+        "column_align": "center"
+      },
+      "blocks": {}
+    }
+  }
 }
