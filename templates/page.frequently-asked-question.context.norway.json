@@ -8,16 +8,9 @@
  * ------------------------------------------------------------
  */
 {
-  "parent": "header-group.json",
+  "parent": "page.frequently-asked-question.json",
   "context": {
     "market": "norway"
   },
-  "sections": {
-    "announcement": {
-      "settings": {
-        "link2": "shopify://pages/frequently-asked-questions"
-      },
-      "blocks": {}
-    }
-  }
+  "sections": {}
 }
