@@ -22,7 +22,8 @@
           "dream-beams",
           "dino-collecto",
           "all-maisto-bburago"
-        ]
+        ],
+        "display_type": "selected"
       },
       "blocks": {}
     }
