@@ -12,5 +12,19 @@
   "context": {
     "market": "norway"
   },
-  "sections": {}
+  "sections": {
+    "main": {
+      "settings": {
+        "selected_collections": [
+          "hgl",
+          "ozbozz",
+          "tobar",
+          "dream-beams",
+          "dino-collecto",
+          "all-maisto-bburago"
+        ]
+      },
+      "blocks": {}
+    }
+  }
 }
