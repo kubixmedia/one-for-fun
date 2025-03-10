@@ -15,7 +15,7 @@
      data-show-no-stock-backordered="{%- if settings.hide_no_stock_backordered -%}false{%- else -%}true{%- endif -%}"
      data-inventory-level=""
      data-variant-available="{{ current_variant.available }}"
-     data-inventory-quantity="{{ current_variant.inventory_quantity | at_least: 0 }}"
+     data-inventory-quantity="{{ current_variant.inventory_quantity | at_least: 0 | at_most: settings.inventory_threshold_max }}"
      data-inventory-policy="{{ current_variant.inventory_policy | escape }}"
      data-scale="35"
      {% if current_variant == false %}
@@ -37,7 +37,12 @@
     <script type="application/json">
       [
         {%- for variant in product.variants -%}
-          {"id":{{- variant.id -}},"inventory_quantity":{{- variant.inventory_quantity | at_least: 0 -}},"available":{{- variant.available -}}, "inventory_policy":"{{- variant.inventory_policy -}}"}
+          {
+            "id":{{- variant.id -}},
+            "inventory_quantity":{{- variant.inventory_quantity | at_least: 0 -}},
+            "available":{{- variant.available -}},
+            "inventory_policy":"{{- variant.inventory_policy -}}"
+          }
           {%- unless forloop.last -%},{%- endunless -%}
         {%- endfor -%}
       ]

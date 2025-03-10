@@ -101,6 +101,8 @@ if (!customElements.get('product-inventory')) {
         // Determine whether to show the count or not
         if (inventoryLevel === 'backordered') {
           this.inventoryNotice.innerText = '';
+        } else if (inventoryLevel === 'max') {
+          this.inventoryNotice.innerText = theme.strings.overMaxStock.replace('[quantity]', count);
         } else if (inventoryLevel !== 'in_stock' && (this.dataset.showCount === 'always' || (this.dataset.showCount === 'low' && inventoryLevel.includes('low')))) {
           this.inventoryNotice.innerText = theme.strings.onlyXLeft.replace('[quantity]', count);
         } else if (inventoryLevel === 'very_low') {
@@ -109,8 +111,6 @@ if (!customElements.get('product-inventory')) {
           this.inventoryNotice.innerText = theme.strings.lowStock;
         } else if (inventoryLevel === 'normal' || inventoryLevel === 'in_stock') {
           this.inventoryNotice.innerText = theme.strings.inStock;
-        } else if (inventoryLevel === 'max') {
-          this.inventoryNotice.innerText = theme.strings.onlyXLeft.replace('[quantity]', count);
         } else if (inventoryLevel === 'none') {
           this.inventoryNotice.innerText = theme.strings.noStock;
         }
@@ -123,7 +123,7 @@ if (!customElements.get('product-inventory')) {
             this.urgencyMessage.innerHTML = this.dataset.textLow;
           } else if (inventoryLevel === 'backordered') {
             this.urgencyMessage.innerHTML = this.dataset.textNoStockBackordered;
-          } else if (inventoryLevel === 'normal' || inventoryLevel === 'in_stock' || inventoryLevel === 'max') {
+          } else if (inventoryLevel === 'normal' || inventoryLevel === 'in_stock') {
             this.urgencyMessage.innerHTML = this.dataset.textNormal;
           } else if (inventoryLevel === 'none') {
             this.urgencyMessage.innerHTML = this.dataset.textNoStock;
@@ -145,14 +145,9 @@ if (!customElements.get('product-inventory')) {
       } else {
         this.hidden = true;
       }
-      console.log(count, inventoryLevel, theme.strings.overMaxStock );
-      if (count >= parseInt(this.dataset.thresholdMax, 10)) {
-        console.log ('>=');
-      } else {
-        console.log ('<');
-      }
     }
   }
+
 
   customElements.define('product-inventory', ProductInventory);
 }

@@ -418,7 +418,7 @@
         inStock: '{{ 'products.inventory.in_stock' | t }}',
         noStock: '{{ "products.variant.no_stock" | t }}',
         noVariant: '{{ "products.variant.non_existent" | t }}',
-        overMaxStock: '{{ 'products.inventory.over_max_stock' | t }}',
+        overMaxStock: '{{ 'products.inventory.over_max_stock' | t: quantity: "[quantity]"}}',
         noSelectedVariant: '{{ "products.variant.not_selected" | t }}',
         onlyXLeft: '{{ "products.inventory.only_x_left" | t: quantity: "[quantity]" }}',
         awaitingSale: '{{ "products.product.awaiting_sale" | t }}',

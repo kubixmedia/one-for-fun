@@ -191,7 +191,7 @@
       "low_stock": "Low stock",
       "very_low_stock": "Very low stock",
       "only_x_left": "{{ quantity }} in stock",
-      "over_max_stock": "+ in stock",
+      "over_max_stock": "{{ quantity }}+ in stock",
       "backordered": "Backordered",
       "available_count": {
         "one": "{{ count }} unit",
