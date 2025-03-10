@@ -250,7 +250,7 @@
           "type": "button",
           "settings": {
             "button_1_label": "Learn More",
-            "button_1_link": "shopify://collections/frontpage",
+            "button_1_link": "shopify://pages/about-us",
             "button_1_style": "btn--primary",
             "button_2_label": "",
             "button_2_link": "",
@@ -292,7 +292,7 @@
           "settings": {
             "collection": "1-24-scale-diecast-cars",
             "background_override": "#e54a50",
-            "logo_override": "shopify://shop_images/TObar.png",
+            "logo_override": "shopify://shop_images/Adobe_Express_-_file.png",
             "image_override": "shopify://shop_images/Screenshot_2024-10-07_at_12.42.42_1.png",
             "hover_text": "Discover"
           }
@@ -645,7 +645,7 @@
       ],
       "settings": {
         "show_to": "all",
-        "title": "Download Our<br>2024 Catalogue!",
+        "title": "Download Our 2025 Catalogue!",
         "text_color": "#ffffff",
         "download_text": "Download Now",
         "download_link": "https://cdn.shopify.com/s/files/1/0844/7416/7644/files/SV22058_10_2024_EN71.pdf?v=1739448151",

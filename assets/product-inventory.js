@@ -84,6 +84,8 @@ if (!customElements.get('product-inventory')) {
         inventoryLevel = 'very_low';
       } else if (count <= parseInt(this.dataset.thresholdLow, 10)) {
         inventoryLevel = 'low';
+      } else if (count >= parseInt(this.dataset.thresholdMax, 10)) {
+        inventoryLevel = 'max';
       } else {
         inventoryLevel = 'normal';
       }
@@ -99,6 +101,8 @@ if (!customElements.get('product-inventory')) {
         // Determine whether to show the count or not
         if (inventoryLevel === 'backordered') {
           this.inventoryNotice.innerText = '';
+        } else if (inventoryLevel === 'max') {
+          this.inventoryNotice.innerText = theme.strings.overMaxStock.replace('[quantity]', count);
         } else if (inventoryLevel !== 'in_stock' && (this.dataset.showCount === 'always' || (this.dataset.showCount === 'low' && inventoryLevel.includes('low')))) {
           this.inventoryNotice.innerText = theme.strings.onlyXLeft.replace('[quantity]', count);
         } else if (inventoryLevel === 'very_low') {
@@ -131,7 +135,7 @@ if (!customElements.get('product-inventory')) {
           this.indicatorBar.hidden = false;
 
           let newWidth;
-          if ((count >= this.dataset.scale || inventoryLevel === 'in_stock') && inventoryLevel !== 'backordered') {
+          if ((count >= this.dataset.scale || inventoryLevel === 'in_stock' || inventoryLevel === 'max') && inventoryLevel !== 'backordered') {
             newWidth = 100;
           } else {
             newWidth = ((100 / parseInt(this.dataset.scale, 10)) * count).toFixed(1);
@@ -143,6 +147,7 @@ if (!customElements.get('product-inventory')) {
       }
     }
   }
+
 
   customElements.define('product-inventory', ProductInventory);
 }

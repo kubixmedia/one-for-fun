@@ -45,7 +45,7 @@
           "type": "link_list",
           "settings": {
             "heading": "Info & Help",
-            "menu": "footer",
+            "menu": "info-help",
             "newsletter": false,
             "newsletter_heading": "Newsletter",
             "newsletter_text": "<p>Sign up for exclusive offers, original stories, events and more.</p>"
@@ -55,8 +55,8 @@
           "type": "link_list",
           "settings": {
             "heading": "Contact Us",
-            "menu": "footer",
-            "newsletter": true,
+            "menu": "contact-us",
+            "newsletter": false,
             "newsletter_heading": "Newsletter",
             "newsletter_text": "<p>Sign up for exclusive offers, original stories, events and more.</p>"
           }

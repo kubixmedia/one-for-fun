@@ -82,7 +82,7 @@
           "type": "logo",
           "settings": {
             "image": "shopify://shop_images/HGL.png",
-            "url": "",
+            "url": "shopify://collections/hgl",
             "logo_width": 80,
             "text": ""
           }
@@ -91,7 +91,7 @@
           "type": "logo",
           "settings": {
             "image": "shopify://shop_images/TObar.png",
-            "url": "",
+            "url": "shopify://collections/tobar",
             "logo_width": 80,
             "text": ""
           }
@@ -100,7 +100,7 @@
           "type": "logo",
           "settings": {
             "image": "shopify://shop_images/Ozbozz.png",
-            "url": "",
+            "url": "shopify://collections/ozbozz",
             "logo_width": 80,
             "text": ""
           }
@@ -109,7 +109,7 @@
           "type": "logo",
           "settings": {
             "image": "shopify://shop_images/MAISTO.png",
-            "url": "",
+            "url": "shopify://collections/all-maisto-bburago",
             "logo_width": 80,
             "text": ""
           }
@@ -118,7 +118,7 @@
           "type": "logo",
           "settings": {
             "image": "shopify://shop_images/BURAGO.png",
-            "url": "",
+            "url": "shopify://collections/all-maisto-bburago",
             "logo_width": 80,
             "text": ""
           }
@@ -127,7 +127,7 @@
           "type": "logo",
           "settings": {
             "image": "shopify://shop_images/DREAM.png",
-            "url": "",
+            "url": "shopify://collections/dream-beams",
             "logo_width": 80,
             "text": ""
           }
@@ -136,7 +136,7 @@
           "type": "logo",
           "settings": {
             "image": "shopify://shop_images/DINOCOLL.png",
-            "url": "",
+            "url": "shopify://collections/dino-collecto",
             "logo_width": 80,
             "text": ""
           }
@@ -152,6 +152,7 @@
         "logo_n3nEHD"
       ],
       "settings": {
+        "show_to": "all",
         "title": "",
         "heading_align": "text-start",
         "button_label": "",

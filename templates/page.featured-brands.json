@@ -1,0 +1,407 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_page_title": true,
+        "heading_align": "text-center"
+      }
+    },
+    "rich_text_QkatVp": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_yfmtLb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Featured Brands",
+            "heading_size": "h2",
+            "heading_h1": false
+          }
+        },
+        "text_EYUrV6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Within our selection of brands, such as <a href=\"https://www.tobar.co.uk/tobar\" target=\"_self\" title=\"TOBAR\">Tobar</a> and <a href=\"https://www.tobar.co.uk/hgl\" target=\"_self\" title=\"HGL\">HGL</a>, we have a whole host of other sub-brands that help to further diversify and categorise our collection. They are not only banded together to make your shopping experience more simple, but items within each sub-brand are supplied in matching ranged packaging, allowing your shelves to look their best when these products are placed side by side. Take a look at our sub-brands below and click on the logos to see the full collection.</p><h4>Take a look at some of the brands we stock below:</h4>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_yfmtLb",
+        "text_EYUrV6"
+      ],
+      "settings": {
+        "text_position": "justify-start",
+        "text_align": "text-start",
+        "mob_center_text": true,
+        "wide": true,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "media_grid_yNayCz": {
+      "type": "media-grid",
+      "blocks": {
+        "media_iyH7gG": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-angrybirds_0920.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_CddFfJ": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-animigos_0920.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_r8aiHi": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-juniorexplorer_0920.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_hdNQGz": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-lumez_0920.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_nzgwFM": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-partyspirit_0920.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_9EPRMp": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-sillysocks_0920.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p>  </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_CRQyBV": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-zoom_0920.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_hr9mhD": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-elektra_0920.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_YGAqUg": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-megasaurs_0920.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_997qRf": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-ozbozz_0920.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "<p> </p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_iyH7gG",
+        "media_CddFfJ",
+        "media_r8aiHi",
+        "media_hdNQGz",
+        "media_nzgwFM",
+        "media_9EPRMp",
+        "media_CRQyBV",
+        "media_hr9mhD",
+        "media_YGAqUg",
+        "media_997qRf"
+      ],
+      "settings": {
+        "title": "",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "gallery_cols_max": 4,
+        "mobile_carousel": false,
+        "gallery_cols_min": "1",
+        "fixed_height_desktop": 180,
+        "fixed_height_mobile": 300,
+        "section_color_scheme": "none",
+        "color_scheme": "white",
+        "transparent_content_color": "#ffffff"
+      }
+    },
+    "rich_text_CCPeb4": {
+      "type": "rich-text",
+      "blocks": {
+        "text_kJnbTa": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Take a look at some of our distribution brands below:</h3>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "text_kJnbTa"
+      ],
+      "settings": {
+        "text_position": "justify-start",
+        "text_align": "text-start",
+        "mob_center_text": true,
+        "wide": true,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "media_grid_fTf9Fh": {
+      "type": "media-grid",
+      "blocks": {
+        "media_78GmCX": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-maisto.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_W4fBwV": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-bburago.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_GmBb3k": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-schylling_0920.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_XVWeCF": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb-brands-zuru_0920.png",
+            "link_url": "#",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_78GmCX",
+        "media_W4fBwV",
+        "media_GmBb3k",
+        "media_XVWeCF"
+      ],
+      "settings": {
+        "title": "",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "gallery_cols_max": 4,
+        "mobile_carousel": false,
+        "gallery_cols_min": "1",
+        "fixed_height_desktop": 180,
+        "fixed_height_mobile": 300,
+        "section_color_scheme": "none",
+        "color_scheme": "white",
+        "transparent_content_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_QkatVp",
+    "media_grid_yNayCz",
+    "rich_text_CCPeb4",
+    "media_grid_fTf9Fh"
+  ]
+}

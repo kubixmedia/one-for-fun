@@ -400,7 +400,7 @@
     "inventory_threshold_very_low": 8,
     "inventory_show_notice": "always",
     "inventory_show_count": "always",
-    "sale_label_bg_color": "#aa1155",
+    "sale_label_bg_color": "#20cbd4",
     "sale_label_text_color": "#ffffff",
     "sale_label_icon": "price_tag",
     "sale_label_type": "percent",

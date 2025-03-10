@@ -1,0 +1,244 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_page_title": true,
+        "heading_align": "text-center"
+      }
+    },
+    "rich_text_T6nHYw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_bKhfbk": {
+          "type": "heading",
+          "settings": {
+            "heading": "Quality Assurance: Our Promise to You",
+            "heading_size": "h2",
+            "heading_h1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_bKhfbk"
+      ],
+      "settings": {
+        "text_position": "justify-start",
+        "text_align": "text-center",
+        "mob_center_text": true,
+        "wide": true,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "media_grid_N9qLeD": {
+      "type": "media-grid",
+      "blocks": {
+        "media_pBFWNJ": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb_QualityAssurance_staticQA.jpg",
+            "link_url": "",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_VQebD7": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb_QualityAssurance_staticQA-02.jpg",
+            "link_url": "",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_hHcYEg": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb_QualityAssurance_staticQA-04.jpg",
+            "link_url": "",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_wjentW": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb_QualityAssurance_staticQA-05.jpg",
+            "link_url": "",
+            "columns": 1,
+            "rows": 1,
+            "subheading": "",
+            "title": "",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_pBFWNJ",
+        "media_VQebD7",
+        "media_hHcYEg",
+        "media_wjentW"
+      ],
+      "settings": {
+        "title": "",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "gallery_cols_max": 4,
+        "mobile_carousel": false,
+        "gallery_cols_min": "1",
+        "fixed_height_desktop": 180,
+        "fixed_height_mobile": 300,
+        "section_color_scheme": "none",
+        "color_scheme": "white",
+        "transparent_content_color": "#ffffff"
+      }
+    },
+    "rich_text_Q4JxQH": {
+      "type": "rich-text",
+      "blocks": {
+        "text_XUDz6h": {
+          "type": "text",
+          "settings": {
+            "text": "<p>With over 45 years of experience within the industry, we have seen many changes and updates to toy safety over the years, which as a company we take very seriously.</p><p>We pride ourselves in supplying good quality, innovative and safe products. We want children and adults alike to have fun and enjoy our products. They should not have to consider safety when it comes to toys, therefore our dedicated compliance team are here to take that worry away. At One For Fun, products go through a long assessment and testing process and are not launched until we are sure that they are safe.</p><p>As part of our standard operating policy, our team evaluates each product to identify any possible hazards or associated risks at the point of selection, and then during the product’s development stages. Without this total assurance, we would not be placing these items onto the market. Our toys are tested to EN71 standards by independent accredited test houses, which use their technical ability and expert opinion to ensure that our toys are safe. Where toy products are marked with CE, it indicates compliance with the Toy Safety Directive, and we compile European Declarations of Conformity (DOC) for each product.</p><p>To assist in helping customers, we are able to provide the following documents:</p><ul><li><h6>Bill of Materials – shows a full list of component materials that our products are made from.</h6></li><li><h6>Test Reports – tests against European standards carried out by accredited thirty-party laboratories.</h6></li><li><h6>EC Declarations of Conformity – the product’s official legal document that states applicable safety directives to which the product complies.</h6></li></ul><p>We work closely with our test houses so we are always aware of any impending changes to legislation and regulations. This allows us to plan for these amendments up to 18 months in advance.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "text_XUDz6h"
+      ],
+      "settings": {
+        "text_position": "justify-center",
+        "text_align": "text-start",
+        "mob_center_text": true,
+        "wide": true,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "media_grid_FyBCmQ": {
+      "type": "media-grid",
+      "blocks": {
+        "media_LDnQdb": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/tb_QualityAssurance_statictb_QualityAssurance_static_09.jpg",
+            "link_url": "",
+            "columns": 4,
+            "rows": 2,
+            "subheading": "",
+            "title": "<p>Media heading</p>",
+            "heading_size": "h4",
+            "button_label": "",
+            "button_link": "",
+            "overlay_position": "justify-start items-end",
+            "text_alignment": "text-start",
+            "button_style": "btn btn--primary",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_LDnQdb"
+      ],
+      "settings": {
+        "title": "",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "gallery_cols_max": 4,
+        "mobile_carousel": false,
+        "gallery_cols_min": "1",
+        "fixed_height_desktop": 180,
+        "fixed_height_mobile": 300,
+        "section_color_scheme": "none",
+        "color_scheme": "white",
+        "transparent_content_color": "#ffffff"
+      }
+    },
+    "rich_text_7BemMC": {
+      "type": "rich-text",
+      "blocks": {
+        "text_iQQhyG": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our ranges feature age recommendations for toys, children’s gifts and educational products. These feature on our products to assist customers in making informed decisions. The age guidance we provide is based on regulations, international guidelines and expert advice on children’s behavioural, motor and cognitive development.</p><p>As an ongoing process, we continually monitor our products to ensure they remain safe. We are constantly checking our processes and are always looking for ways in which we can improve.</p><p>We are so proud and confident in our compliance standards that we now place our brand logos on the front of all packaging. When a customer sees this seal of approval, they can be assured that the product is tried, tested and 100% safe. That’s the One For Fun promise.</p><p>Should you have any questions about product safety or would like to request technical documents for any of our products, please contact your account manager or our telesales team. Export customers please contact the export team or your relevant distributor.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "text_iQQhyG"
+      ],
+      "settings": {
+        "text_position": "justify-center",
+        "text_align": "text-start",
+        "mob_center_text": true,
+        "wide": true,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_T6nHYw",
+    "media_grid_N9qLeD",
+    "rich_text_Q4JxQH",
+    "media_grid_FyBCmQ",
+    "rich_text_7BemMC"
+  ]
+}
