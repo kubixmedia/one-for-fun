@@ -2,8 +2,15 @@
 
 <style>
 .section--image-collection-banner-{{ section.id }} {
-  --collection-background-colour: {{ background_colour }}
+  --collection-background-colour: {{ background_colour }};
+  --image-banner-padding: 3rem 9rem 9rem;
 }
+{% for block in section.blocks %}
+  .image-banner--image--{{ block.id }} {
+    --image-size-block-desktop: {{ block.settings.image-width-desktop }}px;
+    --image-size-block-mobile: {{ block.settings.image-width-mobile }}px;
+  }
+{% endfor %}
 </style>
 
 {{ 'image-collection-banner.css' | asset_url | stylesheet_tag }}
@@ -15,7 +22,7 @@
       {{ section.settings.logo | image_url: width: 200 | image_tag }}
     {% endif %}
     {% if section.settings.title != blank %}
-      <h1>Title</h1>
+      <h1>{{ section.settings.title }}</h1>
     {% endif %}
     {% if section.settings.description != blank %}
       <p class="font-body">{{ section.settings.description | strip_html }}</p>
@@ -26,7 +33,9 @@
   <div class="image-banner--images">
     {% for block in section.blocks %}
       {% if block.settings.image != blank %}
-        {{ block.settings.image | image_url: width: 200  | image_tag }}
+        <div class="image-banner--image--{{ block.id }}">
+          {{ block.settings.image | image_url: width: 200  | image_tag }}
+        </div>
       {% endif %}
     {% endfor %}
   </div>
@@ -61,6 +70,28 @@
             "type": "image_picker",
             "id": "image",
             "label": "Image"
+          },
+          {
+            "type": "range",
+            "id": "image-width-desktop",
+            "label": "Image Width",
+            "min": 100,
+            "max": 400,
+            "step": 5,
+            "unit": "px",
+            "default": 250,
+            "info": "Set the width of the image in pixels for desktop/tablet. 250px is reccomended."
+          },
+          {
+            "type": "range",
+            "id": "image-width-mobile",
+            "label": "Image Width",
+            "min": 100,
+            "max": 300,
+            "step": 5,
+            "unit": "px",
+            "default": 150,
+            "info": "Set the width of the image in pixels for mobile. 150px is reccomended."
           }
         ]
       }
