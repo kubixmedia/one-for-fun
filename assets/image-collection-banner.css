@@ -33,7 +33,8 @@
 
 @media screen and (max-width: 768px) {
   .image-banner--images {
-    max-width: 400px;
+    width: 100%;
+    max-width: 100%;
     right: unset;
     bottom: var(--gutter-sm);
   }
@@ -53,7 +54,7 @@
 }
 @media screen and (min-width: 769px) {
   .image-banner--images {
-    max-width: 400px;
+    max-width: 500px;
     right: var(--gutter-lg);
     bottom: var(--gutter-sm);
   }
