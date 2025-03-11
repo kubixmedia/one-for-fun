@@ -359,7 +359,8 @@ quantity-input + .product-info__add-button {
 }
 
 [data-inventory-level=normal],
-[data-inventory-level=in_stock] {
+[data-inventory-level=in_stock],
+[data-inventory-level=max] {
   color: rgb(var(--in-stock-text-color));
 }
 

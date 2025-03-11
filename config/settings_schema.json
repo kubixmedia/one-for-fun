@@ -1180,6 +1180,16 @@
         "default": 2
       },
       {
+        "type": "range",
+        "id": "inventory_threshold_max",
+        "min": 200,
+        "max": 300,
+        "step": 1,
+        "label": "Max inventory threshold",
+        "info": "This is the maximum number to show, this will append the number with a + if theres more than this value. For example, \"200+ In stock\".",
+        "default": 200
+      },
+      {
         "type": "header",
         "content": "Visibility"
       },
