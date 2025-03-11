@@ -1,0 +1,77 @@
+{% assign background_colour = collection.metafields.custom.collection_background_ %}
+
+<style>
+.section--image-collection-banner-{{ section.id }} {
+  --collection-background-colour: {{ background_colour }}
+}
+</style>
+
+{{ 'image-collection-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="section section--full-width section--image-collection-banner section--image-collection-banner-{{ section.id }}">
+<div class="image-banner--container image-banner--shape">
+  <div class="image-banner--content">
+    {% if section.settings.logo != blank %}
+      {{ section.settings.logo | image_url: width: 200 | image_tag }}
+    {% endif %}
+    {% if section.settings.title != blank %}
+      <h1>Title</h1>
+    {% endif %}
+    {% if section.settings.description != blank %}
+      <p class="font-body">{{ section.settings.description | strip_html }}</p>
+    {% endif %}
+  </div>
+</div>
+{% if section.blocks.size > 0 %}
+  <div class="image-banner--images">
+    {% for block in section.blocks %}
+      {% if block.settings.image != blank %}
+        {{ block.settings.image | image_url: width: 200  | image_tag }}
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Collection Banner - image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    }
+    ],"blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],"presets": [
+      {
+      "name": "Collection Banner - image",
+      
+      }
+    ],
+    "enabled_on": {
+    "templates": ["collection"]
+    }
+}
+{% endschema %}
