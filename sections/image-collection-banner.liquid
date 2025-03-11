@@ -1,0 +1,165 @@
+{% if collection.metafields.custom.collection_background_ != blank %}
+  {% assign background_colour = collection.metafields.custom.collection_background_ %}
+{% else %}
+  {% assign background_colour = section.settings.background_colour %}
+{% endif %}
+
+<style>
+.section--image-collection-banner-{{ section.id }} {
+  --collection-background-colour: {{ background_colour }};
+  --image-banner-padding: 3rem 9rem 9rem;
+}
+{% for block in section.blocks %}
+  .image-banner--image--{{ block.id }} {
+    --image-size-block-desktop: {{ block.settings.image-width-desktop }}px;
+    --image-size-block-mobile: {{ block.settings.image-width-mobile }}px;
+  }
+{% endfor %}
+</style>
+
+{{ 'image-collection-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="section section--full-width section--image-collection-banner section--image-collection-banner-{{ section.id }}">
+<div class="image-banner--container image-banner--shape">
+  <div class="image-banner--content">
+    {% if section.settings.logo != blank %}
+      {{ section.settings.logo | image_url: width: 200 | image_tag }}
+    {% endif %}
+    {% if section.settings.title != blank %}
+      <h1>{{ section.settings.title }}</h1>
+    {% endif %}
+    {% if section.settings.description != blank %}
+      <div class="font-body font-bold">{{ section.settings.description }}</div>
+    {% endif %}
+  </div>
+</div>
+{% if section.blocks.size > 0 %}
+  <div class="image-banner--images">
+    {% for block in section.blocks %}
+      {%- case block.type -%}
+      {% when 'image-metafield' %}
+        {% assign metafield_loop = collection.metafields.custom.image_list.value %}
+        {% for image in metafield_loop %}
+          <div class="image-banner--image--{{ block.id }}">
+            {{ image | image_url: width: 200 | image_tag }}
+          </div>
+        {% endfor %}
+      {%- when 'image' -%}
+        {% if block.settings.image != blank %}
+          <div class="image-banner--image--{{ block.id }}">
+            {{ block.settings.image | image_url: width: 200 | image_tag }}
+          </div>
+        {% endif %}
+      {%- endcase -%}
+    {% endfor %}
+  </div>
+{% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Collection Banner - image",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_colour",
+      "label": "Background Colour",
+      "info": "Set the background colour of the collection banner, this is a fallback incase the collection metafield is empty.",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    }
+    ],"blocks": [
+      {
+        "type": "image-metafield",
+        "limit": 1,
+        "name": "Collection image list",
+        "settings": [
+          {
+            "type": "text",
+            "id": "metafield",
+            "label": "Metafield image list",
+            "default": "collection.metafields.custom.image_list"
+          },
+          {
+            "type": "range",
+            "id": "image-width-desktop",
+            "label": "Image Width",
+            "min": 100,
+            "max": 250,
+            "step": 5,
+            "unit": "px",
+            "default": 200,
+            "info": "Set the width of the image in pixels for desktop/tablet. 200px is reccomended."
+          },
+          {
+            "type": "range",
+            "id": "image-width-mobile",
+            "label": "Image Width",
+            "min": 100,
+            "max": 150,
+            "step": 5,
+            "unit": "px",
+            "default": 150,
+            "info": "Set the width of the image in pixels for mobile. 150px is reccomended."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "name": "Image",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "range",
+            "id": "image-width-desktop",
+            "label": "Image Width",
+            "min": 100,
+            "max": 250,
+            "step": 5,
+            "unit": "px",
+            "default": 200,
+            "info": "Set the width of the image in pixels for desktop/tablet. 200px is reccomended."
+          },
+          {
+            "type": "range",
+            "id": "image-width-mobile",
+            "label": "Image Width",
+            "min": 50,
+            "max": 150,
+            "step": 5,
+            "unit": "px",
+            "default": 150,
+            "info": "Set the width of the image in pixels for mobile. 150px is reccomended."
+          }
+        ]
+      }
+    ],"presets": [
+      {
+      "name": "Collection Banner - image",
+      
+      }
+    ],
+    "enabled_on": {
+    "templates": ["collection","list-collections"]
+    }
+}
+{% endschema %}
