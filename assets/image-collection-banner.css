@@ -14,7 +14,7 @@
 }
 
 .image-banner--shape {
-  background: radial-gradient(40.05% 103.07% at 75% 50%, rgba(255, 255, 255, 0.20) 51.99%, rgba(255, 255, 255, 0.00) 100%), var(--collection-background-colour);
+  background: radial-gradient(40% 103% at 75% 50%, rgba(255, 255, 255, 0.20) 52%, rgba(255, 255, 255, 0.00) 100%), var(--collection-background-colour);
   clip-path: polygon(
     0% 0%,
     0% calc(100% - 40px),
