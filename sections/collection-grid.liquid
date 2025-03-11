@@ -8,10 +8,15 @@
     <div class="container relative">
       <div class="slider" id="slider-{{ section.id }}">
         <ul
-          class="collection-grid__slider container slider__grid grid grid-flow-col auto-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-theme gap-y-8"
+          class="collection-grid__slider container slider__grid grid grid-flow-col auto-cols-1 sm:grid-cols-2 md:grid-cols-{{ section.settings.grid-columns }} gap-x-theme gap-y-8"
           role="list"
         >
           {% for block in section.blocks %}
+            {% if block.settings.fit_image %}
+              {% assign image_fit = 'img-fit--cover' %}
+            {% else %}
+              {% assign image_fit = 'img-fit--contain' %}
+            {% endif %}
             <li
               class="slider__item cc-animate-init cc-animate-in"
               data-cc-animate=""
@@ -19,15 +24,18 @@
               style="animation-delay: 0.07s;"
             >
               <div
-                class="collection-grid__card flex flex-col justify-center items-center"
+                class="collection-grid__card flex flex-col justify-center items-center {{ image_fit }}"
                 style="--feature-color: {% unless block.settings.background_override.alpha == 0 %} {{ block.settings.background_override }}{% else %} {{ block.settings.collection.metafields.custom.collection_background_ }}{% endunless %}"
               >
+              {% if block.settings.logo_override != blank %}
                 {{
                   block.settings.logo_override
                   | default: block.settings.collection.metafields.custom.logo
                   | image_url: width: 400
                   | image_tag: class: 'collection-grid__logo'
                 }}
+              {% endif %}
+              {% if block.settings.image_override != blank %}
                 <div class="grow relative w-full">
                   {{
                     block.settings.image_override
@@ -36,6 +44,7 @@
                     | image_tag: class: 'collection-grid__img img-fit img-fit--contain'
                   }}
                 </div>
+              {% endif %}
                 {% if block.settings.hover_text != blank %}
                   <div class="collection-grid__hover absolute h2 text-center m-0">
                     {{ block.settings.hover_text }}
@@ -83,6 +92,12 @@
           "label": "Image Override"
         },
         {
+          "type": "checkbox",
+          "id": "fit_image",
+          "label": "Fit image to container",
+          "info": "Make the image take up the full size of the container"
+        },
+        {
           "type":"text",
           "id":"hover_text",
           "label":"Hover Text",
@@ -91,6 +106,17 @@
       ]
     }
   ],
-  "settings": []
+  "settings": [
+    {
+      "type": "range",
+      "id": "grid-columns",
+      "label": "Amount of columns",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "unit": "col",
+      "default": 3
+    }
+  ]
 }
 {% endschema %}

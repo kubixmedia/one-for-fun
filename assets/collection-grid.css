@@ -6,7 +6,10 @@
   padding: 48px;
   overflow: hidden;
 }
-
+.collection-grid__card.img-fit--cover {
+  padding: 0;
+  aspect-ratio: 6 / 6;
+}
 .collection-grid__logo {
   max-width: 50%;
   max-height: 90px;
