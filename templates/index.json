@@ -454,7 +454,7 @@
         "text_align": "text-center",
         "mob_center_text": true,
         "wide": false,
-        "color_scheme": "3",
+        "color_scheme": "2",
         "full_width": false,
         "prevent_animation": false
       }
