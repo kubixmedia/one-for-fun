@@ -14,6 +14,7 @@
       "blocks": {
         "slide_hTHxzA": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image_desktop": "shopify://shop_images/Hero-Slides-bg-min.png",
             "background_color": "#20CBD4",
@@ -41,6 +42,7 @@
         },
         "slide_MgtHBV": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image_desktop": "shopify://shop_images/Hero-Slides-bg-min.png",
             "background_color": "#20CBD4",
@@ -65,11 +67,67 @@
             "transparent_content_color": "#ffffff",
             "button_color": ""
           }
+        },
+        "slide_cVK3HR": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image_desktop": "shopify://shop_images/Hero-Slides-bg-min.png",
+            "background_color": "#20CBD4",
+            "url": "shopify://collections",
+            "background_text": "shopify://shop_images/New-Bburago-Banner.jpg",
+            "overlay_text_align": "text-start",
+            "mob_center_text": false,
+            "text_max": 515,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h0",
+            "heading_h1": false,
+            "text": "",
+            "enlarge_text": false,
+            "button_1_label": "Shop Now",
+            "button_1_link": "shopify://collections",
+            "button_1_style": "btn btn--primary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn btn--primary",
+            "transparent_content_color": "#ffffff",
+            "button_color": ""
+          }
+        },
+        "slide_UndaAE": {
+          "type": "slide",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Hero-Slides-bg-min.png",
+            "background_color": "#20CBD4",
+            "url": "shopify://collections",
+            "overlay_image": "shopify://shop_images/Asset_2.png",
+            "background_text": "shopify://shop_images/Asset_4.png",
+            "overlay_text_align": "text-start",
+            "mob_center_text": false,
+            "text_max": 510,
+            "subheading": "",
+            "heading": "New For <strong>2025</strong>",
+            "heading_size": "h0",
+            "heading_h1": false,
+            "text": "<p>Formula Racing</p>",
+            "enlarge_text": false,
+            "button_1_label": "Shop Now",
+            "button_1_link": "shopify://collections",
+            "button_1_style": "btn btn--primary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn btn--primary",
+            "transparent_content_color": "#ffffff",
+            "button_color": ""
+          }
         }
       },
       "block_order": [
         "slide_hTHxzA",
-        "slide_MgtHBV"
+        "slide_MgtHBV",
+        "slide_cVK3HR",
+        "slide_UndaAE"
       ],
       "custom_css": [
         ".text-overlay__heading,.text-overlay__heading * {line-height: 100%;}"
